@@ -1,0 +1,7 @@
+/* Container for the entire Product Page */
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #333;
+}

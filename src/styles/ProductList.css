@@ -1,0 +1,36 @@
+.product-list {
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.product-list-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dark-btn {
+  background-color: #ececec;
+  color: rgb(0, 89, 255);
+  padding: 10px 20px;
+  border-radius: 9999px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.dark-btn:hover {
+  background-color: #002e5d;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

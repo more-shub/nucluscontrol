@@ -1,0 +1,265 @@
+/* Overall Container */
+.product-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Header */
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #4b9cff;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.details-title {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.back-btn {
+  background: #fff;
+  color: #4b9cff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #ececec;
+}
+
+/* Main Details Section */
+.details-main {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* Slider Section */
+.slider-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-btn {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* Info Section */
+.info-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-section h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info-section h3 {
+  font-size: 1.4rem;
+  color: #4b9cff;
+  margin: 20px 0 10px;
+}
+
+.info-section p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.quote-btn {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.quote-btn:hover {
+  background: #218838;
+}
+
+/* Additional Sections */
+.additional-section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.additional-section h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.data-columns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.data-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.data-columns li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Mounting Options */
+.mounting-columns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.mounting-block {
+  flex: 1;
+  min-width: 250px;
+}
+
+.mounting-block h3 {
+  margin-bottom: 10px;
+  color: #4b9cff;
+}
+
+.mounting-images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mounting-images img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Line Size Section */
+.line-size-section {
+  margin: 40px 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.line-size-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f9f9f9;
+}
+
+.line-size-table th,
+.line-size-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.line-size-table th {
+  background: #e3e3e3;
+  font-weight: bold;
+}
+
+.line-size-table tr:nth-child(even) {
+  background: #f1f1f1;
+}
+
+/* Fittings Section */
+.fittings-section {
+  margin: 40px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.fitting-item {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fitting-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .details-main {
+    flex-direction: column;
+  }
+  .data-columns {
+    flex-direction: column;
+  }
+}
