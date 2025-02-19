@@ -31,7 +31,11 @@ const products = [
 
 // A simple slugify helper (you can also import from a utils file)
 const slugify = (text) =>
-  text.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^\w\-]+/g, "");
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
 
 const Footer = () => {
   return (
@@ -43,8 +47,8 @@ const Footer = () => {
           <div className="footer-company">
             <h2>NUCLUS CONTROL</h2>
             <p>
-              Leading manufacturers, exporters, and suppliers of controlling
-              and measuring instruments.
+              Leading manufacturers, exporters, and suppliers of controlling and
+              measuring instruments.
             </p>
           </div>
           {/* Categories List */}
@@ -66,9 +70,7 @@ const Footer = () => {
             <ul className="products-list">
               {products.map((prod, index) => (
                 <li key={index}>
-                  <Link to={`/products/details/${slugify(prod)}`}>
-                    {prod}
-                  </Link>
+                  <Link to={`/products/details/${slugify(prod)}`}>{prod}</Link>
                 </li>
               ))}
             </ul>

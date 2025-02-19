@@ -4,9 +4,9 @@ import "../styles/ProductCard.css";
 const ProductCard = ({ product, onShowDetails }) => {
   return (
     <div className="card">
-      <a href="#" onClick={(e) => { e.preventDefault(); onShowDetails(product.id); }}>
+      <button className="link-button" onClick={() => onShowDetails(product.id)}>
         <img src={product.imageUrl} alt={product.name} loading="lazy" width="300" height="200" />
-      </a>
+      </button>
       <div className="card-content">
         <h5>{product.name}</h5>
         {product.rating && (
@@ -19,10 +19,10 @@ const ProductCard = ({ product, onShowDetails }) => {
           </div>
         )}
         <div className="btn-container">
-          <a href="#" className="get-quote">Get Price/Quote</a>
-          <a href="#" className="more-details" onClick={(e) => { e.preventDefault(); onShowDetails(product.id); }}>
+          <button className="get-quote" onClick={(e) => e.preventDefault()}>Get Price/Quote</button>
+          <button className="more-details" onClick={(e) => { e.preventDefault(); onShowDetails(product.id); }}>
             More Details
-          </a>
+          </button>
         </div>
       </div>
     </div>

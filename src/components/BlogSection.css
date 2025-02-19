@@ -1,0 +1,136 @@
+/* src/components/BlogSection.css */
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.blog-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.blog-header p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.blog-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.author-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #3498db;
+}
+
+.author-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.meta-info {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.blog-title {
+  font-size: 1.2em;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.excerpt {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  text-decoration: none;
+  color: #e74c3c;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.read-more:hover {
+  color: #c0392b;
+}
+
+#loadMoreBtn {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loadMoreBtn:hover {
+  background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+  .blog-section {
+    grid-template-columns: 1fr;
+  }
+}
