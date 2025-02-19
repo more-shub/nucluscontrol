@@ -23,22 +23,30 @@ const BlogSection = () => {
     "https://script.google.com/macros/s/AKfycbzBYYmoTm2O_KwUjEw1xRW2TfcrHhlZrg3a0J2JtXZIhePy4eCP2N8g76CMWW5Iv19P/exec";
 
   useEffect(() => {
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setBlogPosts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching blog data:", err);
-        setError(err);
-        setLoading(false);
-      });
+    // Check if data exists in localStorage
+    const storedData = localStorage.getItem("blogPosts");
+    if (storedData) {
+      setBlogPosts(JSON.parse(storedData));
+      setLoading(false);
+    } else {
+      fetch(API_URL)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setBlogPosts(data);
+          localStorage.setItem("blogPosts", JSON.stringify(data));
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Error fetching blog data:", err);
+          setError(err);
+          setLoading(false);
+        });
+    }
   }, []);
 
   // Show all posts when "Load More" is clicked
@@ -81,7 +89,11 @@ const BlogSection = () => {
               onClick={(e) => handleCardClick(e, post["Blog Doc URL"])}
             >
               <div className="card-image">
-                <img src={post["Image URL"]} alt={post.Title} />
+                <img
+                  src={post["Image URL"]}
+                  alt={post.Title}
+                  loading="lazy"  // Lazy load the image
+                />
               </div>
               <div className="blog-content">
                 <div className="author-info">
@@ -89,6 +101,7 @@ const BlogSection = () => {
                     className="author-img"
                     src="/avtar.webp"
                     alt={post.Author}
+                    loading="lazy"
                   />
                   <span className="author-name">{post.Author}</span>
                 </div>
