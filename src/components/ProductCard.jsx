@@ -1,12 +1,19 @@
-import React from "react";
-import "../styles/ProductCard.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/ProductCard.css';
 
-const ProductCard = ({ product, onShowDetails }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className="card">
-      <button className="link-button" onClick={() => onShowDetails(product.id)}>
-        <img src={product.imageUrl} alt={product.name} loading="lazy" width="300" height="200" />
-      </button>
+      <Link to={`/products/${product.id}`}>
+        <img 
+          src={product.imageUrl} 
+          alt={product.name} 
+          loading="lazy" 
+          width="300" 
+          height="200"
+        />
+      </Link>
       <div className="card-content">
         <h5>{product.name}</h5>
         {product.rating && (
@@ -19,10 +26,12 @@ const ProductCard = ({ product, onShowDetails }) => {
           </div>
         )}
         <div className="btn-container">
-          <button className="get-quote" onClick={(e) => e.preventDefault()}>Get Price/Quote</button>
-          <button className="more-details" onClick={(e) => { e.preventDefault(); onShowDetails(product.id); }}>
-            More Details
+          <button className="get-quote" onClick={(e) => e.preventDefault()}>
+            Get Price/Quote
           </button>
+          <Link to={`/products/${product.id}`} className="more-details">
+            More Details
+          </Link>
         </div>
       </div>
     </div>

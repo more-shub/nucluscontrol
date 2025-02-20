@@ -2,15 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 
-// Define your categories and product names
-const categories = [
-  "Flow Sensors",
-  "Digital Flow Meters",
-  "Flow Meters",
-  "PH Meters",
-  "Conductivity TDS Meters",
-];
-
+// Updated product list (removed "Pd Sensor" and "Pd Sensor (Mini)" as they have no static pages)
 const products = [
   "DigiFlow P181-SS",
   "DigiFlow P181-PP",
@@ -20,8 +12,6 @@ const products = [
   "DigiFlow P383-PP",
   "Flow Sensor P812-SS",
   "Flow Sensor P812-PP",
-  "Pd Sensor",
-  "Pd Sensor (Mini)",
   "FlowReader (Battery)",
   "PH Indicator",
   "PH Transmitter",
@@ -29,19 +19,28 @@ const products = [
   "Conductivity/TDS Controller",
 ];
 
-// A simple slugify helper (you can also import from a utils file)
-const slugify = (text) =>
-  text
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "");
+// Map each product name to its static detail page ID
+const productMapping = {
+  "DigiFlow P181-SS": "P181-SS",
+  "DigiFlow P181-PP": "P181-PP",
+  "DigiFlow P282-SS": "P282-SS",
+  "DigiFlow P282-PP": "P282-PP",
+  "DigiFlow P383-SS": "P383-SS",
+  "DigiFlow P383-PP": "P383-PP",
+  "Flow Sensor P812-SS": "P812-SS",
+  "Flow Sensor P812-PP": "P812-PP",
+  "FlowReader (Battery)": "BAT-001",
+  "PH Indicator": "P200",
+  "PH Transmitter": "P300",
+  "Conductivity/TDS Indicator": "C181",
+  "Conductivity/TDS Controller": "C282",
+};
 
 const Footer = () => {
   return (
     <footer id="footer-section-wrapper">
       <div className="footer-container">
-        {/* Top Section: Company Info and Lists */}
+        {/* Top Section: Company Info and Products List */}
         <div className="footer-top">
           {/* Company Info */}
           <div className="footer-company">
@@ -51,26 +50,13 @@ const Footer = () => {
               measuring instruments.
             </p>
           </div>
-          {/* Categories List */}
-          <div className="list-section categories">
-            <h3>Categories</h3>
-            <ul>
-              {categories.map((cat, index) => (
-                <li key={index}>
-                  <Link to={`/products?category=${encodeURIComponent(cat)}`}>
-                    {cat}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
           {/* Products List */}
           <div className="list-section products">
             <h3>Products</h3>
             <ul className="products-list">
               {products.map((prod, index) => (
                 <li key={index}>
-                  <Link to={`/products/details/${slugify(prod)}`}>{prod}</Link>
+                  <Link to={`/products/${productMapping[prod]}`}>{prod}</Link>
                 </li>
               ))}
             </ul>

@@ -1,0 +1,213 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import '../../styles/ProductDetails.css';
+
+const P383_SS = () => {
+  const product = {
+    id: "P383-SS",
+    title: "Digital Flow Transmitter - P383 (SS Sensor)",
+    description: "NUCLUS Model P383 is a high-precision digital flow transmitter designed for industrial applications. It is compatible with Stainless Steel (SS) sensors and can be mounted in both field and panel configurations. The unit features a programmable scale factor, high accuracy, and an analog output for PLC integration.",
+    modesAvailable: [
+      "Flow Rate Measurement",
+      "Total Flow Measurement",
+      "Analog Output for PLC Integration"
+    ],
+    keyFeatures: [
+      "Programmable scale factor",
+      "High-accuracy flow rate and total flow measurement",
+      "Backlit alphanumeric 2 x 16 LCD display",
+      "IP65 protection for field mounting",
+      "Analog output (4-20mA) for process control"
+    ],
+    technicalData: {
+      column1: {
+        "Function": "Flow Transmitter",
+        "Supply Voltage": "230 V AC",
+        "Accuracy": "±0.5% of FSD",
+        "Input": "from Nuclus sensor P812",
+        "Scale Factor": "00.1000000"
+      },
+      column2: {
+        "Operating Temperature": "0 to 50°C",
+        "Protection": "IP65",
+        "Output": "4-20mA Analog Signal"
+      }
+    },
+    electronics: {
+      column1: {
+        "Display": "Backlit alphanumeric 2 x 16 LCD"
+      }
+    },
+    material: {
+      column1: {
+        "Housing": "Plastic ABS"
+      }
+    },
+    mountingOptions: {
+      fieldMount: [
+        { src: "/p383-field-ss1.png", alt: "P383 SS Field Mount Option 1" }
+      ],
+      panelMount: [
+        { src: "/p383-panel-ss1.png", alt: "P383 SS Panel Mount Option 1" }
+      ]
+    },
+    fittings: [
+      { src: "/fitting1.webp", alt: "Image 1" },
+      { src: "/fitting2.webp", alt: "Image 2" },
+      { src: "/fitting3.webp", alt: "Image 3" },
+      { src: "/Ready 08 copy (1).jpg", alt: "Image 4" }
+    ],
+    lineSize: {
+      sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
+      sizeInches: ["0.5\"", "1\"", "1.5\"", "2\"", "2.36\"", "3.00\"", "4.00\""],
+      minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
+      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
+    },
+    sliderImages: ["/p383-ss1.png", "/p383-ss2.png", "/p383-ss3.png"]
+  };
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const handlePrev = () => {
+    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+  };
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div id="details-view" className="product-details">
+      <Helmet>
+        <title>{product.title} | MyCompany</title>
+        <meta name="description" content={product.description} />
+        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+      </Helmet>
+      <header className="details-header">
+        <h1 className="details-title">{product.title}</h1>
+        <Link to="/products" className="back-btn">Back to Products</Link>
+      </header>
+      <section className="details-main">
+        <div className="slider-section">
+          <div className="slider-container">
+            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
+            <img 
+              src={product.sliderImages[currentIndex]} 
+              alt={product.title} 
+              className="main-image"
+              loading="lazy"
+            />
+            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+          </div>
+        </div>
+        <div className="info-section">
+          <h2>Description</h2>
+          <p>{product.description}</p>
+          {product.modesAvailable && (
+            <>
+              <h3>Modes Available</h3>
+              <ul>
+                {product.modesAvailable.map((mode, index) => (
+                  <li key={index}>{mode}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {product.keyFeatures && (
+            <>
+              <h3>Key Features</h3>
+              <ul>
+                {product.keyFeatures.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          <button className="quote-btn">Ask For Quote</button>
+        </div>
+      </section>
+      <section className="additional-section technical-section">
+        <h2>Technical Data</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.technicalData.column1).map(([key, value]) => (
+              <li key={key}><strong>{key}:</strong> {value}</li>
+            ))}
+          </ul>
+          <ul>
+            {Object.entries(product.technicalData.column2).map(([key, value]) => (
+              <li key={key}><strong>{key}:</strong> {value}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className="additional-section mounting-options">
+        <h2>Mounting Options</h2>
+        <div className="mounting-columns">
+          <div className="mounting-block">
+            <h3>Field Mount</h3>
+            <div className="mounting-images">
+              {product.mountingOptions.fieldMount.map((imgObj, index) => (
+                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+              ))}
+            </div>
+          </div>
+          <div className="mounting-block">
+            <h3>Panel Mounted</h3>
+            <div className="mounting-images">
+              {product.mountingOptions.panelMount.map((imgObj, index) => (
+                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="additional-section fittings-section">
+        <h2>Fittings</h2>
+        <div className="gallery-grid">
+          {product.fittings.map((fit, index) => (
+            <div key={index} className="fitting-item">
+              <img src={fit.src} alt={fit.alt} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="additional-section line-size-section">
+        <h2>Line Size</h2>
+        <div className="table-wrapper">
+          <table className="line-size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                {product.lineSize.sizes.map((size, index) => (
+                  <th key={index}>{size}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Size (inch)</th>
+                {product.lineSize.sizeInches.map((si, index) => (
+                  <td key={index}>{si}</td>
+                ))}
+              </tr>
+              <tr>
+                <th>Min Flow (m³/hr)</th>
+                {product.lineSize.minFlow.map((mf, index) => (
+                  <td key={index}>{mf}</td>
+                ))}
+              </tr>
+              <tr>
+                <th>Max Flow (m³/hr)</th>
+                {product.lineSize.maxFlow.map((mf, index) => (
+                  <td key={index}>{mf}</td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default P383_SS;
