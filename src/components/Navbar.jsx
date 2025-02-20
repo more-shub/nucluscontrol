@@ -28,7 +28,7 @@ const Navbar = () => {
     <nav className={`navbar ${!showNavbar ? "hide" : ""}`}>
       <div className="logo">
         <Link to="/">
-          <img src="/logo.png" alt="Logo" />
+          <img src="/nuclus_logo.webp" alt="Logo" />
         </Link>
       </div>
       <div className={`nav-links ${isOpen ? "active" : ""}`}>
