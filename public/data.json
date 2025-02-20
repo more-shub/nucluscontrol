@@ -44,28 +44,28 @@
     },
     {
       "id": "P181-PP",
-      "name": "Digital Flow Indicator P181-PP",
+      "name": "DigiFlow Indicator P181-PP",
       "category": "Digital Flow Meters",
       "imageUrl": "",
       "rating": 4.7
     },
     {
       "id": "P181-SS",
-      "name": "Digital Flow Indicator P181-SS",
+      "name": "DigiFlow Indicator P181-SS",
       "category": "Digital Flow Meters",
       "imageUrl": "https://via.placeholder.com/300?text=Flow+Controller+Field",
       "rating": 4.3
     },
     {
       "id": "P383-PP",
-      "name": "Digital Flow Transmitter P383-PP",
+      "name": "DigiFlow Transmitter P383-PP",
       "category": "Digital Flow Meters",
       "imageUrl": "https://via.placeholder.com/300?text=Flow+Controller+Panel",
       "rating": 4.3
     },
     {
       "id": "P383-SS",
-      "name": "Digital Flow Transmitter P383-SS",
+      "name": "DigiFlow Transmitter P383-SS",
       "category": "Digital Flow Meters",
       "imageUrl": "https://via.placeholder.com/300?text=Flow+Transmitter+Field",
       "rating": 4.5
