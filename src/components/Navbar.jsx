@@ -33,8 +33,8 @@ const Navbar = () => {
       </div>
       <div className={`nav-links ${isOpen ? "active" : ""}`}>
         <Link to="/">Home</Link>
-        <a href="#industries-section-wrapper">Industries</a>
-        <a href="#about-section-wrapper">About</a>
+        <a href="#industries-section">Industries</a>
+        <a href="#about-section">About</a>
         <Link to="/products">Products</Link>
         <Link to="/blogs">Blogs</Link>
         <Link to="/contact">Contact</Link>

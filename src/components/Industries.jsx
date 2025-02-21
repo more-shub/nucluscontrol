@@ -3,7 +3,7 @@ import '../styles/Industries.css';
 
 const Industries = () => {
   return (
-    <div id="industries-section-wrapper">
+    <div id="industries-section">
       <div className="industries-section" id="industries-overview">
         <h1 id="industries-heading">Industries We Serve</h1>
         <p id="industries-description">
