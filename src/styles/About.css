@@ -73,6 +73,7 @@
   height: 600px;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
 }
 
 /* Features Section */
@@ -103,6 +104,7 @@
   font-size: 0.9rem;
   white-space: nowrap;
   transition: transform 0.3s ease;
+  will-change: transform; /* Hint browser for smoother transitions */
 }
 .feature-item .icon {
   font-size: 1.2rem;

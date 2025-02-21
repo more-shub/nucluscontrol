@@ -1,6 +1,21 @@
 import React from "react";
 import "../styles/About.css";
 
+const featuresData = [
+  { icon: "📏", text: "Reliable and accurate instruments" },
+  { icon: "✅", text: "Quality tested instruments" },
+  { icon: "🏭", text: "State-of-the-art facilities" },
+  { icon: "⏳", text: "Timely delivery" },
+  { icon: "💳", text: "Easy payment modes" },
+  { icon: "⚖️", text: "Ethical business practices" },
+];
+
+const statsData = [
+  { value: "5000+", label: "Customers" },
+  { value: "50k+", label: "Orders Completed" },
+  { value: "2 Cr+", label: "Annual Turnover" },
+];
+
 const About = () => {
   return (
     <section id="about-section" className="about">
@@ -38,57 +53,33 @@ const About = () => {
             </p>
           </div>
           <div className="history-image">
-            <img src="/office.webp" alt="Company History" />
+            <img src="/office.webp" alt="Company History" loading="lazy" />
           </div>
         </div>
 
         <div className="about-features">
           <h2>What Sets Us Apart</h2>
           <div className="features">
-            <div className="feature-item">
-              <span className="icon">📏</span>
-              <span>Reliable and accurate instruments</span>
-            </div>
-            <div className="feature-item">
-              <span className="icon">✅</span>
-              <span>Quality tested instruments</span>
-            </div>
-            <div className="feature-item">
-              <span className="icon">🏭</span>
-              <span>State-of-the-art facilities</span>
-            </div>
-            <div className="feature-item">
-              <span className="icon">⏳</span>
-              <span>Timely delivery</span>
-            </div>
-            <div className="feature-item">
-              <span className="icon">💳</span>
-              <span>Easy payment modes</span>
-            </div>
-            <div className="feature-item">
-              <span className="icon">⚖️</span>
-              <span>Ethical business practices</span>
-            </div>
+            {featuresData.map((feature, index) => (
+              <div key={index} className="feature-item">
+                <span className="icon">{feature.icon}</span>
+                <span>{feature.text}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="about-stats">
-          <div className="stat">
-            <h3>5000+</h3>
-            <p>Customers</p>
-          </div>
-          <div className="stat">
-            <h3>50k+</h3>
-            <p>Orders Completed</p>
-          </div>
-          <div className="stat">
-            <h3>2 Cr+</h3>
-            <p>Annual Turnover</p>
-          </div>
+          {statsData.map((stat, index) => (
+            <div key={index} className="stat">
+              <h3>{stat.value}</h3>
+              <p>{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default About;
+export default React.memo(About);

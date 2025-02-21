@@ -1,5 +1,93 @@
-import React from 'react';
-import '../styles/Industries.css';
+import React from "react";
+import "../styles/Industries.css";
+
+const cardData = [
+  {
+    id: "card-bottling",
+    title: "Bottling Industry",
+    background: "/botling.webp",
+    points: [
+      "Liquid Flow Measurement",
+      "Quality Control",
+      "Production Efficiency",
+      "Monitoring & Reporting",
+      "Automation & Integration",
+      "Maintenance & Troubleshooting",
+      "Energy & Resource Efficiency",
+      "Batch Control",
+    ],
+  },
+  {
+    id: "card-distillation",
+    title: "Distillation Plant",
+    background: "/distilation-plant.webp",
+    points: [
+      "Feedstock Flow Measurement",
+      "Product Separation & Control",
+      "Quality Control",
+      "Energy Efficiency Monitoring",
+      "Process Optimization",
+      "Monitoring & Reporting",
+      "System Integration & Automation",
+    ],
+  },
+  {
+    id: "card-filtration",
+    title: "Filtration System",
+    background: "/fitaration-system.webp",
+    points: [
+      "Flow Rate Measurement",
+      "Filter Efficiency Monitoring",
+      "Pressure Drop Monitoring",
+      "Maintenance & Troubleshooting",
+      "Monitoring & Reporting",
+      "Automation & Control",
+    ],
+  },
+  {
+    id: "card-pharma",
+    title: "Pharmaceutical Plant",
+    background: "/pharma-plant.webp",
+    points: [
+      "Raw Material Flow Measurement",
+      "Process Control & Consistency",
+      "Quality Control",
+      "Energy Efficiency & Resource Management",
+      "Regulatory Compliance & Reporting",
+      "Automation & System Integration",
+    ],
+  },
+  {
+    id: "card-textile",
+    title: "Textile Industry",
+    background: "/textile-industry.webp",
+    points: [
+      "Water Flow Measurement",
+      "Dye & Chemical Flow Control",
+      "Quality Control",
+      "Process Optimization",
+      "Energy & Resource Efficiency",
+      "Monitoring & Reporting",
+      "System Integration & Automation",
+      "Maintenance & Troubleshooting",
+    ],
+  },
+  {
+    id: "card-water-treatment",
+    title: "Water Treatment",
+    background: "/water-treatment.webp",
+    points: [
+      "Raw Water Flow Measurement",
+      "Chemical Dosage Control",
+      "Filtration & Treatment Monitoring",
+      "Discharge & Effluent Monitoring",
+      "Energy Efficiency & Optimization",
+      "Quality Control & Compliance",
+      "Monitoring & Reporting",
+      "System Automation & Integration",
+    ],
+  },
+];
 
 const Industries = () => {
   return (
@@ -7,134 +95,43 @@ const Industries = () => {
       <div className="industries-section" id="industries-overview">
         <h1 id="industries-heading">Industries We Serve</h1>
         <p id="industries-description">
-          Discover the diverse range of industries we proudly serve, providing cutting-edge solutions tailored to enhance efficiency, productivity, and sustainability.
+          Discover the diverse range of industries we proudly serve, providing
+          cutting-edge solutions tailored to enhance efficiency, productivity,
+          and sustainability.
         </p>
         <p id="industries-additional-description">
-          From precision manufacturing to water treatment and beyond, our innovative technologies are designed to meet the unique challenges of each sector, ensuring seamless integration and long-term success.
+          From precision manufacturing to water treatment and beyond, our
+          innovative technologies are designed to meet the unique challenges of
+          each sector, ensuring seamless integration and long-term success.
         </p>
       </div>
 
       <div className="scroll-container" id="industries-cards-wrapper">
         <div className="industries-cards-container" id="industries-cards">
-          {/* Card 1 */}
-          <div
-            className="industry-card"
-            style={{ backgroundImage: "url('/botling.webp')" }}
-            id="card-bottling"
-          >
-            <div className="industry-card-content">
-              <h3>Bottling Industry</h3>
-              <p>
-                Liquid Flow Measurement<br />
-                Quality Control<br />
-                Production Efficiency<br />
-                Monitoring & Reporting<br />
-                Automation & Integration<br />
-                Maintenance & Troubleshooting<br />
-                Energy & Resource Efficiency<br />
-                Batch Control
-              </p>
+          {cardData.map((card) => (
+            <div
+              key={card.id}
+              className="industry-card"
+              style={{ backgroundImage: `url('${card.background}')` }}
+              id={card.id}
+            >
+              <div className="industry-card-content">
+                <h3>{card.title}</h3>
+                <p>
+                  {card.points.map((point, index) => (
+                    <React.Fragment key={index}>
+                      {point}
+                      {index < card.points.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
+                </p>
+              </div>
             </div>
-          </div>
-          {/* Card 2 */}
-          <div
-            className="industry-card"
-            style={{ backgroundImage: "url('/distilation-plant.webp')" }}
-            id="card-distillation"
-          >
-            <div className="industry-card-content">
-              <h3>Distillation Plant</h3>
-              <p>
-                Feedstock Flow Measurement<br />
-                Product Separation & Control<br />
-                Quality Control<br />
-                Energy Efficiency Monitoring<br />
-                Process Optimization<br />
-                Monitoring & Reporting<br />
-                System Integration & Automation
-              </p>
-            </div>
-          </div>
-          {/* Card 3 */}
-          <div
-            className="industry-card"
-            style={{ backgroundImage: "url('/fitaration-system.webp')" }}
-            id="card-filtration"
-          >
-            <div className="industry-card-content">
-              <h3>Filtration System</h3>
-              <p>
-                Flow Rate Measurement<br />
-                Filter Efficiency Monitoring<br />
-                Pressure Drop Monitoring<br />
-                Maintenance & Troubleshooting<br />
-                Monitoring & Reporting<br />
-                Automation & Control
-              </p>
-            </div>
-          </div>
-          {/* Card 4 */}
-          <div
-            className="industry-card"
-            style={{ backgroundImage: "url('/pharma-plant.webp')" }}
-            id="card-pharma"
-          >
-            <div className="industry-card-content">
-              <h3>Pharmaceutical Plant</h3>
-              <p>
-                Raw Material Flow Measurement<br />
-                Process Control & Consistency<br />
-                Quality Control<br />
-                Energy Efficiency & Resource Management<br />
-                Regulatory Compliance & Reporting<br />
-                Automation & System Integration<br />
-              </p>
-            </div>
-          </div>
-          {/* Card 5 */}
-          <div
-            className="industry-card"
-            style={{ backgroundImage: "url('/textile-industry.webp')" }}
-            id="card-textile"
-          >
-            <div className="industry-card-content">
-              <h3>Textile Industry</h3>
-              <p>
-                Water Flow Measurement<br />
-                Dye & Chemical Flow Control<br />
-                Quality Control<br />
-                Process Optimization<br />
-                Energy & Resource Efficiency<br />
-                Monitoring & Reporting<br />
-                System Integration & Automation<br />
-                Maintenance & Troubleshooting
-              </p>
-            </div>
-          </div>
-          {/* Card 6 */}
-          <div
-            className="industry-card"
-            style={{ backgroundImage: "url('/water-treatment.webp')" }}
-            id="card-water-treatment"
-          >
-            <div className="industry-card-content">
-              <h3>Water Treatment</h3>
-              <p>
-                Raw Water Flow Measurement<br />
-                Chemical Dosage Control<br />
-                Filtration & Treatment Monitoring<br />
-                Discharge & Effluent Monitoring<br />
-                Energy Efficiency & Optimization<br />
-                Quality Control & Compliance<br />
-                Monitoring & Reporting<br />
-                System Automation & Integration
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default Industries;
+export default React.memo(Industries);
