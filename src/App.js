@@ -6,6 +6,7 @@ import Industries from "./components/Industries";
 import About from "./components/About";
 import ProductPage from "./components/ProductPage"; // Ensure this is the correct product listing component
 import BlogSection from "./components/BlogSection";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import P282_PP from "./pages/ProductDetails/P282-PP"; // Product detail page
 import P282_SS from "./pages/ProductDetails/P282-SS";
@@ -39,6 +40,7 @@ function App() {
                 <Hero />
                 <Industries />
                 <About />
+                <Contact />
               </>
             }
           />

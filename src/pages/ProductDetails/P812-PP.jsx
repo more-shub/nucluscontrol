@@ -59,7 +59,7 @@ const P812_PP = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "7.80", "14.0"],
       maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"]
     },
-    sliderImages: ["/p812-pp1.png", "/p812-pp2.png", "/p812-pp3.png"]
+    sliderImages: ["/pp-sensor.webp", "/Ready 01.jpg", "/02.webp"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
