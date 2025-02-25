@@ -1,73 +1,78 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import '../../styles/ProductDetails.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import "../../styles/ProductDetails.css";
 
 const P812_PP = () => {
   const product = {
     id: "P812-PP",
     title: "P812 Paddle Wheel Flow Sensor - Polypropylene",
-    description: "The P812 PP Paddlewheel Flow Sensor is a high-performance, durable flow sensor ideal for chemical processing and water treatment applications. It operates within a dynamic flow range of 0.5 to 5 m/s (1.6 to 16.4 ft/s) and is designed for full pipe flow measurement. The PP housing offers excellent chemical resistance and is suitable for applications requiring a cost-effective solution.",
+    description:
+      "The P812 PP Paddlewheel Flow Sensor is a high-performance, durable flow sensor ideal for chemical processing and water treatment applications. It operates within a dynamic flow range of 0.5 to 5 m/s (1.6 to 16.4 ft/s) and is designed for full pipe flow measurement. The PP housing offers excellent chemical resistance and is suitable for applications requiring a cost-effective solution.",
     keyFeatures: [
       "Chemical-resistant Polypropylene body",
       "Wide dynamic flow range: 0.5 to 5 m/s",
       "Supports pipe sizes from 15 NB to 300 NB",
       "Multiple installation fitting options",
-      "Low power consumption with pulse output"
+      "Low power consumption with pulse output",
     ],
     technicalData: {
       column1: {
         "Flow Rate Range": "0.5 to 5 m/s (1.6 to 16.4 ft/s)",
         "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 inches)",
-        "Linearity": "±1% of full range",
-        "Repeatability": "±0.5% of full range"
+        Linearity: "±1% of full range",
+        Repeatability: "±0.5% of full range",
       },
       column2: {
         "Min Reynolds Number Required": "4500",
         "Operating Pressure": "Max 10 bar (145 psi) @ 25°C",
-        "Operating Temperature": "-10°C to 70°C (14°F to 158°F)"
-      }
+        "Operating Temperature": "-10°C to 70°C (14°F to 158°F)",
+      },
     },
     electronics: {
       column1: {
         "Supply Voltage": "10 to 24 VDC regulated",
-        "Supply Current": "<20 mA @ 10 to 24 VDC"
+        "Supply Current": "<20 mA @ 10 to 24 VDC",
       },
       column2: {
         "Output Type": "Pulse output (NPN)",
         "Output Current": "10 mA max.",
-        "Frequency": "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)"
-      }
+        Frequency: "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
+      },
     },
     material: {
       column1: {
         "Sensor Body": "Polypropylene (black)",
-        "O-Rings": "Viton / Teflon"
+        "O-Rings": "Viton / Teflon",
       },
       column2: {
         "Rotor Pin": "Metal shaft",
-        "Rotor": "Black PVDF"
-      }
+        Rotor: "Black PVDF",
+      },
     },
     fittings: [
-      { src: "/p812-pp-fitting1.webp", alt: "Weld Adapter Fitting" },
-      { src: "/p812-pp-fitting2.webp", alt: "Threaded End ABS/PVC T Fitting" }
+      { src: "/fitting01.webp", alt: "Weld Adapter Fitting" },
+      { src: "/fitting01.webp", alt: "Threaded End ABS/PVC T Fitting" }
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
-      sizeInches: ["0.5\"", "1\"", "1.5\"", "2\"", "2.5\"", "3\"", "4\""],
+      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.5"', '3"', '4"'],
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "7.80", "14.0"],
-      maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"]
+      maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"],
     },
-    sliderImages: ["/02.webp", "/Ready 01.jpg", "/02.webp"]
+    sliderImages: ["/P812-PP.webp", "/Ready 01.jpg", "/02.webp"],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
   };
   const handleNext = () => {
-    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
   };
 
   return (
@@ -75,23 +80,32 @@ const P812_PP = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+        <link
+          rel="canonical"
+          href={`https://www.mycompany.com/products/${product.id}`}
+        />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">Back to Products</Link>
+        <Link to="/products" className="back-btn">
+          Back to Products
+        </Link>
       </header>
       <section className="details-main">
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
-            <img 
-              src={product.sliderImages[currentIndex]} 
-              alt={product.title} 
+            <button className="slider-btn" onClick={handlePrev}>
+              &lt;
+            </button>
+            <img
+              src={product.sliderImages[currentIndex]}
+              alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+            <button className="slider-btn" onClick={handleNext}>
+              &gt;
+            </button>
           </div>
         </div>
         <div className="info-section">
@@ -114,14 +128,22 @@ const P812_PP = () => {
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
-            ))}
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
-            ))}
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
         </div>
       </section>

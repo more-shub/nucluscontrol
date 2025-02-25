@@ -54,10 +54,10 @@ const P282_PP = () => {
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p181field.png", alt: "Field Mount Option 1" }
+        { src: "/p282field.webp", alt: "Field Mount Option 1" }
       ],
       panelMount: [
-        { src: "/p181panel1.png", alt: "Panel Mount Option 1" }
+        { src: "/p282field.webp", alt: "Panel Mount Option 1" }
       ]
     },
     fittings: [
@@ -73,7 +73,7 @@ const P282_PP = () => {
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
     sliderImages: [
-      "/p181field.png",
+      "/p282field.webp",
       "/p181panel.png",
       "/p181panel1.png"
     ]

@@ -131,7 +131,7 @@
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .additional-section h2 {
@@ -249,6 +249,7 @@
 
 .fitting-item img {
   width: 100%;
+  max-width: 180px; /* Reduced max-width for fittings images */
   height: auto;
   object-fit: contain;
   border-radius: 4px;
