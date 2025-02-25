@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/ProductCard.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/ProductCard.css";
 
 const ProductCard = ({ product }) => {
   return (
     <div className="card">
       <Link to={`/products/${product.id}`}>
-        <img 
-          src={product.imageUrl} 
-          alt={product.name} 
-          loading="lazy" 
-          width="300" 
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          loading="lazy"
+          width="300"
           height="200"
         />
       </Link>
@@ -26,9 +26,6 @@ const ProductCard = ({ product }) => {
           </div>
         )}
         <div className="btn-container">
-          <button className="get-quote" onClick={(e) => e.preventDefault()}>
-            Get Price/Quote
-          </button>
           <Link to={`/products/${product.id}`} className="more-details">
             More Details
           </Link>
