@@ -52,10 +52,12 @@ const P812_PP = () => {
       },
     },
     fittings: [
-      { src: "/fitting01.webp", alt: "Weld Adapter Fitting" },
-      { src: "/fitting02.webp", alt: "Threaded End ABS/PVC T Fitting" },
-      { src: "/fitting03.webp", alt: "Weld Adapter Fitting" },
-      { src: "/fitting02.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Weld-Adapter.webp", alt: "Weld Adapter Fitting" },
+      { src: "/pvcthreaded.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Triclore.webp", alt: "Triclore Fitting" },
+      { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
+      { src: "/StubEnd.webp", alt: "StubEnd Fitting" }
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],

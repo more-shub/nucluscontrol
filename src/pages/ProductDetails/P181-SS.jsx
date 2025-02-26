@@ -49,10 +49,10 @@ const P181_SS = () => {
       ]
     },
     fittings: [
-      { src: "/fitting1.webp", alt: "Image 1" },
-      { src: "/fitting2.webp", alt: "Image 2" },
-      { src: "/fitting3.webp", alt: "Image 3" },
-      { src: "/Ready 08 copy (1).jpg", alt: "Image 4" }
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
+      { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
+      { src: "/StubEnd(ss).webp", alt: "StubEnd Fitting" },
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" }
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],

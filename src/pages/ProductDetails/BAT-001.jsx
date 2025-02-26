@@ -49,8 +49,12 @@ const BAT_001 = () => {
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
     fittings: [
-      { src: "/battery-fitting1.png", alt: "Fitting Option 1" },
-      { src: "/battery-fitting2.png", alt: "Fitting Option 2" }
+      { src: "/Weld-Adapter.webp", alt: "Weld Adapter Fitting" },
+      { src: "/pvcthreaded.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Triclore.webp", alt: "Triclore Fitting" },
+      { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
+      { src: "/StubEnd.webp", alt: "StubEnd Fitting" }
     ],
     sliderImages: ["/battery-slider1.png", "/battery-slider2.png", "/battery-slider3.png"]
   };

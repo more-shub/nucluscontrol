@@ -51,8 +51,10 @@ const P812_SS = () => {
       }
     },
     fittings: [
-      { src: "/p812-ss-fitting1.webp", alt: "Flange End SS T Fitting" },
-      { src: "/p812-ss-fitting2.webp", alt: "Block Design Sensor Fitting" }
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
+      { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
+      { src: "/StubEnd(ss).webp", alt: "StubEnd Fitting" },
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" }
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "65 NB", "80 NB", "100 NB"],
