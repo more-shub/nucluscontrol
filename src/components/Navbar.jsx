@@ -33,11 +33,11 @@ const Navbar = () => {
       </div>
       <div className={`nav-links ${isOpen ? "active" : ""}`}>
         <Link to="/">Home</Link>
-        <a href="#industries-section">Industries</a>
-        <a href="#about-section">About</a>
+        <a href="/#industries-section">Industries</a>
+        <a href="/#about-section">About</a>
         <Link to="/products">Products</Link>
         <Link to="/blogs">Blogs</Link>
-        <a href="#contact">Contact</a>
+        <a href="/#contact">Contact</a>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
         <div className="bar"></div>

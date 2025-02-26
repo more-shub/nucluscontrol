@@ -106,7 +106,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="contact-form-container">
+    <div id="contact" className="contact-form-container">
       <div className="contact-form-box">
         <h2>Contact Us</h2>
         <div className="progress-bar">
