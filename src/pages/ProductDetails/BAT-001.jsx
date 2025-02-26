@@ -199,7 +199,7 @@ const BAT_001 = () => {
       </section>
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
-          <h2>REQUEST OF QUOTE</h2>
+          <h2>FORM FOR QUOTATION</h2>
           <Contact />
         </section>
       )}

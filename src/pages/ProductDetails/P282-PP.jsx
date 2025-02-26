@@ -263,7 +263,7 @@ const P282_PP = () => {
       {/* Contact Form Section (conditionally rendered) */}
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
-          <h2>REQUEST OF QUOTE</h2>
+          <h2>FORM FOR QUOTATION</h2>
           <Contact />
         </section>
       )}
