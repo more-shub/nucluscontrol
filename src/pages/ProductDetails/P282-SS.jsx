@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Contact from "../../components/Contact"; // Your Contact form component
 import '../../styles/ProductDetails.css';
 
 const P282_SS = () => {
@@ -74,12 +75,33 @@ const P282_SS = () => {
     sliderImages: ["/p282-ss1.png", "/p282-ss2.png", "/p282-ss3.png"]
   };
 
+  // Slider state for images
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // State and ref for the contact form
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
+
+  // Handlers for slider buttons
   const handlePrev = () => {
     setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
   };
+
   const handleNext = () => {
     setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+  };
+
+  // Handler for "Ask For Quote" button
+  const handleQuoteClick = () => {
+    if (!showForm) {
+      setShowForm(true);
+      // Ensure the form is rendered before scrolling
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 0);
+    } else {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -129,7 +151,7 @@ const P282_SS = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn">Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
         </div>
       </section>
       <section className="additional-section technical-section">
@@ -213,6 +235,12 @@ const P282_SS = () => {
           </table>
         </div>
       </section>
+      {showForm && (
+        <section className="quote-form-section" ref={formRef}>
+          <h2>REQUEST OF QUOTE</h2>
+          <Contact />
+        </section>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Contact from '../../components/Contact'; // Your Contact form component
 import '../../styles/ProductDetails.css';
 
 const P200 = () => {
@@ -42,20 +43,40 @@ const P200 = () => {
         "pH Electrode": "Glass body, Standard PVC (Optional Teflon/SS316) housing"
       }
     },
+    sliderImages: ["/p200-1.png", "/p200-2.png", "/p200-3.png"],
     fittings: [
       { src: "/ph-fittings1.webp", alt: "pH Transmitter Fitting 1" },
       { src: "/ph-fittings2.webp", alt: "pH Transmitter Fitting 2" }
-    ],
-    sliderImages: ["/p200-1.png", "/p200-2.png", "/p200-3.png"]
-    // Note: P200 does not include a "lineSize" property
+    ]
+    // Note: P200 does not include a "lineSize" property.
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
+
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+    setCurrentIndex(prev =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
   };
+
   const handleNext = () => {
-    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex(prev =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handleQuoteClick = () => {
+    if (!showForm) {
+      setShowForm(true);
+      // Wait for the form to render before scrolling
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 0);
+    } else {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -95,7 +116,7 @@ const P200 = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn">Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
         </div>
       </section>
       <section className="additional-section technical-section">
@@ -123,7 +144,7 @@ const P200 = () => {
           ))}
         </div>
       </section>
-      {/* Conditionally render the line-size section only if product.lineSize exists */}
+      {/* Conditionally render line-size section only if product.lineSize exists */}
       {product.lineSize && (
         <section className="additional-section line-size-section">
           <h2>Line Size</h2>
@@ -159,6 +180,12 @@ const P200 = () => {
               </tbody>
             </table>
           </div>
+        </section>
+      )}
+      {showForm && (
+        <section className="quote-form-section" ref={formRef}>
+          <h2>REQUEST OF QUOTE</h2>
+          <Contact />
         </section>
       )}
     </div>

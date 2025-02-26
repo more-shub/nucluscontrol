@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
 const P812_PP = () => {
@@ -52,7 +53,9 @@ const P812_PP = () => {
     },
     fittings: [
       { src: "/fitting01.webp", alt: "Weld Adapter Fitting" },
-      { src: "/fitting01.webp", alt: "Threaded End ABS/PVC T Fitting" }
+      { src: "/fitting02.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/fitting03.webp", alt: "Weld Adapter Fitting" },
+      { src: "/fitting02.webp", alt: "Threaded End ABS/PVC T Fitting" },
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
@@ -64,6 +67,9 @@ const P812_PP = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
+
   const handlePrev = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
@@ -73,6 +79,18 @@ const P812_PP = () => {
     setCurrentIndex((prev) =>
       prev === product.sliderImages.length - 1 ? 0 : prev + 1
     );
+  };
+
+  const handleQuoteClick = () => {
+    if (!showForm) {
+      setShowForm(true);
+      // Ensure the form is rendered before scrolling
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 0);
+    } else {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -121,29 +139,27 @@ const P812_PP = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn">Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>
+            Ask For Quote
+          </button>
         </div>
       </section>
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(
-              ([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              )
-            )}
+            {Object.entries(product.technicalData.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(
-              ([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              )
-            )}
+            {Object.entries(product.technicalData.column2).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -192,6 +208,12 @@ const P812_PP = () => {
           </table>
         </div>
       </section>
+      {showForm && (
+        <section className="quote-form-section" ref={formRef}>
+          <h2>REQUEST OF QUOTE</h2>
+          <Contact />
+        </section>
+      )}
     </div>
   );
 };

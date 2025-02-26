@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Contact from '../../components/Contact'; // Your Contact form component
 import '../../styles/ProductDetails.css';
 
 const BAT_001 = () => {
   const product = {
     id: "BAT-001",
     title: "Battery Operated Flow Meter - FloReader",
-    description: "The FloReader is a battery-operated water flow meter engineered for stand-alone water applications such as water treatment, distribution networks, and irrigation. With no reliance on mains power, it offers flexible installation and reliable flow measurement, featuring both flow rate indication and totalizer functions.",
+    description:
+      "The FloReader is a battery-operated water flow meter engineered for stand-alone water applications such as water treatment, distribution networks, and irrigation. With no reliance on mains power, it offers flexible installation and reliable flow measurement, featuring both flow rate indication and totalizer functions.",
     modesAvailable: ["Flow Rate Indication", "Totalizer Function"],
     keyFeatures: [
       "Battery operated for flexible installation without mains power",
@@ -54,11 +56,31 @@ const BAT_001 = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
+
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+    setCurrentIndex(prev =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
   };
+
   const handleNext = () => {
-    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex(prev =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handleQuoteClick = () => {
+    if (!showForm) {
+      setShowForm(true);
+      // Wait for the form to render before scrolling
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 0);
+    } else {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -108,7 +130,7 @@ const BAT_001 = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn">Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
         </div>
       </section>
       <section className="additional-section technical-section">
@@ -171,6 +193,12 @@ const BAT_001 = () => {
           </table>
         </div>
       </section>
+      {showForm && (
+        <section className="quote-form-section" ref={formRef}>
+          <h2>REQUEST OF QUOTE</h2>
+          <Contact />
+        </section>
+      )}
     </div>
   );
 };

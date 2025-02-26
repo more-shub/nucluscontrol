@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Contact from '../../components/Contact'; // Your Contact form component
 import '../../styles/ProductDetails.css';
 
 const C181 = () => {
@@ -73,11 +74,31 @@ const C181 = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
+
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+    setCurrentIndex(prev =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
   };
+
   const handleNext = () => {
-    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex(prev =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handleQuoteClick = () => {
+    if (!showForm) {
+      setShowForm(true);
+      // Wait for the form to render before scrolling
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 0);
+    } else {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -95,9 +116,9 @@ const C181 = () => {
         <div className="slider-section">
           <div className="slider-container">
             <button className="slider-btn" onClick={handlePrev}>&lt;</button>
-            <img 
-              src={product.sliderImages[currentIndex]} 
-              alt={product.title} 
+            <img
+              src={product.sliderImages[currentIndex]}
+              alt={product.title}
               className="main-image"
               loading="lazy"
             />
@@ -117,7 +138,7 @@ const C181 = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn">Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
         </div>
       </section>
       <section className="additional-section technical-section">
@@ -145,7 +166,7 @@ const C181 = () => {
           ))}
         </div>
       </section>
-      {/* Only render line-size section if product.lineSize exists */}
+      {/* Conditionally render line-size section if product.lineSize exists */}
       {product.lineSize && (
         <section className="additional-section line-size-section">
           <h2>Line Size</h2>
@@ -181,6 +202,12 @@ const C181 = () => {
               </tbody>
             </table>
           </div>
+        </section>
+      )}
+      {showForm && (
+        <section className="quote-form-section" ref={formRef}>
+          <h2>REQUEST OF QUOTE</h2>
+          <Contact />
         </section>
       )}
     </div>

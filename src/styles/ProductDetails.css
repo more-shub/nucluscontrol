@@ -255,7 +255,12 @@
   border-radius: 4px;
 }
 
-/* Responsive Adjustments */
+.quote-form-section h2 {
+  text-align: center;         /* Centers the heading */
+  font-size: 2rem;            
+  text-transform: uppercase;  
+}
+
 @media (max-width: 768px) {
   .details-main {
     flex-direction: column;

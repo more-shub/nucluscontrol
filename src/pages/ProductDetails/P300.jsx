@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Contact from "../../components/Contact"; // Your Contact form component
 import '../../styles/ProductDetails.css';
 
 const P300 = () => {
@@ -53,6 +54,8 @@ const P300 = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
 
   const handlePrev = () => {
     setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
@@ -60,6 +63,18 @@ const P300 = () => {
 
   const handleNext = () => {
     setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleQuoteClick = () => {
+    if (!showForm) {
+      setShowForm(true);
+      // Wait for the form to render before scrolling
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 0);
+    } else {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -109,7 +124,7 @@ const P300 = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn">Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
         </div>
       </section>
       <section className="additional-section technical-section">
@@ -173,6 +188,12 @@ const P300 = () => {
               </tbody>
             </table>
           </div>
+        </section>
+      )}
+      {showForm && (
+        <section className="quote-form-section" ref={formRef}>
+          <h2>REQUEST OF QUOTE</h2>
+          <Contact />
         </section>
       )}
     </div>
