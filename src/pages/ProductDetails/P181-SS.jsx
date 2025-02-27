@@ -42,10 +42,10 @@ const P181_SS = () => {
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p181-field-ss1.png", alt: "P181 SS Field Mount Option 1" }
+        { src: "/p181ssthreadedend.webp", alt: "P181 SS Field Mount Option 1" }
       ],
       panelMount: [
-        { src: "/p181-panel-ss1.png", alt: "P181 SS Panel Mount Option 1" }
+        { src: "/p181sspanel.webp", alt: "P181 SS Panel Mount Option 1" }
       ]
     },
     fittings: [
@@ -60,7 +60,7 @@ const P181_SS = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
-    sliderImages: ["/p181field.png", "/p181panel.png", "/p181panel1.png"]
+    sliderImages: ["/p181ss.webp", "/p181ssthreadedend.webp", "/p181sspanel.webp"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);

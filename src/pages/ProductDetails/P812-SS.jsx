@@ -62,7 +62,7 @@ const P812_SS = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "7.80", "14.0"],
       maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"]
     },
-    sliderImages: ["/P812-SS.webp", "/p812-ss2.png", "/p812-ss3.png"]
+    sliderImages: ["/p812ss.webp", "/p812ss1.webp", "/p812ss2.webp"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);

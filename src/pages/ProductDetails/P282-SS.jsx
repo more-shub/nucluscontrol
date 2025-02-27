@@ -54,10 +54,10 @@ const P282_SS = () => {
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p282-field-ss1.png", alt: "P282 SS Field Mount Option 1" }
+        { src: "/p282ssfieldmount.webp", alt: "P282 SS Field Mount Option 1" }
       ],
       panelMount: [
-        { src: "/p282-panel-ss1.png", alt: "P282 SS Panel Mount Option 1" }
+        { src: "/p282sspanelmount.webp", alt: "P282 SS Panel Mount Option 1" }
       ]
     },
     fittings: [
@@ -72,7 +72,7 @@ const P282_SS = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
-    sliderImages: ["/p282-ss1.png", "/p282-ss2.png", "/p282-ss3.png"]
+    sliderImages: ["/p282ss.webp", "/p282ssfieldmount.webp", "/p282sspanelmount.webp"]
   };
 
   // Slider state for images
