@@ -45,12 +45,7 @@ const P300 = () => {
         "pH Electrode": "Glass body, Standard PVC (Optional Teflon/SS316) housing"
       }
     },
-    sliderImages: ["/ph-transmitter1.png", "/ph-transmitter2.png", "/ph-transmitter3.png"],
-    fittings: [
-      { src: "/ph-fittings1.webp", alt: "pH Transmitter Fitting 1" },
-      { src: "/ph-fittings2.webp", alt: "pH Transmitter Fitting 2" }
-    ]
-    // Note: P300 does not include a lineSize property.
+    sliderImages: ["/ph-transmitter1.png", "/ph-transmitter2.png", "/ph-transmitter3.png"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -142,54 +137,6 @@ const P300 = () => {
           </ul>
         </div>
       </section>
-      <section className="additional-section fittings-section">
-        <h2>Fittings</h2>
-        <div className="gallery-grid">
-          {product.fittings.map((fit, index) => (
-            <div key={index} className="fitting-item">
-              <img src={fit.src} alt={fit.alt} loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* Conditionally render line-size section only if product.lineSize exists */}
-      {product.lineSize && (
-        <section className="additional-section line-size-section">
-          <h2>Line Size</h2>
-          <div className="table-wrapper">
-            <table className="line-size-table">
-              <thead>
-                <tr>
-                  <th>Size</th>
-                  {product.lineSize.sizes.map((size, index) => (
-                    <th key={index}>{size}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>Size (inch)</th>
-                  {product.lineSize.sizeInches.map((si, index) => (
-                    <td key={index}>{si}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <th>Min Flow (m³/hr)</th>
-                  {product.lineSize.minFlow.map((mf, index) => (
-                    <td key={index}>{mf}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <th>Max Flow (m³/hr)</th>
-                  {product.lineSize.maxFlow.map((mf, index) => (
-                    <td key={index}>{mf}</td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>

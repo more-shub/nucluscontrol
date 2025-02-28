@@ -48,16 +48,6 @@ const C181 = () => {
         "Electrode": "Conductivity cell with SS316 electrode, PTFE insulator (epoxy potted)"
       }
     },
-    mountingOptions: {
-      fieldMount: [
-        { src: "/c181-field1.png", alt: "C181 Field Mount Option 1" },
-        { src: "/c181-field2.png", alt: "C181 Field Mount Option 2" }
-      ],
-      panelMount: [
-        { src: "/c181-panel1.png", alt: "C181 Panel Mount Option 1" },
-        { src: "/c181-panel2.png", alt: "C181 Panel Mount Option 2" }
-      ]
-    },
     cellSpecifications: {
       "WettedParts": "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
       "ThreadedConnection": "½ & ¾ inch BSP",
@@ -65,10 +55,6 @@ const C181 = () => {
       "CellWeight": "500 gms (Approx.)",
       "CellRange": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
     },
-    fittings: [
-      { src: "/c181-fitting1.png", alt: "C181 Fitting 1" },
-      { src: "/c181-fitting2.png", alt: "C181 Fitting 2" }
-    ],
     sliderImages: ["/c181-1.png", "/c181-2.png", "/c181-3.png"]
     // Note: This product data does not include a "lineSize" property.
   };
@@ -156,54 +142,6 @@ const C181 = () => {
           </ul>
         </div>
       </section>
-      <section className="additional-section fittings-section">
-        <h2>Fittings</h2>
-        <div className="gallery-grid">
-          {product.fittings.map((fit, index) => (
-            <div key={index} className="fitting-item">
-              <img src={fit.src} alt={fit.alt} loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* Conditionally render line-size section if product.lineSize exists */}
-      {product.lineSize && (
-        <section className="additional-section line-size-section">
-          <h2>Line Size</h2>
-          <div className="table-wrapper">
-            <table className="line-size-table">
-              <thead>
-                <tr>
-                  <th>Size</th>
-                  {product.lineSize.sizes.map((size, index) => (
-                    <th key={index}>{size}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>Size (inch)</th>
-                  {product.lineSize.sizeInches.map((si, index) => (
-                    <td key={index}>{si}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <th>Min Flow (m³/hr)</th>
-                  {product.lineSize.minFlow.map((mf, index) => (
-                    <td key={index}>{mf}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <th>Max Flow (m³/hr)</th>
-                  {product.lineSize.maxFlow.map((mf, index) => (
-                    <td key={index}>{mf}</td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>
