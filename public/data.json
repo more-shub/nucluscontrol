@@ -15,20 +15,6 @@
       "rating": 4.9
     },
     {
-      "id": "P813",
-      "name": "P813 Mini Sensor",
-      "category": "Flow Sensors",
-      "imageUrl": "/mini.webp",
-      "rating": 4.9
-    },
-    {
-      "id": "P852",
-      "name": "P852 Pd Sensor",
-      "category": "Flow Sensors",
-      "imageUrl": "/pdSensor.webp",
-      "rating": 4.9
-    },
-    {
       "id": "P282-PP",
       "name": "Digiflow Controller - P282-PP",
       "category": "Digital Flow Meters",
@@ -67,7 +53,7 @@
       "id": "P383-SS",
       "name": "DigiFlow Transmitter P383-SS",
       "category": "Digital Flow Meters",
-      "imageUrl": "p383ss.webp",
+      "imageUrl": "p383ss1.webp",
       "rating": 4.5
     },
     {

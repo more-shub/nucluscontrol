@@ -47,10 +47,10 @@ const P383_SS = () => {
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p383-field-ss1.png", alt: "P383 SS Field Mount Option 1" }
+        { src: "/p383sstriclore.webp", alt: "P383 SS Field Mount Option 1" }
       ],
       panelMount: [
-        { src: "/p383-panel-ss1.png", alt: "P383 SS Panel Mount Option 1" }
+        { src: "/p383sspanelmount.webp", alt: "P383 SS Panel Mount Option 1" }
       ]
     },
     fittings: [
@@ -65,7 +65,7 @@ const P383_SS = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
-    sliderImages: ["/p383-ss1.png", "/p383-ss2.png", "/p383-ss3.png"]
+    sliderImages: ["/p383ss.webp", "/p383ssthreaded.webp", "/p383sstriclore.webp"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);

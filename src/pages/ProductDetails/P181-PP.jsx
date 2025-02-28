@@ -42,7 +42,9 @@ const P181_PP = () => {
       },
     },
     mountingOptions: {
-      fieldMount: [{ src: "/p181triclore.webp", alt: "P181 PP Field Mount Option 1" }],
+      fieldMount: [
+        { src: "/p181triclore.webp", alt: "P181 PP Field Mount Option 1" },
+      ],
       panelMount: [
         { src: "/p181panel.webp", alt: "P181 PP Panel Mount Option 1" },
       ],
