@@ -45,7 +45,7 @@ const P300 = () => {
         "pH Electrode": "Glass body, Standard PVC (Optional Teflon/SS316) housing"
       }
     },
-    sliderImages: ["/ph-transmitter1.png", "/ph-transmitter2.png", "/ph-transmitter3.png"]
+    sliderImages: ["/pHmeter1.webp", "/Elecctrode.webp", "/housing.webp"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);

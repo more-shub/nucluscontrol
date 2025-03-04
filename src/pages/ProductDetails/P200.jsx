@@ -45,7 +45,7 @@ const P200 = () => {
           "Glass body, Standard PVC (Optional Teflon/SS316) housing",
       },
     },
-    sliderImages: ["/p200-1.png", "/p200-2.png", "/p200-3.png"],
+    sliderImages: ["/pHmeter1.webp", "/Elecctrode.webp", "/housing.webp"],
     // Note: P200 does not include a "lineSize" property.
   };
 
