@@ -55,7 +55,7 @@ const C181 = () => {
       "CellWeight": "500 gms (Approx.)",
       "CellRange": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
     },
-    sliderImages: ["/c181-1.png", "/c181-2.png", "/c181-3.png"]
+    sliderImages: ["/c181dp.webp", "/cell.webp"]
     // Note: This product data does not include a "lineSize" property.
   };
 
