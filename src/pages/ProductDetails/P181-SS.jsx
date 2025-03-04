@@ -1,76 +1,88 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
-import '../../styles/ProductDetails.css';
+import "../../styles/ProductDetails.css";
 
 const P181_SS = () => {
   const product = {
     id: "P181-SS",
     title: "Digital Flow Indicator - P181 (SS Sensor)",
-    description: "NUCLUS Model P181 is a digital flow rate indicator compatible with Stainless Steel (SS) sensors. It offers precise real-time flow measurement and supports both field and panel mounting configurations. The P181 model features a programmable scale factor for direct flow rate readings in multiple units (m³/hr, LPH, LPM, LPS, GPM US/UK).",
+    description:
+      "NUCLUS Model P181 is a digital flow rate indicator compatible with Stainless Steel (SS) sensors. It offers precise real-time flow measurement and supports both field and panel mounting configurations. The P181 model features a programmable scale factor for direct flow rate readings in multiple units (m³/hr, LPH, LPM, LPS, GPM US/UK).",
     modesAvailable: ["Flow Rate Indicator"],
     keyFeatures: [
       "Programmable scale factor",
       "Direct flow rate readings in multiple units",
       "Backlit alphanumeric 1 x 16 LCD display",
-      "IP65 protection for field mounting"
+      "IP65 protection for field mounting",
     ],
     technicalData: {
       column1: {
         "Function": "Flow Rate Indicator",
         "Supply Voltage": "230 V AC",
-        "Accuracy": "+1% of FSD",
-        "Input": "from Nuclus sensor P812",
-        "Scale Factor": "00.1000000"
+        "Accuracy": "±1% of FSD",
+        "Input": "Nuclus sensor P812",
+        "Scale Factor": "00.1000000",
       },
       column2: {
         "Operating Temperature": "0 to 50°C",
         "Protection": "IP65",
-        "Sensor Supply": "12 VDC (±10%), 30 mA"
-      }
+        "Sensor Supply": "12 VDC (±10%), 30 mA",
+      },
     },
     electronics: {
       column1: {
-        "Display": "Backlit alphanumeric 1 x 16 LCD"
-      }
+        "Display": "Backlit alphanumeric 1 x 16 LCD",
+        "Supply Voltage": "230 V AC",
+        "Sensor Supply": "12 VDC (±10%), 30 mA",
+      },
     },
     material: {
       column1: {
-        "Housing": "Plastic ABS"
-      }
+        "Housing": "Plastic ABS",
+        "Sensor Body": "Stainless Steel 316",
+      },
+      column2: {
+        "O-Ring": "Viton / Teflon",
+        "Paddle (Rotor)": "Black PVDF",
+      },
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p181ssthreadedend.webp", alt: "P181 SS Field Mount Option 1" }
+        { src: "/p181ssthreadedend.webp", alt: "P181 SS Field Mount Option 1" },
       ],
       panelMount: [
-        { src: "/p181sspanel.webp", alt: "P181 SS Panel Mount Option 1" }
-      ]
+        { src: "/p181sspanel.webp", alt: "P181 SS Panel Mount Option 1" },
+      ],
     },
     fittings: [
       { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
       { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
       { src: "/StubEnd(ss).webp", alt: "StubEnd Fitting" },
-      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" }
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
-      sizeInches: ["0.5\"", "1\"", "1.5\"", "2\"", "2.36\"", "3.00\"", "4.00\""],
+      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.36"', '3.00"', '4.00"'],
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
-      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
+      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
-    sliderImages: ["/p181ss.webp", "/p181ssthreadedend.webp", "/p181sspanel.webp"]
+    sliderImages: [
+      "/p181ss.webp",
+      "/p181ssthreadedend.webp",
+      "/p181sspanel.webp",
+    ],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const handlePrev = () => {
-    setCurrentIndex(prev =>
+    setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
     );
   };
   const handleNext = () => {
-    setCurrentIndex(prev =>
+    setCurrentIndex((prev) =>
       prev === product.sliderImages.length - 1 ? 0 : prev + 1
     );
   };
@@ -97,23 +109,32 @@ const P181_SS = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+        <link
+          rel="canonical"
+          href={`https://www.mycompany.com/products/${product.id}`}
+        />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">Back to Products</Link>
+        <Link to="/products" className="back-btn">
+          Back to Products
+        </Link>
       </header>
       <section className="details-main">
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
-            <img 
-              src={product.sliderImages[currentIndex]} 
-              alt={product.title} 
+            <button className="slider-btn" onClick={handlePrev}>
+              &lt;
+            </button>
+            <img
+              src={product.sliderImages[currentIndex]}
+              alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+            <button className="slider-btn" onClick={handleNext}>
+              &gt;
+            </button>
           </div>
         </div>
         <div className="info-section">
@@ -139,20 +160,62 @@ const P181_SS = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>
+            Ask For Quote
+          </button>
         </div>
       </section>
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
+          </ul>
+          <ul>
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      </section>
+      <section className="additional-section electronics-section">
+        <h2>Electronics</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.electronics.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="additional-section material-section">
+        <h2>Material</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.material.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+            {Object.entries(product.material.column2).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
         </div>
@@ -164,7 +227,12 @@ const P181_SS = () => {
             <h3>Field Mount</h3>
             <div className="mounting-images">
               {product.mountingOptions.fieldMount.map((imgObj, index) => (
-                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
@@ -172,7 +240,12 @@ const P181_SS = () => {
             <h3>Panel Mounted</h3>
             <div className="mounting-images">
               {product.mountingOptions.panelMount.map((imgObj, index) => (
-                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>

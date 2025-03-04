@@ -1,14 +1,15 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
-import '../../styles/ProductDetails.css';
+import "../../styles/ProductDetails.css";
 
 const P282_SS = () => {
   const product = {
     id: "P282-SS",
     title: "Digital Flow Controller - P282 (SS Sensor)",
-    description: "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, designed for industrial applications requiring accurate flow monitoring and control. It is compatible with Stainless Steel (SS) sensors and supports both field and panel mounting options. This model features a built-in 5A potential-free relay contact for alarms or control actions.",
+    description:
+      "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, designed for industrial applications requiring accurate flow monitoring and control. It is compatible with Stainless Steel (SS) sensors and supports both field and panel mounting options. This model features a built-in 5A potential-free relay contact for alarms or control actions.",
     modesAvailable: [
       "Totalizer Mode",
       "Batch Controller",
@@ -49,7 +50,7 @@ const P282_SS = () => {
       },
       column2: {
         "O-Ring": "Viton / Teflon",
-        "Paddle (Rotor)": "Stainless Steel 316"
+        "Paddle (Rotor)": "Black PVDF"
       }
     },
     mountingOptions: {
@@ -72,7 +73,11 @@ const P282_SS = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
-    sliderImages: ["/p282ss.webp", "/p282ssfieldmount.webp", "/p282sspanelmount.webp"]
+    sliderImages: [
+      "/p282ss.webp",
+      "/p282ssfieldmount.webp",
+      "/p282sspanelmount.webp"
+    ]
   };
 
   // Slider state for images
@@ -84,11 +89,15 @@ const P282_SS = () => {
 
   // Handlers for slider buttons
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+    setCurrentIndex(prev =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
   };
 
   const handleNext = () => {
-    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex(prev =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
   };
 
   // Handler for "Ask For Quote" button
@@ -109,23 +118,32 @@ const P282_SS = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+        <link
+          rel="canonical"
+          href={`https://www.mycompany.com/products/${product.id}`}
+        />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">Back to Products</Link>
+        <Link to="/products" className="back-btn">
+          Back to Products
+        </Link>
       </header>
       <section className="details-main">
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
-            <img 
-              src={product.sliderImages[currentIndex]} 
-              alt={product.title} 
+            <button className="slider-btn" onClick={handlePrev}>
+              &lt;
+            </button>
+            <img
+              src={product.sliderImages[currentIndex]}
+              alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+            <button className="slider-btn" onClick={handleNext}>
+              &gt;
+            </button>
           </div>
         </div>
         <div className="info-section">
@@ -151,7 +169,9 @@ const P282_SS = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>
+            Ask For Quote
+          </button>
         </div>
       </section>
       <section className="additional-section technical-section">
@@ -159,16 +179,60 @@ const P282_SS = () => {
         <div className="data-columns">
           <ul>
             {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
           <ul>
             {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
         </div>
       </section>
+      
+      {/* Separate Electronics Section */}
+      {product.electronics && (
+        <section className="additional-section electronics-section">
+          <h2>Electronics</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.electronics.column1).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* Separate Material Section */}
+      {product.material && (
+        <section className="additional-section material-section">
+          <h2>Material</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.material.column1).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {Object.entries(product.material.column2).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="additional-section mounting-options">
         <h2>Mounting Options</h2>
         <div className="mounting-columns">
@@ -176,7 +240,12 @@ const P282_SS = () => {
             <h3>Field Mount</h3>
             <div className="mounting-images">
               {product.mountingOptions.fieldMount.map((imgObj, index) => (
-                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
@@ -184,7 +253,12 @@ const P282_SS = () => {
             <h3>Panel Mounted</h3>
             <div className="mounting-images">
               {product.mountingOptions.panelMount.map((imgObj, index) => (
-                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>

@@ -1,14 +1,15 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import Contact from '../../components/Contact'; // Your Contact form component
-import '../../styles/ProductDetails.css';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Contact from "../../components/Contact"; // Your Contact form component
+import "../../styles/ProductDetails.css";
 
 const C181 = () => {
   const product = {
     id: "C181",
     title: "Conductivity/TDS Indicator - C181",
-    description: "NUCLUS Model C181 is a digital conductivity and TDS indicator designed for a wide variety of applications, ranging from high-purity water quality monitoring to process control in weak acids and bases. This microprocessor-based instrument provides accurate, repeatable readings with long-term signal stability. It is designed for both in-line and submersible installation.",
+    description:
+      "NUCLUS Model C181 is a digital conductivity and TDS indicator designed for a wide variety of applications, ranging from high-purity water quality monitoring to process control in weak acids and bases. This microprocessor-based instrument provides accurate, repeatable readings with long-term signal stability. It is designed for both in-line and submersible installation.",
     keyFeatures: [
       "Microprocessor-based for wide operating range and long term signal stability",
       "Backlit alphanumeric 1 x 16 LCD display",
@@ -49,28 +50,30 @@ const C181 = () => {
       }
     },
     cellSpecifications: {
-      "WettedParts": "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
-      "ThreadedConnection": "½ & ¾ inch BSP",
-      "CableLength": "3 meters (STD)",
-      "CellWeight": "500 gms (Approx.)",
-      "CellRange": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
+      "Wetted Parts": "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
+      "Threaded Connection": "½ & ¾ inch BSP",
+      "Cable Length": "3 meters (STD)",
+      "Cell Weight": "500 gms (Approx.)",
+      "Cell Range": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
     },
     sliderImages: ["/c181dp.webp", "/cell.webp"]
-    // Note: This product data does not include a "lineSize" property.
+    // Note: This product data does not include mounting options or line size.
   };
 
+  // Slider state for images
   const [currentIndex, setCurrentIndex] = useState(0);
+  // State and ref for the contact form
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
 
   const handlePrev = () => {
-    setCurrentIndex(prev =>
+    setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex(prev =>
+    setCurrentIndex((prev) =>
       prev === product.sliderImages.length - 1 ? 0 : prev + 1
     );
   };
@@ -92,23 +95,34 @@ const C181 = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+        <link
+          rel="canonical"
+          href={`https://www.mycompany.com/products/${product.id}`}
+        />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">Back to Products</Link>
+        <Link to="/products" className="back-btn">
+          Back to Products
+        </Link>
       </header>
+
+      {/* Main Section: Slider & Description */}
       <section className="details-main">
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
+            <button className="slider-btn" onClick={handlePrev}>
+              &lt;
+            </button>
             <img
               src={product.sliderImages[currentIndex]}
               alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+            <button className="slider-btn" onClick={handleNext}>
+              &gt;
+            </button>
           </div>
         </div>
         <div className="info-section">
@@ -124,24 +138,95 @@ const C181 = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>
+            Ask For Quote
+          </button>
         </div>
       </section>
+
+      {/* Technical Data Section */}
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
             {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
           <ul>
             {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
         </div>
       </section>
+
+      {/* Electronics Section */}
+      {product.electronics && (
+        <section className="additional-section electronics-section">
+          <h2>Electronics</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.electronics.column1).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {Object.entries(product.electronics.column2).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* Material Section */}
+      {product.material && (
+        <section className="additional-section material-section">
+          <h2>Material</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.material.column1).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {Object.entries(product.material.column2).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* Cell Specifications Section */}
+      {product.cellSpecifications && (
+        <section className="additional-section cell-specifications-section">
+          <h2>Cell Specifications</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.cellSpecifications).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>

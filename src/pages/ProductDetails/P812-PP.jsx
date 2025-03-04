@@ -16,18 +16,20 @@ const P812_PP = () => {
       "Supports pipe sizes from 15 NB to 300 NB",
       "Multiple installation fitting options",
       "Low power consumption with pulse output",
+      "Food grade plastic / metal MOC",
     ],
     technicalData: {
       column1: {
         "Flow Rate Range": "0.5 to 5 m/s (1.6 to 16.4 ft/s)",
         "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 inches)",
-        Linearity: "±1% of full range",
-        Repeatability: "±0.5% of full range",
+        "Linearity": "±1% of full range",
+        "Repeatability": "±0.5% of full range",
       },
       column2: {
         "Min Reynolds Number Required": "4500",
         "Operating Pressure": "Max 10 bar (145 psi) @ 25°C",
         "Operating Temperature": "-10°C to 70°C (14°F to 158°F)",
+        "Input": "Nuclus sensor P812",
       },
     },
     electronics: {
@@ -38,7 +40,7 @@ const P812_PP = () => {
       column2: {
         "Output Type": "Pulse output (NPN)",
         "Output Current": "10 mA max.",
-        Frequency: "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
+        "Frequency": "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
       },
     },
     material: {
@@ -57,7 +59,7 @@ const P812_PP = () => {
       { src: "/Triclore.webp", alt: "Triclore Fitting" },
       { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
       { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
-      { src: "/StubEnd.webp", alt: "StubEnd Fitting" }
+      { src: "/StubEnd.webp", alt: "StubEnd Fitting" },
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
@@ -65,7 +67,11 @@ const P812_PP = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "7.80", "14.0"],
       maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"],
     },
-    sliderImages: ["/p812.webp", "/p812threadedend.webp", "/p812threadedend1.webp"],
+    sliderImages: [
+      "/p812.webp",
+      "/p812threadedend.webp",
+      "/p812threadedend1.webp",
+    ],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -150,14 +156,38 @@ const P812_PP = () => {
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
+          </ul>
+          <ul>
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      </section>
+      {/* Electronics Section */}
+      <section className="additional-section electronics-section">
+        <h2>Electronics</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.electronics.column1).map(([key, value]) => (
               <li key={key}>
                 <strong>{key}:</strong> {value}
               </li>
             ))}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
+            {Object.entries(product.electronics.column2).map(([key, value]) => (
               <li key={key}>
                 <strong>{key}:</strong> {value}
               </li>
@@ -165,6 +195,28 @@ const P812_PP = () => {
           </ul>
         </div>
       </section>
+
+      {/* Material Section */}
+      <section className="additional-section material-section">
+        <h2>Material</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.material.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {Object.entries(product.material.column2).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="additional-section fittings-section">
         <h2>Fittings</h2>
         <div className="gallery-grid">

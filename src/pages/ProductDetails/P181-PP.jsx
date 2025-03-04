@@ -19,26 +19,31 @@ const P181_PP = () => {
     ],
     technicalData: {
       column1: {
-        Function: "Flow Rate Indicator",
-        "Supply Voltage": "230 V AC",
-        Accuracy: "+1% of FSD",
-        Input: "from Nuclus sensor P812",
+        "Function": "Flow Rate Indicator",
+        "Accuracy": "+1% of FSD",
         "Scale Factor": "00.1000000",
       },
       column2: {
         "Operating Temperature": "0 to 50°C",
         Protection: "IP65",
-        "Sensor Supply": "12 VDC (±10%), 30 mA",
+        Input: "Nuclus sensor P812",
       },
     },
     electronics: {
       column1: {
         Display: "Backlit alphanumeric 1 x 16 LCD",
+        "Supply Voltage": "230 V AC",
+        "Sensor Supply": "12 VDC (±10%), 30 mA",
       },
     },
     material: {
       column1: {
         Housing: "Plastic ABS",
+        "Sensor Body": "Polypropylene (Black)",
+      },
+      column2: {
+        "O-Ring": "Viton / Teflon",
+        "Paddle (Rotor)": "Polypropylene",
       },
     },
     mountingOptions: {
@@ -180,6 +185,38 @@ const P181_PP = () => {
                 </li>
               )
             )}
+          </ul>
+        </div>
+      </section>
+      <section className="additional-section electronics-section">
+        <h2>Electronics</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.electronics.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="additional-section material-section">
+        <h2>Material</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.material.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {Object.entries(product.material.column2).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
           </ul>
         </div>
       </section>

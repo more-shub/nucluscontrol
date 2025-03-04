@@ -1,65 +1,66 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
-import '../../styles/ProductDetails.css';
+import "../../styles/ProductDetails.css";
 
 const P282_PP = () => {
   // Inline product data for P282-PP
   const product = {
     id: "P282-PP",
     title: "Digital Flow Controller - P282 (PP Sensor)",
-    description: "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, compatible with Polypropylene (PP) sensors. Designed for industrial applications, it supports both field and panel mounting options with a built-in 5A potential-free relay contact for alarms or control.",
+    description:
+      "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, compatible with Polypropylene (PP) sensors. Designed for industrial applications, it supports both field and panel mounting options with a built-in 5A potential-free relay contact for alarms or control.",
     modesAvailable: [
       "Totalizer Mode",
       "Batch Controller",
       "Pulse Controller",
-      "Rate Switch"
+      "Rate Switch",
     ],
     keyFeatures: [
       "Microcontroller-based digital flow controller",
       "Built-in 5A potential-free contact for alarms or control",
       "Supports multiple sensor inputs (Turbine, PD, Magnetic, Ultrasonic)",
       "Programmable scale factor for accurate flow readings",
-      "IP65 protection for field mounting"
+      "IP65 protection for field mounting",
     ],
     technicalData: {
       column1: {
         "Function": "Rate Indicator with Totalizer",
         "Supply Voltage": "230 V AC",
         "Accuracy": "±0.5% of FSD",
-        "Input": "from Nuclus sensor P812",
-        "Scale Factor": "00.1000000"
+        "Scale Factor": "00.1000000",
       },
       column2: {
         "Operating Temperature": "0 to 50°C",
         "Protection": "IP65",
-        "Output": "5A potential-free contact @ 230V AC"
-      }
+        "Input": "Nuclus sensor P812",
+      },
     },
     electronics: {
       column1: {
         "Sensor Supply": "12 VDC",
-        "Display": "Backlit alphanumeric 2 x 16 LCD"
-      }
+        "Output": "5A potential-free contact @ 230V AC",
+        "Display": "Backlit alphanumeric 2 x 16 LCD",
+      },
     },
     material: {
       column1: {
         "Housing": "Plastic ABS",
-        "Sensor Body": "Polypropylene (Black)"
+        "Sensor Body": "Polypropylene (Black)",
       },
       column2: {
         "O-Ring": "Viton / Teflon",
-        "Paddle (Rotor)": "Polypropylene"
-      }
+        "Paddle (Rotor)": "Polypropylene",
+      },
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p282threadedend.webp", alt: "Field Mount Option 1" }
+        { src: "/p282threadedend.webp", alt: "Field Mount Option 1" },
       ],
       panelMount: [
-        { src: "/p282panelmount.webp", alt: "Panel Mount Option 1" }
-      ]
+        { src: "/p282panelmount.webp", alt: "Panel Mount Option 1" },
+      ],
     },
     fittings: [
       { src: "/Weld-Adapter.webp", alt: "Weld Adapter Fitting" },
@@ -67,19 +68,19 @@ const P282_PP = () => {
       { src: "/Triclore.webp", alt: "Triclore Fitting" },
       { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
       { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
-      { src: "/StubEnd.webp", alt: "StubEnd Fitting" }
+      { src: "/StubEnd.webp", alt: "StubEnd Fitting" },
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
-      sizeInches: ["0.5\"", "1\"", "1.5\"", "2\"", "2.36\"", "3.00\"", "4.00\""],
+      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.36"', '3.00"', '4.00"'],
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
-      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
+      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
     sliderImages: [
       "/p282.webp",
       "/p282threadedend.webp",
-      "/p282panelmount.webp"
-    ]
+      "/p282panelmount.webp",
+    ],
   };
 
   // Slider state for images
@@ -91,11 +92,15 @@ const P282_PP = () => {
 
   // Handler for slider buttons
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? product.sliderImages.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
   };
 
   const handleNext = () => {
-    setCurrentIndex(prev => (prev === product.sliderImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
   };
 
   // Handler for "Ask For Quote" button
@@ -116,25 +121,34 @@ const P282_PP = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+        <link
+          rel="canonical"
+          href={`https://www.mycompany.com/products/${product.id}`}
+        />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">Back to Products</Link>
+        <Link to="/products" className="back-btn">
+          Back to Products
+        </Link>
       </header>
 
       <section className="details-main">
         {/* Slider Section */}
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
-            <img 
-              src={product.sliderImages[currentIndex]} 
-              alt={product.title} 
+            <button className="slider-btn" onClick={handlePrev}>
+              &lt;
+            </button>
+            <img
+              src={product.sliderImages[currentIndex]}
+              alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+            <button className="slider-btn" onClick={handleNext}>
+              &gt;
+            </button>
           </div>
         </div>
         {/* Information Section */}
@@ -176,18 +190,56 @@ const P282_PP = () => {
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
-            ))}
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      </section>
+      <section className="additional-section electronics-section">
+        <h2>Electronics</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.electronics.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
             ))}
           </ul>
         </div>
       </section>
-
+      <section className="additional-section material-section">
+        <h2>Material</h2>
+        <div className="data-columns">
+          <ul>
+            {Object.entries(product.material.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {Object.entries(product.material.column2).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       {/* Mounting Options Section */}
       <section className="additional-section mounting-options">
         <h2>Mounting Options</h2>
@@ -196,7 +248,12 @@ const P282_PP = () => {
             <h3>Field Mount</h3>
             <div className="mounting-images">
               {product.mountingOptions.fieldMount.map((imgObj, index) => (
-                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
@@ -204,7 +261,12 @@ const P282_PP = () => {
             <h3>Panel Mounted</h3>
             <div className="mounting-images">
               {product.mountingOptions.panelMount.map((imgObj, index) => (
-                <img key={index} src={imgObj.src} alt={imgObj.alt} loading="lazy" />
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
