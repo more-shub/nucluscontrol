@@ -4,7 +4,7 @@ import "../styles/Contact.css";
 const Contact = () => {
   // URL obtained from deploying your Google Apps Script
   const GOOGLE_FORM_URL =
-    "https://script.google.com/macros/s/AKfycbwLtIr0r-NzKRliMlNBIwnFGORLtIQNerogL-YttZALFq4L20YrOQ18BBvoz9cLNuRDEA/exec";
+    "https://script.google.com/macros/s/AKfycbz6TH8jEYfbwNKtlWDGfFRUY0OO8NL5QPAOlPXI9e9FXe5EDtWoOadPpWHheW93ypA5mA/exec";
 
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
@@ -13,12 +13,21 @@ const Contact = () => {
     contact: "",
     company: "",
     address: "",
+    selectProduct: "",
   });
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fields = ["email", "name", "contact", "company", "address"];
+  // Updated fields array to include "selectProduct"
+  const fields = [
+    "email",
+    "name",
+    "contact",
+    "company",
+    "address",
+    "selectProduct",
+  ];
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -40,7 +49,7 @@ const Contact = () => {
     }
     if (step === 3 && !currentValue) return "Company Name cannot be empty.";
     if (step === 4 && !currentValue) return "Address cannot be empty.";
-
+    if (step === 5 && !currentValue) return "Please select a product.";
     return "";
   };
 
@@ -52,7 +61,7 @@ const Contact = () => {
     }
     setError("");
 
-    if (step < 4) {
+    if (step < fields.length - 1) {
       setStep((prev) => prev + 1);
     } else {
       setIsLoading(true);
@@ -78,12 +87,14 @@ const Contact = () => {
     }
   };
 
+  // Updated placeholders and labels to include the new field.
   const placeholders = [
     "Enter your Email",
     "Enter your Name",
     "Enter your Contact Number",
     "Enter your Company Name",
     "Enter Detailed Address",
+    "Select a Product",
   ];
 
   const labels = [
@@ -92,6 +103,7 @@ const Contact = () => {
     "Contact Number",
     "Company Name",
     "Address",
+    "Select Product",
   ];
 
   if (submitted) {
@@ -112,21 +124,44 @@ const Contact = () => {
         <div className="progress-bar">
           <div
             className="progress"
-            style={{ width: `${((step + 1) / 5) * 100}%` }}
+            style={{ width: `${((step + 1) / fields.length) * 100}%` }}
           ></div>
         </div>
         <label htmlFor="contactField">{labels[step]}</label>
-        <input
-          id="contactField"
-          type={step === 0 ? "email" : step === 2 ? "tel" : "text"}
-          placeholder={placeholders[step]}
-          value={formData[fields[step]]}
-          onChange={handleChange}
-          autoComplete="off"
-        />
+        {fields[step] === "selectProduct" ? (
+          <select
+            id="contactField"
+            value={formData[fields[step]]}
+            onChange={handleChange}
+          >
+            <option value="">Select a Product</option>
+            <option value="Digital Flow Meter">Digital Flow Meter</option>
+            <option value="Flow Sensor">Flow Sensor</option>
+            <option value="Battery operated flow meter">
+              Battery operated flow meter
+            </option>
+            <option value="pH Meter">pH Meter</option>
+            <option value="Conductivity /TDS Meter">
+              Conductivity /TDS Meter
+            </option>
+          </select>
+        ) : (
+          <input
+            id="contactField"
+            type={step === 0 ? "email" : step === 2 ? "tel" : "text"}
+            placeholder={placeholders[step]}
+            value={formData[fields[step]]}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+        )}
         {error && <div className="contact-form-error">{error}</div>}
         <button onClick={handleNext} disabled={isLoading}>
-          {step < 4 ? "Next" : isLoading ? "Submitting..." : "Submit"}
+          {step < fields.length - 1
+            ? "Next"
+            : isLoading
+            ? "Submitting..."
+            : "Submit"}
         </button>
       </div>
     </div>

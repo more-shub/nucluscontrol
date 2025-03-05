@@ -102,3 +102,23 @@
   color: #555;
 }
 
+/* Style for select elements in the contact form */
+.contact-form-box select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Focus state for the select element */
+.contact-form-box select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
