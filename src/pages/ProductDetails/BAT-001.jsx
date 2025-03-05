@@ -56,7 +56,7 @@ const BAT_001 = () => {
       { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
       { src: "/StubEnd.webp", alt: "StubEnd Fitting" }
     ],
-    sliderImages: ["/Floreader1.webp", "/Floreader2.webp", ""]
+    sliderImages: ["/Floreader1.webp", "/Floreader2.webp", "/Floreader3.webp","/Floreader4.webp"]
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
