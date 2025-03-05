@@ -16,7 +16,6 @@ const products = [
   "PH Indicator",
   "PH Transmitter",
   "Conductivity/TDS Indicator",
-  "Conductivity/TDS Controller",
 ];
 
 // Map each product name to its static detail page ID
@@ -33,7 +32,6 @@ const productMapping = {
   "PH Indicator": "P200",
   "PH Transmitter": "P300",
   "Conductivity/TDS Indicator": "C181",
-  "Conductivity/TDS Controller": "C282",
 };
 
 const Footer = () => {
