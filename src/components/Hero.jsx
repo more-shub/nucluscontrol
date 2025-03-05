@@ -1,8 +1,26 @@
 // src/components/Hero.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Hero.css';
 
 const Hero = () => {
+  // Array of images for the slideshow
+  const images = [
+    "/heroimg1.webp",
+    "/heroimg2.webp",
+    "/heroimg3.webp",
+    "/heroimg4.webp",
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Change image every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="hero">
       <div className="hero-content">
@@ -32,8 +50,11 @@ const Hero = () => {
       </div>
       <div className="hero-image">
         <div className="image-container">
-          <img src="/water.webp" alt="Water Effect" className="image1" />
-          <img src="/heroimg.webp" alt="Product" className="image2" />
+          <img
+            src={images[currentIndex]}
+            alt="Product Slideshow"
+            className="slideshow-image"
+          />
         </div>
       </div>
     </div>

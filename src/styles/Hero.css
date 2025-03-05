@@ -83,6 +83,8 @@
   width: 420px;
   height: 420px;
 }
+
+/* Existing styling for any image inside the container */
 .image-container img {
   position: absolute;
   top: 0;
@@ -99,6 +101,14 @@
   height: auto;
   top: 90px;
   left: 90px;
+}
+
+/* NEW: Slideshow Image Style for the Hero Image Section */
+.image-container .slideshow-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Responsive Adjustments */
