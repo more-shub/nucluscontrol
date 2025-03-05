@@ -78,13 +78,6 @@
       "rating": 4.6
     },
     {
-      "id": "C282",
-      "name": "Conductivity/TDS Transitter - C282",
-      "category": "Conductivity TDS Meters",
-      "imageUrl": "/c282.webp",
-      "rating": 4.7
-    },
-    {
       "id": "BAT-001",
       "name": "Battery Operated Flow Meter - FloReader",
       "category": "Flow Meters",

@@ -19,7 +19,6 @@ import P812_SS from "./pages/ProductDetails/P812-SS";
 import P200 from "./pages/ProductDetails/P200";
 import P300 from "./pages/ProductDetails/P300";
 import C181 from "./pages/ProductDetails/C181";
-import C282 from "./pages/ProductDetails/C282";
 import BAT_001 from "./pages/ProductDetails/BAT-001";
 import ScrollToTop from "./ScrollToTop";
 import "./App.css";
@@ -57,7 +56,6 @@ function App() {
           <Route path="/products/P200" element={<P200 />} />
           <Route path="/products/P300" element={<P300 />} />
           <Route path="/products/C181" element={<C181 />} />
-          <Route path="/products/C282" element={<C282 />} />
           <Route path="/products/BAT-001" element={<BAT_001 />} />
           {/* Blog route */}
           <Route path="/blogs" element={<BlogSection />} />
