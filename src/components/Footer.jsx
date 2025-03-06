@@ -69,9 +69,26 @@ const Footer = () => {
           </div>
           <div className="social-media">
             <Link to="#" title="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M22.675 0H1.325C.59375 0 0 .59375 0 1.325v21.3516C0 23.4063.59375 24 1.325 24H12.82v-9.294h-3.204v-3.623h3.204V8.413c0-3.169 1.932-4.899 4.75-4.899 1.351 0 2.509.1016 2.847.146V8.64H18.11c-1.4 0-1.672.667-1.672 1.645v2.156h3.344l-0.436 3.623h-2.908V24h5.699C23.4063 24 24 23.4063 24 22.676V1.325C24 .59375 23.4063 0 22.675 0z" />
-              </svg>
+              <img
+                src="./facebook.png" // Update this path to your actual image location
+                alt="Facebook Logo"
+                style={{ width: "48px", height: "48px" }}
+              />
+            </Link>
+
+            <Link to="https://x.com/NuclusControl" title="X">
+              <img
+                src="./x.png" // Update this path to your actual image location
+                alt="X Logo"
+                style={{ width: "48px", height: "48px" }}
+              />
+            </Link>
+            <Link to="#" title="LinkedIn">
+              <img
+                src="./linkedin.png" // Update with the actual path to your LinkedIn logo
+                alt="LinkedIn Logo"
+                style={{ width: "48px", height: "48px" }}
+              />
             </Link>
           </div>
           <div className="footer-map">
