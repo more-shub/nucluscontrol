@@ -72,7 +72,7 @@ const Footer = () => {
               <img
                 src="./facebook.png" // Update this path to your actual image location
                 alt="Facebook Logo"
-                style={{ width: "48px", height: "48px" }}
+                style={{ width: "40px", height: "40px" }}
               />
             </Link>
 
@@ -80,14 +80,14 @@ const Footer = () => {
               <img
                 src="./x.png" // Update this path to your actual image location
                 alt="X Logo"
-                style={{ width: "48px", height: "48px" }}
+                style={{ width: "40px", height: "40px" }}
               />
             </Link>
             <Link to="#" title="LinkedIn">
               <img
                 src="./linkedin.png" // Update with the actual path to your LinkedIn logo
                 alt="LinkedIn Logo"
-                style={{ width: "48px", height: "48px" }}
+                style={{ width: "40px", height: "40px" }}
               />
             </Link>
           </div>
