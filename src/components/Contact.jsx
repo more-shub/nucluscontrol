@@ -4,7 +4,7 @@ import "../styles/Contact.css";
 const Contact = () => {
   // URL obtained from deploying your Google Apps Script
   const GOOGLE_FORM_URL =
-    "https://script.google.com/macros/s/AKfycbz6TH8jEYfbwNKtlWDGfFRUY0OO8NL5QPAOlPXI9e9FXe5EDtWoOadPpWHheW93ypA5mA/exec";
+    "https://script.google.com/macros/s/AKfycbyv_4EE3aP1F75I9CSkqGbNxwNFXwJDyZHqajamZ2JUzsUlR9BoWbGpOWP1YMgwl17Uxw/exec";
 
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
