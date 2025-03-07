@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="contact-item">📞 +91 8530804143</div>
           </div>
           <div className="social-media">
-            <Link to="#" title="Facebook">
+            <Link to="https://www.facebook.com/nucluscontrol" title="Facebook">
               <img
                 src="./facebook.png" // Update this path to your actual image location
                 alt="Facebook Logo"
@@ -83,7 +83,7 @@ const Footer = () => {
                 style={{ width: "40px", height: "40px" }}
               />
             </Link>
-            <Link to="#" title="LinkedIn">
+            <Link to="https://www.linkedin.com/in/nuclus-control-925989354/" title="LinkedIn">
               <img
                 src="./linkedin.png" // Update with the actual path to your LinkedIn logo
                 alt="LinkedIn Logo"
