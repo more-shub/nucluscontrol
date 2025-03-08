@@ -47,7 +47,16 @@ const Footer = () => {
               Leading manufacturers, exporters, and suppliers of controlling and
               measuring instruments.
             </p>
+            {/* Add the Make in India image here */}
+            <div className="make-in-india-wrapper">
+              <img
+                src="/makeinindia.png"
+                alt="Make in India"
+                className="make-in-india-image"
+              />
+            </div>
           </div>
+
           {/* Products List */}
           <div className="list-section products">
             <h3>Products</h3>
@@ -63,7 +72,10 @@ const Footer = () => {
         {/* Bottom Section: Contact, Social Media & Map */}
         <div className="footer-bottom">
           <div className="contact-info">
-            <div className="contact-item">📍 Pune, Maharashtra, India</div>
+            <div className="contact-item">
+              📍 Shubh Ganesh Industrial Estate Opp. SBI Bank,Sr No.27/4/2,Old
+              Mundhwa-Kharadi Rd.Kharadi, Pune, Maharashtra, 411014
+            </div>
             <div className="contact-item">📧 sales@nucluscontrol.com</div>
             <div className="contact-item">📞 +91 8530804143</div>
           </div>
@@ -83,7 +95,10 @@ const Footer = () => {
                 style={{ width: "40px", height: "40px" }}
               />
             </Link>
-            <Link to="https://www.linkedin.com/in/nuclus-control-925989354/" title="LinkedIn">
+            <Link
+              to="https://www.linkedin.com/in/nuclus-control-925989354/"
+              title="LinkedIn"
+            >
               <img
                 src="./linkedin.png" // Update with the actual path to your LinkedIn logo
                 alt="LinkedIn Logo"

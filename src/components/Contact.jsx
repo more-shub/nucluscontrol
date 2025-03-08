@@ -4,29 +4,27 @@ import "../styles/Contact.css";
 const Contact = () => {
   // URL obtained from deploying your Google Apps Script
   const GOOGLE_FORM_URL =
-    "https://script.google.com/macros/s/AKfycbyv_4EE3aP1F75I9CSkqGbNxwNFXwJDyZHqajamZ2JUzsUlR9BoWbGpOWP1YMgwl17Uxw/exec";
+    "https://script.google.com/macros/s/AKfycbw1_Qmk9e4eGHacoXSO7Uo731gleKMFBgfP6o7UBpTNcWCCtOepC5xo5ckXza-dcGyP1g/exec";
 
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    contact: "",
-    company: "",
-    address: "",
-    selectProduct: "",
+    "Email Address": "",
+    "Full Name": "",
+    "Contact Number": "",
+    "Company Name": "",
+    "Describe your Requirement": "",
   });
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Updated fields array to include "selectProduct"
+  // Updated fields array: keys exactly match the labels
   const fields = [
-    "email",
-    "name",
-    "contact",
-    "company",
-    "address",
-    "selectProduct",
+    "Email Address",
+    "Full Name",
+    "Contact Number",
+    "Company Name",
+    "Describe your Requirement",
   ];
 
   const handleChange = (e) => {
@@ -40,7 +38,7 @@ const Contact = () => {
     if (step === 0 && !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(currentValue)) {
       return "Please enter a valid email address.";
     }
-    if (step === 1 && !currentValue) return "Name cannot be empty.";
+    if (step === 1 && !currentValue) return "Full Name cannot be empty.";
     if (
       step === 2 &&
       (!/^\d+$/.test(currentValue) || currentValue.length < 7)
@@ -48,8 +46,7 @@ const Contact = () => {
       return "Please enter a valid contact number (min 7 digits).";
     }
     if (step === 3 && !currentValue) return "Company Name cannot be empty.";
-    if (step === 4 && !currentValue) return "Address cannot be empty.";
-    if (step === 5 && !currentValue) return "Please select a product.";
+    if (step === 4 && !currentValue) return "Please describe your requirement.";
     return "";
   };
 
@@ -73,7 +70,7 @@ const Contact = () => {
           body: JSON.stringify(formData),
           mode: "no-cors",
         });
-        // Since we're in no-cors mode, assume submission is successful if no error is thrown.
+        // Assume submission is successful if no error is thrown.
         setSubmitted(true);
       } catch (err) {
         setError(
@@ -87,14 +84,13 @@ const Contact = () => {
     }
   };
 
-  // Updated placeholders and labels to include the new field.
+  // Placeholders and labels now match the field names exactly
   const placeholders = [
-    "Enter your Email",
-    "Enter your Name",
+    "Enter your Email Address",
+    "Enter your Full Name",
     "Enter your Contact Number",
     "Enter your Company Name",
-    "Enter Detailed Address",
-    "Select a Product",
+    "Describe your Requirement",
   ];
 
   const labels = [
@@ -102,8 +98,7 @@ const Contact = () => {
     "Full Name",
     "Contact Number",
     "Company Name",
-    "Address",
-    "Select Product",
+    "Describe your Requirement",
   ];
 
   if (submitted) {
@@ -128,33 +123,14 @@ const Contact = () => {
           ></div>
         </div>
         <label htmlFor="contactField">{labels[step]}</label>
-        {fields[step] === "selectProduct" ? (
-          <select
-            id="contactField"
-            value={formData[fields[step]]}
-            onChange={handleChange}
-          >
-            <option value="">Select a Product</option>
-            <option value="Digital Flow Meter">Digital Flow Meter</option>
-            <option value="Flow Sensor">Flow Sensor</option>
-            <option value="Battery operated flow meter">
-              Battery operated flow meter
-            </option>
-            <option value="pH Meter">pH Meter</option>
-            <option value="Conductivity /TDS Meter">
-              Conductivity /TDS Meter
-            </option>
-          </select>
-        ) : (
-          <input
-            id="contactField"
-            type={step === 0 ? "email" : step === 2 ? "tel" : "text"}
-            placeholder={placeholders[step]}
-            value={formData[fields[step]]}
-            onChange={handleChange}
-            autoComplete="off"
-          />
-        )}
+        <input
+          id="contactField"
+          type={step === 0 ? "email" : step === 2 ? "tel" : "text"}
+          placeholder={placeholders[step]}
+          value={formData[fields[step]]}
+          onChange={handleChange}
+          autoComplete="off"
+        />
         {error && <div className="contact-form-error">{error}</div>}
         <button onClick={handleNext} disabled={isLoading}>
           {step < fields.length - 1

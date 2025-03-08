@@ -169,3 +169,16 @@ footer {
     margin: 10px 0;
   }
 }
+.make-in-india-wrapper {
+  margin-top: 10px; /* Adds space above the image */
+  /* No text-align or flexbox justification so it stays left-aligned */
+}
+
+.make-in-india-image {
+  max-width: 50%;
+  width: 50%;
+  height: auto;
+  display: center; /* Ensures the image is left-aligned by default */
+}
+
+
