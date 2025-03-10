@@ -269,3 +269,124 @@
     flex-direction: column;
   }
 }
+
+@media (min-width: 301px) and (max-width: 480px) {
+  /* Overall Container */
+  .product-details {
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* Header Adjustments */
+  .details-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    text-align: center;
+  }
+  .details-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .back-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    margin-top: 10px;
+  }
+  
+  /* Main Details Section */
+  .details-main {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Slider Section */
+  .slider-section {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slider-container {
+    gap: 5px;
+  }
+  .slider-btn {
+    padding: 8px;
+    font-size: 1rem;
+  }
+  .main-image {
+    max-height: 200px;
+  }
+  
+  /* Info Section */
+  .info-section {
+    min-width: 100%;
+  }
+  .info-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  .info-section h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 8px;
+  }
+  .info-section p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  .quote-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+  
+  /* Additional Sections */
+  .additional-section {
+    padding: 15px 10px;
+    margin-bottom: 20px;
+  }
+  .additional-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Data Columns: Stack into one column */
+  .data-columns {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Mounting Options: Stack vertically */
+  .mounting-columns {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .mounting-block {
+    min-width: 100%;
+  }
+  .mounting-images img {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Line Size Section */
+  .line-size-section {
+    margin: 20px 0;
+  }
+  .line-size-table {
+    font-size: 0.8rem;
+  }
+  
+  /* Fittings Section */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  .fitting-item {
+    padding: 8px;
+  }
+  
+  /* Quote Form Section */
+  .quote-form-section h2 {
+    font-size: 1.8rem;
+  }
+}
