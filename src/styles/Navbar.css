@@ -75,11 +75,23 @@
     padding: 10px 0;
     display: none; /* Hidden by default */
   }
-  
+
+  @media (min-width: 301px) and (max-width: 768px) {
+    /* Example adjustments for screens between 301px and 768px */
+    .logo img {
+      width: 120px; /* Adjust logo size as needed */
+      height: auto;
+    }
+    .nav-links {
+      gap: 15px; /* Adjust spacing between links */
+    }
+    /* Add any additional style overrides here */
+  }
+
   .nav-links.active {
     display: flex;
   }
-  
+
   .hamburger {
     display: flex;
   }

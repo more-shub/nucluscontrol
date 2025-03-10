@@ -47,13 +47,15 @@ const Footer = () => {
               Leading manufacturers, exporters, and suppliers of controlling and
               measuring instruments.
             </p>
-            {/* Add the Make in India image here */}
-            <div className="make-in-india-wrapper">
-              <img
-                src="/makeinindia.png"
-                alt="Make in India"
-                className="make-in-india-image"
-              />
+            {/* Icons Container for Make in India and Trusted Seller */}
+            <div className="icons-container">
+              <div className="make-in-india-wrapper">
+                <img
+                  src="/makeinindia.png"
+                  alt="Make in India"
+                  className="make-in-india-image"
+                />
+              </div>
             </div>
           </div>
 
@@ -73,8 +75,8 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="contact-info">
             <div className="contact-item">
-              📍 Shubh Ganesh Industrial Estate Opp. SBI Bank,Sr No.27/4/2,Old
-              Mundhwa-Kharadi Rd.Kharadi, Pune, Maharashtra, 411014
+              📍 Shubh Ganesh Industrial Estate Opp. SBI Bank, Sr No.27/4/2, Old
+              Mundhwa-Kharadi Rd. Kharadi, Pune, Maharashtra, 411014
             </div>
             <div className="contact-item">📧 sales@nucluscontrol.com</div>
             <div className="contact-item">📞 +91 8530804143</div>
@@ -103,6 +105,20 @@ const Footer = () => {
                 src="./linkedin.png" // Update with the actual path to your LinkedIn logo
                 alt="LinkedIn Logo"
                 style={{ width: "40px", height: "40px" }}
+              />
+            </Link>
+          </div>
+          <div className="trusted-seller-wrapper">
+            <Link
+              to="https://www.tradeindia.com/truststamp-member/NUCLUS-CONTROL-2349176/"
+              title="Trusted Seller"
+            >
+              <img
+                src="https://tiimg.tistatic.com/new_website1/general/trust_stamp/trusted-seller.svg
+" // Update with the actual path to your Trusted Seller icon
+                alt="Trusted Seller Icon"
+                className="trusted-seller-icon"
+                style={{ width: "120px", height: "120px" }}
               />
             </Link>
           </div>

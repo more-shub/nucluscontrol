@@ -165,3 +165,47 @@
     font-size: 1.1rem;
   }
 }
+
+@media (min-width: 301px) and (max-width: 480px) {
+  /* Ensure the hero container aligns similarly to the 768px layout */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 15px 10px;
+  }
+  .hero-content,
+  .hero-image {
+    flex: unset;
+    width: 100%;
+    padding: 10px;
+  }
+  /* Scale headings and paragraphs for readability */
+  .hero-content h1 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+  }
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  /* Adjust image container dimensions */
+  .image-container {
+    width: 90%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  /* Optimize logos section for smaller widths */
+  .logos-section {
+    width: 100%;
+    padding: 10px 0;
+    overflow-x: auto;
+  }
+  .images-container {
+    gap: 15px;
+  }
+  .images-container img {
+    height: 40px;
+  }
+}
+

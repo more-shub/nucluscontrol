@@ -106,3 +106,51 @@
 .scroll-container:hover .industries-cards-container {
   animation-play-state: paused;
 }
+
+@media (min-width: 301px) and (max-width: 480px) {
+  /* Reduce overall padding for the section wrapper */
+  #industries-section-wrapper {
+    padding: 10px;
+  }
+  
+  /* Optimize headings and paragraph text for smaller screens */
+  .industries-section h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .industries-section p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Adjust scroll container if needed */
+  .scroll-container {
+    /* Optionally remove the mask effect for clarity on small screens */
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow-x: auto;
+  }
+  
+  /* Slow down the scrolling animation slightly */
+  .industries-cards-container {
+    animation-duration: 30s;
+  }
+  
+  /* Scale down the industry cards */
+  .industry-card {
+    width: 200px;
+    height: 200px;
+    margin: 0 5px;
+  }
+  
+  /* Adjust font sizes within cards for better readability */
+  .industry-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .industry-card p {
+    font-size: 0.8rem;
+  }
+}
