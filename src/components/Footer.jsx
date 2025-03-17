@@ -51,7 +51,7 @@ const Footer = () => {
             <div className="icons-container">
               <div className="make-in-india-wrapper">
                 <img
-                  src="/makeinindia.png"
+                  src="/makeinindia.webp"
                   alt="Make in India"
                   className="make-in-india-image"
                 />
@@ -84,7 +84,7 @@ const Footer = () => {
           <div className="social-media">
             <Link to="https://www.facebook.com/nucluscontrol" title="Facebook">
               <img
-                src="./facebook.png" // Update this path to your actual image location
+                src="./facebook.webp" // Update this path to your actual image location
                 alt="Facebook Logo"
                 style={{ width: "40px", height: "40px" }}
               />
@@ -92,7 +92,7 @@ const Footer = () => {
 
             <Link to="https://x.com/NuclusControl" title="X">
               <img
-                src="./x.png" // Update this path to your actual image location
+                src="./x.webp" // Update this path to your actual image location
                 alt="X Logo"
                 style={{ width: "40px", height: "40px" }}
               />
@@ -102,7 +102,7 @@ const Footer = () => {
               title="LinkedIn"
             >
               <img
-                src="./linkedin.png" // Update with the actual path to your LinkedIn logo
+                src="./linkedin.webp" // Update with the actual path to your LinkedIn logo
                 alt="LinkedIn Logo"
                 style={{ width: "40px", height: "40px" }}
               />
