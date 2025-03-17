@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import "../styles/Contact.css";
 
 const Contact = () => {
@@ -18,21 +18,51 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Updated fields array: keys exactly match the labels
-  const fields = [
-    "Email Address",
-    "Full Name",
-    "Contact Number",
-    "Company Name",
-    "Describe your Requirement",
-  ];
+  // Memoize arrays so that they do not change on every render.
+  const fields = useMemo(
+    () => [
+      "Email Address",
+      "Full Name",
+      "Contact Number",
+      "Company Name",
+      "Describe your Requirement",
+    ],
+    []
+  );
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setFormData((prev) => ({ ...prev, [fields[step]]: value }));
-  };
+  const placeholders = useMemo(
+    () => [
+      "Enter your Email Address",
+      "Enter your Full Name",
+      "Enter your Contact Number",
+      "Enter your Company Name",
+      "Describe your Requirement",
+    ],
+    []
+  );
 
-  const validateField = () => {
+  const labels = useMemo(
+    () => [
+      "Email Address",
+      "Full Name",
+      "Contact Number",
+      "Company Name",
+      "Describe your Requirement",
+    ],
+    []
+  );
+
+  // Handle input change with useCallback to prevent unnecessary re-renders.
+  const handleChange = useCallback(
+    (e) => {
+      const { value } = e.target;
+      setFormData((prev) => ({ ...prev, [fields[step]]: value }));
+    },
+    [fields, step]
+  );
+
+  // Validate the current field based on the step.
+  const validateField = useCallback(() => {
     const currentValue = formData[fields[step]].trim();
 
     if (step === 0 && !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(currentValue)) {
@@ -48,9 +78,10 @@ const Contact = () => {
     if (step === 3 && !currentValue) return "Company Name cannot be empty.";
     if (step === 4 && !currentValue) return "Please describe your requirement.";
     return "";
-  };
+  }, [formData, fields, step]);
 
-  const handleNext = async () => {
+  // Handle the "Next" or "Submit" button click.
+  const handleNext = useCallback(async () => {
     const validationError = validateField();
     if (validationError) {
       setError(validationError);
@@ -70,7 +101,6 @@ const Contact = () => {
           body: JSON.stringify(formData),
           mode: "no-cors",
         });
-        // Assume submission is successful if no error is thrown.
         setSubmitted(true);
       } catch (err) {
         setError(
@@ -82,24 +112,17 @@ const Contact = () => {
         setIsLoading(false);
       }
     }
-  };
+  }, [validateField, fields.length, formData, GOOGLE_FORM_URL, step]);
 
-  // Placeholders and labels now match the field names exactly
-  const placeholders = [
-    "Enter your Email Address",
-    "Enter your Full Name",
-    "Enter your Contact Number",
-    "Enter your Company Name",
-    "Describe your Requirement",
-  ];
-
-  const labels = [
-    "Email Address",
-    "Full Name",
-    "Contact Number",
-    "Company Name",
-    "Describe your Requirement",
-  ];
+  // Handle Enter key press on the input field for keyboard accessibility.
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Enter") {
+        handleNext();
+      }
+    },
+    [handleNext]
+  );
 
   if (submitted) {
     return (
@@ -129,10 +152,16 @@ const Contact = () => {
           placeholder={placeholders[step]}
           value={formData[fields[step]]}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           autoComplete="off"
+          autoFocus
         />
-        {error && <div className="contact-form-error">{error}</div>}
-        <button onClick={handleNext} disabled={isLoading}>
+        {error && (
+          <div className="contact-form-error" role="alert">
+            {error}
+          </div>
+        )}
+        <button onClick={handleNext} disabled={isLoading} aria-busy={isLoading}>
           {step < fields.length - 1
             ? "Next"
             : isLoading

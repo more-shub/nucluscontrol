@@ -146,6 +146,7 @@ footer {
   padding-top: 10px;
 }
 
+/* Responsive Adjustments for screens up to 768px */
 @media (max-width: 768px) {
   .footer-top,
   .footer-bottom {
@@ -169,6 +170,39 @@ footer {
     margin: 10px 0;
   }
 }
+
+/* Responsive Adjustments for small screens between 301px and 480px */
+@media (min-width: 301px) and (max-width: 480px) {
+  footer {
+    padding: 20px 10px;
+  }
+  .footer-container {
+    padding: 10px;
+  }
+  .footer-company h2 {
+    font-size: 1.8rem;
+  }
+  .list-section.products h3 {
+    font-size: 1.2em;
+  }
+  .products-list li {
+    flex: 0 0 calc(50% - 10px);
+    font-size: 0.85em;
+  }
+  .contact-info {
+    font-size: 0.9em;
+  }
+  .footer-map iframe {
+    max-width: 200px;
+    height: 80px;
+  }
+  .social-media a img,
+  .social-media a svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .make-in-india-wrapper {
   margin-top: 10px; /* Adds space above the image */
   /* No text-align or flexbox justification so it stays left-aligned */
@@ -178,7 +212,5 @@ footer {
   max-width: 50%;
   width: 50%;
   height: auto;
-  display: center; /* Ensures the image is left-aligned by default */
+  display: block;
 }
-
-

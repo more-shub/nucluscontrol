@@ -114,8 +114,7 @@ const Footer = () => {
               title="Trusted Seller"
             >
               <img
-                src="https://tiimg.tistatic.com/new_website1/general/trust_stamp/trusted-seller.svg
-" // Update with the actual path to your Trusted Seller icon
+                src="https://tiimg.tistatic.com/new_website1/general/trust_stamp/trusted-seller.svg" // Update with actual path if needed
                 alt="Trusted Seller Icon"
                 className="trusted-seller-icon"
                 style={{ width: "120px", height: "120px" }}

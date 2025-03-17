@@ -1,3 +1,4 @@
+/* Navbar container styling */
 .navbar {
   position: fixed;
   top: 0;
@@ -16,12 +17,13 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Navbar hidden when scrolling down */
 .navbar.hide {
   transform: translateY(-100%);
   opacity: 0;
 }
 
-/* Logo */
+/* Logo image styling */
 .logo img {
   width: 140px;
   height: 80px;
@@ -29,12 +31,13 @@
   border-radius: 10%;
 }
 
-/* Navigation links */
+/* Navigation links container */
 .nav-links {
   display: flex;
   gap: 20px;
 }
 
+/* Navigation link styling */
 .nav-links a {
   color: rgb(88, 59, 59);
   text-decoration: none;
@@ -63,6 +66,7 @@
 
 /* Responsive styling for screens smaller than 768px */
 @media (max-width: 768px) {
+  /* Navigation links in mobile view */
   .nav-links {
     position: absolute;
     top: 100%;
@@ -75,9 +79,9 @@
     padding: 10px 0;
     display: none; /* Hidden by default */
   }
-
+  
+  /* Adjustments for screens between 301px and 768px */
   @media (min-width: 301px) and (max-width: 768px) {
-    /* Example adjustments for screens between 301px and 768px */
     .logo img {
       width: 120px; /* Adjust logo size as needed */
       height: auto;
@@ -85,14 +89,21 @@
     .nav-links {
       gap: 15px; /* Adjust spacing between links */
     }
-    /* Add any additional style overrides here */
   }
 
+  /* Show navigation links when active */
   .nav-links.active {
     display: flex;
   }
 
+  /* Show hamburger menu in mobile view */
   .hamburger {
     display: flex;
   }
+}
+
+/* Accessibility: Focus style for the hamburger menu */
+.hamburger:focus {
+  outline: 2px dashed #0037ff;
+  outline-offset: 4px;
 }

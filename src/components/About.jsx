@@ -40,7 +40,7 @@ const About = () => {
               What started as a humble initiative has grown into a trusted brand
               offering Digital Flow Meters, Digiflow Controllers, Transmitters,
               Indicators, and Conductivity/TDS Meters. Our products are designed
-              for durability, accuracy, and energy efficiency— ensuring
+              for durability, accuracy, and energy efficiency—ensuring
               reliability in every application.
             </p>
             <h3>Innovation for the Future</h3>
@@ -53,7 +53,11 @@ const About = () => {
             </p>
           </div>
           <div className="history-image">
-            <img src="/office.webp" alt="Company History" loading="lazy" />
+            <img 
+              src="/office.webp" 
+              alt="Company History" 
+              loading="lazy" 
+            />
           </div>
         </div>
 

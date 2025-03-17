@@ -1,25 +1,24 @@
-// src/components/Hero.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import '../styles/Hero.css';
 
 const Hero = () => {
-  // Array of images for the slideshow
-  const images = [
+  // Use useMemo to ensure the images array isn't re-created on every render.
+  const images = useMemo(() => [
     "/heroimg1.webp",
     "/heroimg2.webp",
     "/heroimg3.webp",
     "/heroimg4.webp",
-  ];
-  
+  ], []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Change image every 4 seconds
+  // Change image every 4 seconds using setInterval.
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images]);
 
   return (
     <div className="hero">
@@ -31,19 +30,20 @@ const Hero = () => {
         <div className="logos-section">
           <div className="images-wrapper">
             <div className="images-container">
-              <img src="/glenmark.webp" alt="Glenmark" />
-              <img src="/decore.webp" alt="Decore" />
-              <img src="/loreal.webp" alt="L'Oréal" />
-              <img src="/ion-exchange.webp" alt="Ion Exchange" />
-              <img src="/britannia.webp" alt="Britannia" />
-              <img src="/raymond.webp" alt="Raymond" />
-              <img src="/adani.webp" alt="Adani" />
-              <img src="/emcure.webp" alt="Emcure" />
-              <img src="/ruttonsha.webp" alt="Ruttonsha" />
-              <img src="/nrb.webp" alt="NRB" />
-              <img src="/leo.webp" alt="Leo" />
-              <img src="/prakash-ind.webp" alt="Prakash Industries" />
-              <img src="/vhm.webp" alt="VHM" />
+              {/* Adding loading="lazy" to logo images improves performance without affecting design */}
+              <img src="/glenmark.webp" alt="Glenmark" loading="lazy" />
+              <img src="/decore.webp" alt="Decore" loading="lazy" />
+              <img src="/loreal.webp" alt="L'Oréal" loading="lazy" />
+              <img src="/ion-exchange.webp" alt="Ion Exchange" loading="lazy" />
+              <img src="/britannia.webp" alt="Britannia" loading="lazy" />
+              <img src="/raymond.webp" alt="Raymond" loading="lazy" />
+              <img src="/adani.webp" alt="Adani" loading="lazy" />
+              <img src="/emcure.webp" alt="Emcure" loading="lazy" />
+              <img src="/ruttonsha.webp" alt="Ruttonsha" loading="lazy" />
+              <img src="/nrb.webp" alt="NRB" loading="lazy" />
+              <img src="/leo.webp" alt="Leo" loading="lazy" />
+              <img src="/prakash-ind.webp" alt="Prakash Industries" loading="lazy" />
+              <img src="/vhm.webp" alt="VHM" loading="lazy" />
             </div>
           </div>
         </div>
@@ -54,6 +54,7 @@ const Hero = () => {
             src={images[currentIndex]}
             alt="Product Slideshow"
             className="slideshow-image"
+            loading="lazy"
           />
         </div>
       </div>
