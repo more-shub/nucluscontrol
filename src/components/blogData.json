@@ -6,5 +6,29 @@
     "Tags": "TDS Controller",
     "Title": "TDS controllers for water treatment plants",
     "Excerpt": "How TDS Controllers Help in Maintaining Water Quality in Treatment Plants"
+  },
+  {
+    "ID": "blog2",
+    "Author": "Nuclus Team",
+    "Date": "2023-04-01",
+    "Tags": "Paddle Wheel Flowmeter, Smart Farming, Agriculture, IoT",
+    "Title": "Paddle Wheel Flowmeters for Smart Farming in India",
+    "Excerpt": "Discover how paddle wheel flowmeters enhance smart farming with RS485 communication & automated relay control, improving irrigation efficiency and sustainable agriculture."
+  },
+  {
+    "ID": "blog3",
+    "Author": "Nuclus Team",
+    "Date": "2023-04-15",
+    "Tags": "Battery Operated Flow Meter, Industrial, Water Measurement, IoT",
+    "Title": "How Battery Operated Flow Meters Improve Water Flow Measurement in Industrial Plants",
+    "Excerpt": "Discover how Battery Operated Flow Meters help industrial plants overcome power dependency, inaccurate readings, and high maintenance costs with a reliable, cost-effective solution."
+  },
+  {
+    "ID": "blog4",
+    "Author": "Nuclus Team",
+    "Date": "2023-05-01",
+    "Tags": "Paddle Wheel Flowmeter, Supplier, Pune",
+    "Title": "Paddle Wheel Flowmeter for Water Flow Measurement – Supplier in Pune",
+    "Excerpt": "Accurate water flow measurement is crucial across industries. Discover why Pune is a hub for top flowmeter manufacturers and how to select the best supplier."
   }
 ]

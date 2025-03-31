@@ -49,7 +49,8 @@ const content = {
       description: "We offer high-quality TDS controllers in Pune, Maharashtra, India, designed for precision and durability.",
       product: {
         image: "/c181.webp",
-        name: "TDS Meter Model 1"
+        name: "TDS Meter Model",
+        link: "/products/C181"  // New property to redirect to the product detail page
       },
       contact: "Contact us today for the best TDS meters for your water treatment plant!"
     },
@@ -193,8 +194,10 @@ const Blog1 = () => {
             </p>
             <div className="product-images">
               <div className="product-card">
-                <img src={sections.showcasing.product.image} alt="TDS Meter" />
-                <p>{sections.showcasing.product.name}</p>
+                <a href={sections.showcasing.product.link}>
+                  <img src={sections.showcasing.product.image} alt="TDS Meter" />
+                  <p>{sections.showcasing.product.name}</p>
+                </a>
               </div>
             </div>
             <p>

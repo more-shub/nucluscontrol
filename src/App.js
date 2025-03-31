@@ -27,6 +27,9 @@ import BAT_001 from "./pages/ProductDetails/BAT-001";
 
 // Blog detail pages (grouped similar to products)
 import Blog1 from "./pages/Blog1";
+import Blog2 from "./pages/Blog2";
+import Blog3 from "./pages/Blog3";
+import Blog4 from "./pages/Blog4";
 
 function App() {
   return (
@@ -71,6 +74,9 @@ function App() {
           <Route path="/blogs" element={<BlogSection />} />
           {[
             { path: "blog1", element: <Blog1 /> },
+            { path: "blog2", element: <Blog2 /> },
+            { path: "blog3", element: <Blog3 /> },
+            { path: "blog4", element: <Blog4 /> },
             // Add additional blog detail pages here as needed.
           ].map(({ path, element }) => (
             <Route key={path} path={`/blogs/${path}`} element={element} />
