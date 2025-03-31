@@ -1,7 +1,7 @@
 import React, { useState, useCallback, memo } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import blogData from "./blogData.json";
+import blogData from "../components/blogData.json";
 import "../styles/BlogSection.css";
 
 // Utility function to format dates
@@ -29,9 +29,9 @@ const BlogCard = memo(({ post }) => {
         </div>
         <h3 className="blog-title">{post.Title}</h3>
         <p className="excerpt">{post.Excerpt}</p>
-        <Link to={`/blog/${post.ID}`} className="read-more">
-          Read this post
-        </Link>
+        <Link to={`/blogs/${post.ID}`} className="read-more">
+  Read this post
+</Link>
       </div>
     </div>
   );

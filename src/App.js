@@ -25,12 +25,15 @@ import P300 from "./pages/ProductDetails/P300";
 import C181 from "./pages/ProductDetails/C181";
 import BAT_001 from "./pages/ProductDetails/BAT-001";
 
+// Blog detail pages (grouped similar to products)
+import Blog1 from "./pages/Blog1";
+
 function App() {
   return (
     <>
       <Navbar />
       <ScrollToTop />
-      {/* Padding to prevent content from being hidden behind a fixed Navbar */}
+      {/* Padding to prevent content from being hidden behind the fixed Navbar */}
       <div style={{ paddingTop: "100px" }}>
         <Routes>
           {/* Home page */}
@@ -48,7 +51,6 @@ function App() {
 
           {/* Product listing and detail routes */}
           <Route path="/products" element={<ProductPage />} />
-          {/* Grouped product detail routes */}
           {[
             { path: "P282-PP", element: <P282_PP /> },
             { path: "P282-SS", element: <P282_SS /> },
@@ -66,8 +68,13 @@ function App() {
             <Route key={path} path={`/products/${path}`} element={element} />
           ))}
 
-          {/* Blog route */}
           <Route path="/blogs" element={<BlogSection />} />
+          {[
+            { path: "blog1", element: <Blog1 /> },
+            // Add additional blog detail pages here as needed.
+          ].map(({ path, element }) => (
+            <Route key={path} path={`/blogs/${path}`} element={element} />
+          ))}
 
           {/* Catch-all: redirect any unknown route to /products */}
           <Route path="*" element={<Navigate to="/products" replace />} />
