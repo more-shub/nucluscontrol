@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import '../styles/Blog1.css';
 
 const content2 = {
@@ -46,8 +47,8 @@ const content2 = {
         ]
       },
       product: {
-        image: "/p383sstriclore.webp", // Replace with your product image path
-        link: "/products/P383-SS",  // Update with your actual product URL
+        image: "/p383sstriclore.webp", 
+        link: "/products/P383-SS",  
         text: "View Our Paddle Wheel Flowmeter"
       }
     },
@@ -181,10 +182,10 @@ const Blog2 = () => {
               {sectionData.product && (
                 <div className="product-images">
                   <div className="product-card">
-                    <a href={sectionData.product.link}>
+                    <Link to={sectionData.product.link}>
                       <img src={sectionData.product.image} alt="Paddle Wheel Flowmeter" />
                       <p>{sectionData.product.text}</p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               )}

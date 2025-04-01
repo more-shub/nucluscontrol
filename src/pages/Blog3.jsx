@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import '../styles/Blog1.css';
 
 const content3 = {
@@ -72,7 +73,7 @@ const content3 = {
       ],
       product: {
         image: "/flowreader0.webp", // Update with your product image
-        link: "/products/BAT-001", // Update with your product link
+        link: "/products/BAT-001",  // Redirects to the BAT-001 route
         text: "View Our Battery Operated Flow Meters"
       }
     },
@@ -113,10 +114,10 @@ const content3 = {
   footer: "&copy; 2025 Nuclus Control. All Rights Reserved."
 };
 
-// FAQ Item component with toggle functionality
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleAnswer = () => setIsOpen(!isOpen);
+
   return (
     <div className="faq-item">
       <div className="faq-question" onClick={toggleAnswer}>
@@ -227,10 +228,10 @@ const Blog3 = () => {
               {sections.products.product && (
                 <div className="product-images">
                   <div className="product-card">
-                    <a href={sections.products.product.link}>
+                    <Link to={sections.products.product.link}>
                       <img src={sections.products.product.image} alt="Battery Operated Flow Meter" />
                       <p>{sections.products.product.text}</p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               )}

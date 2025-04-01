@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
-import '../styles/Blog1.css';
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import "../styles/Blog1.css";
 
 // JSON content stored as a constant
 const content = {
@@ -49,8 +50,8 @@ const content = {
       description: "We offer high-quality TDS controllers in Pune, Maharashtra, India, designed for precision and durability.",
       product: {
         image: "/c181.webp",
-        name: "TDS Meter Model",
-        link: "/products/C181"  
+        name: "TDS Meter Model 1",
+        link: "/products/C181" // Redirects to the product detail page
       },
       contact: "Contact us today for the best TDS meters for your water treatment plant!"
     },
@@ -194,10 +195,10 @@ const Blog1 = () => {
             </p>
             <div className="product-images">
               <div className="product-card">
-                <a href={sections.showcasing.product.link}>
+                <Link to={sections.showcasing.product.link}>
                   <img src={sections.showcasing.product.image} alt="TDS Meter" />
                   <p>{sections.showcasing.product.name}</p>
-                </a>
+                </Link>
               </div>
             </div>
             <p>
