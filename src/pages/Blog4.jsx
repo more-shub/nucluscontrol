@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import '../styles/Blog1.css';
 
 const content4 = {
@@ -102,10 +103,10 @@ const content4 = {
           "Display our paddle wheel based products here."
         ]
       },
-      // Added product placeholder for display
+      // Product display placeholder using Link for client-side navigation
       product: {
         image: "/p282-SS.webp", // Update with your product image
-        link: "/products/P282-SS", // Update with your product link
+        link: "/products/P282-SS", // Update with your product route
         text: "View Our Paddle Wheel Flowmeters"
       }
     },
@@ -280,9 +281,10 @@ const Blog4 = () => {
           {/* Products Section */}
           <section id="products" className="section">
             <h2>{sections.products.title}</h2>
-            {sections.products.paragraphs.map((para, idx) => (
-              <p key={idx}>{para}</p>
-            ))}
+            {sections.products.paragraphs &&
+              sections.products.paragraphs.map((para, idx) => (
+                <p key={idx}>{para}</p>
+              ))}
             {sections.products.list && (
               <ul>
                 {sections.products.list.map((item, idx) => (
@@ -293,19 +295,20 @@ const Blog4 = () => {
             {sections.products.subSection && (
               <>
                 <h3>{sections.products.subSection.title}</h3>
-                {sections.products.subSection.paragraphs.map((para, idx) => (
-                  <p key={idx}>{para}</p>
-                ))}
+                {sections.products.subSection.paragraphs &&
+                  sections.products.subSection.paragraphs.map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
               </>
             )}
             {/* Product Display Placeholder */}
             {sections.products.product && (
               <div className="product-images">
                 <div className="product-card">
-                  <a href={sections.products.product.link}>
+                  <Link to={sections.products.product.link}>
                     <img src={sections.products.product.image} alt="Paddle Wheel Flowmeter" />
                     <p>{sections.products.product.text}</p>
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
