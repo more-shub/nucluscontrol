@@ -50,7 +50,7 @@ const content = {
       product: {
         image: "/c181.webp",
         name: "TDS Meter Model",
-        link: "/products/C181"  // New property to redirect to the product detail page
+        link: "/products/C181"  
       },
       contact: "Contact us today for the best TDS meters for your water treatment plant!"
     },

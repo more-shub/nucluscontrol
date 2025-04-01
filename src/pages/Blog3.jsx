@@ -7,7 +7,7 @@ const content3 = {
     title: "How Battery Operated Flow Meters Improve Water Flow Measurement in Industrial Plants",
     description:
       "Discover how Battery Operated Flow Meters help industrial plants overcome power dependency, inaccurate readings, and high maintenance costs. Learn how Nuclus Control’s flow meters offer a reliable, cost-effective solution.",
-    image: "/battery_operated_flowmeter.webp" // Update with the correct image path
+    image: "/industryh.webp" // Update with the correct image path
   },
   toc: [
     { id: "introduction", text: "Introduction" },
