@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://digitalflowmeter.net/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Static Pages -->
+  <url>
+    <loc>https://digitalflowmeter.net/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Product Pages -->
+  <url>
+    <loc>https://digitalflowmeter.net/products</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P282-PP</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P282-SS</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P181-PP</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P181-SS</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P383-PP</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P383-SS</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P812-PP</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P812-SS</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P200</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/P300</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/C181</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/products/BAT-001</loc>
+  </url>
+
+  <!-- Blog Pages -->
+  <url>
+    <loc>https://digitalflowmeter.net/blogs</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/blogs/blog1</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/blogs/blog2</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/blogs/blog3</loc>
+  </url>
+  <url>
+    <loc>https://digitalflowmeter.net/blogs/blog4</loc>
+  </url>
+
+</urlset>
