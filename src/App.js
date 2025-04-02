@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -34,6 +35,11 @@ import Blog4 from "./pages/Blog4";
 function App() {
   return (
     <>
+      <Helmet>
+        <title>Nuclus Control - Digital Flow Meters</title>
+        <meta name="description" content="Nuclus Control provides high-quality digital flow meters." />
+        <meta name="keywords" content="Nuclus Control, Digital Flow Meter, Flow Measurement, Industrial Flow Meters, Flow Sensors" />
+      </Helmet>
       <Navbar />
       <ScrollToTop />
       {/* Padding to prevent content from being hidden behind the fixed Navbar */}
