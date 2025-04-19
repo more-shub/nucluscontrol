@@ -19,7 +19,6 @@ const BlogCard = memo(({ post }) => {
     <div className="blog-card" key={post.ID}>
       <div className="blog-content">
         <div className="author-info">
-          {/* The static avatar is retained */}
           <img className="author-img" src="/avtar.webp" alt={post.Author} />
           <span className="author-name">{post.Author}</span>
         </div>
@@ -29,9 +28,10 @@ const BlogCard = memo(({ post }) => {
         </div>
         <h3 className="blog-title">{post.Title}</h3>
         <p className="excerpt">{post.Excerpt}</p>
+        {/* FIXED: Use post.ID instead of post.slug */}
         <Link to={`/blogs/${post.ID}`} className="read-more">
-  Read this post
-</Link>
+          Read this post
+        </Link>
       </div>
     </div>
   );
@@ -40,7 +40,6 @@ const BlogCard = memo(({ post }) => {
 const BlogSection = () => {
   const [visiblePosts, setVisiblePosts] = useState(4);
 
-  // Stable callback for load more action
   const handleLoadMore = useCallback(() => {
     setVisiblePosts(blogData.length);
   }, []);

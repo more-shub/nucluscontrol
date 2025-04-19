@@ -26,26 +26,30 @@ import P300 from "./pages/ProductDetails/P300";
 import C181 from "./pages/ProductDetails/C181";
 import BAT_001 from "./pages/ProductDetails/BAT-001";
 
-// Blog detail pages (grouped similar to products)
-import Blog1 from "./pages/Blog1";
-import Blog2 from "./pages/Blog2";
-import Blog3 from "./pages/Blog3";
-import Blog4 from "./pages/Blog4";
+// Blog detail pages
+import TdsControllersForWaterTreatmentPlants from "./pages/tds-controllers-for-water-treatment-plants";
+import PaddleWheelFlowmetersForSmartFarmingInIndia from "./pages/paddle-wheel-flowmeters-for-smart-farming-in-india";
+import HowBatteryOperatedFlowMetersImproveWaterFlowMeasurementInIndustrialPlants from "./pages/how-battery-operated-flow-meters-improve-water-flow-measurement-in-industrial-plants";
+import PaddleWheelFlowmeterForWaterFlowMeasurementSupplierInPune from "./pages/paddle-wheel-flowmeter-for-water-flow-measurement-supplier-in-pune";
 
 function App() {
   return (
     <>
       <Helmet>
         <title>Nuclus Control - Digital Flow Meters</title>
-        <meta name="description" content="Nuclus Control provides high-quality digital flow meters." />
-        <meta name="keywords" content="Nuclus Control, Digital Flow Meter, Flow Measurement, Industrial Flow Meters, Flow Sensors" />
+        <meta
+          name="description"
+          content="Nuclus Control provides high-quality digital flow meters."
+        />
+        <meta
+          name="keywords"
+          content="Nuclus Control, Digital Flow Meter, Flow Measurement, Industrial Flow Meters, Flow Sensors"
+        />
       </Helmet>
       <Navbar />
       <ScrollToTop />
-      {/* Padding to prevent content from being hidden behind the fixed Navbar */}
       <div style={{ paddingTop: "100px" }}>
         <Routes>
-          {/* Home page */}
           <Route
             path="/"
             element={
@@ -58,37 +62,29 @@ function App() {
             }
           />
 
-          {/* Product listing and detail routes */}
+          {/* Product Routes */}
           <Route path="/products" element={<ProductPage />} />
-          {[
-            { path: "P282-PP", element: <P282_PP /> },
-            { path: "P282-SS", element: <P282_SS /> },
-            { path: "P181-PP", element: <P181_PP /> },
-            { path: "P181-SS", element: <P181_SS /> },
-            { path: "P383-PP", element: <P383_PP /> },
-            { path: "P383-SS", element: <P383_SS /> },
-            { path: "P812-PP", element: <P812_PP /> },
-            { path: "P812-SS", element: <P812_SS /> },
-            { path: "P200", element: <P200 /> },
-            { path: "P300", element: <P300 /> },
-            { path: "C181", element: <C181 /> },
-            { path: "BAT-001", element: <BAT_001 /> },
-          ].map(({ path, element }) => (
-            <Route key={path} path={`/products/${path}`} element={element} />
-          ))}
+          <Route path="/products/P282-PP" element={<P282_PP />} />
+          <Route path="/products/P282-SS" element={<P282_SS />} />
+          <Route path="/products/P181-PP" element={<P181_PP />} />
+          <Route path="/products/P181-SS" element={<P181_SS />} />
+          <Route path="/products/P383-PP" element={<P383_PP />} />
+          <Route path="/products/P383-SS" element={<P383_SS />} />
+          <Route path="/products/P812-PP" element={<P812_PP />} />
+          <Route path="/products/P812-SS" element={<P812_SS />} />
+          <Route path="/products/P200" element={<P200 />} />
+          <Route path="/products/P300" element={<P300 />} />
+          <Route path="/products/C181" element={<C181 />} />
+          <Route path="/products/BAT-001" element={<BAT_001 />} />
 
+          {/* Blog Routes */}
           <Route path="/blogs" element={<BlogSection />} />
-          {[
-            { path: "blog1", element: <Blog1 /> },
-            { path: "blog2", element: <Blog2 /> },
-            { path: "blog3", element: <Blog3 /> },
-            { path: "blog4", element: <Blog4 /> },
-            // Add additional blog detail pages here as needed.
-          ].map(({ path, element }) => (
-            <Route key={path} path={`/blogs/${path}`} element={element} />
-          ))}
+          <Route path="/blogs/tds-controllers-for-water-treatment-plants" element={<TdsControllersForWaterTreatmentPlants />} />
+          <Route path="/blogs/paddle-wheel-flowmeters-for-smart-farming-in-india" element={<PaddleWheelFlowmetersForSmartFarmingInIndia />} />
+          <Route path="/blogs/how-battery-operated-flow-meters-improve-water-flow-measurement-in-industrial-plants" element={<HowBatteryOperatedFlowMetersImproveWaterFlowMeasurementInIndustrialPlants />} />
+          <Route path="/blogs/paddle-wheel-flowmeter-for-water-flow-measurement-supplier-in-pune" element={<PaddleWheelFlowmeterForWaterFlowMeasurementSupplierInPune />} />
 
-          {/* Catch-all: redirect any unknown route to /products */}
+          {/* Redirect unknown routes */}
           <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>
       </div>
