@@ -13,7 +13,6 @@ const featuresData = [
 const statsData = [
   { value: "5000+", label: "Customers" },
   { value: "50k+", label: "Orders Completed" },
-  { value: "2 Cr+", label: "Annual Turnover" },
 ];
 
 const About = () => {
@@ -53,11 +52,7 @@ const About = () => {
             </p>
           </div>
           <div className="history-image">
-            <img 
-              src="/office.webp" 
-              alt="Company History" 
-              loading="lazy" 
-            />
+            <img src="/office.webp" alt="Company History" loading="lazy" />
           </div>
         </div>
 

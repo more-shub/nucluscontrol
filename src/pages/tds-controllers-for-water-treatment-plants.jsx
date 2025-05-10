@@ -6,9 +6,11 @@ import "../styles/Blog1.css";
 // JSON content stored as a constant
 const content = {
   hero: {
-    title: "How TDS Controllers Help in Maintaining Water Quality in Treatment Plants",
-    description: "Looking for reliable TDS controllers for water treatment plants? We provide top-quality industrial TDS meters in Pune, Maharashtra, India. Contact us today!",
-    image: "/distilationplantblog.webp"
+    title:
+      "How TDS Controllers Help in Maintaining Water Quality in Treatment Plants",
+    description:
+      "Looking for reliable TDS controllers for water treatment plants? We provide top-quality industrial TDS meters in Pune, Maharashtra, India. Contact us today!",
+    image: "/distilationplantblog.webp",
   },
   toc: [
     { id: "introduction", text: "Introduction to TDS Controllers" },
@@ -17,15 +19,15 @@ const content = {
     { id: "showcasing", text: "Showcasing Our Top-Quality TDS Meters" },
     { id: "benefits", text: "Benefits of Using TDS Controllers" },
     { id: "faqs", text: "Frequently Asked Questions (FAQs)" },
-    { id: "conclusion", text: "Conclusion" }
+    { id: "conclusion", text: "Conclusion" },
   ],
   sections: {
     introduction: {
       title: "Introduction to TDS Controllers in Water Treatment",
       paragraphs: [
         "Total Dissolved Solids (TDS) represent the amount of inorganic and organic substances dissolved in water, including minerals, salts, and metals. Controlling TDS levels is crucial for ensuring safe and high-quality water in treatment plants.",
-        "A TDS controller is a specialized device that monitors and regulates TDS levels, ensuring that water remains safe for drinking, industrial, and wastewater applications."
-      ]
+        "A TDS controller is a specialized device that monitors and regulates TDS levels, ensuring that water remains safe for drinking, industrial, and wastewater applications.",
+      ],
     },
     "why-tds": {
       title: "Why is TDS Control Important?",
@@ -33,8 +35,8 @@ const content = {
         "Ensuring Safe Drinking Water: Excessive TDS can cause contamination, bad taste, and health risks. A TDS controller helps maintain water quality within safe limits.",
         "Preventing Scale and Corrosion: High TDS levels lead to mineral buildup in pipes, boilers, and industrial equipment, reducing efficiency and increasing maintenance costs.",
         "Improving RO System Performance: A TDS controller ensures that reverse osmosis (RO) systems work efficiently by monitoring and regulating dissolved solids.",
-        "Compliance with Water Quality Standards: Water treatment plants must meet BIS, ISO, and WHO standards for water safety, and TDS controllers help ensure compliance."
-      ]
+        "Compliance with Water Quality Standards: Water treatment plants must meet BIS, ISO, and WHO standards for water safety, and TDS controllers help ensure compliance.",
+      ],
     },
     factors: {
       title: "Factors Affecting TDS Levels in Water",
@@ -42,18 +44,20 @@ const content = {
         "Source of Water: The TDS level varies based on the source—groundwater has higher TDS due to dissolved minerals, while rainwater has lower TDS.",
         "Industrial and Agricultural Runoff: Factories and farms contribute to increased TDS levels through chemical discharges, fertilizers, and wastewater disposal.",
         "Water Treatment Processes: Filtration systems like RO, distillation, and ion exchange impact TDS levels by removing or adding dissolved solids.",
-        "Seasonal Changes: During the monsoon season, TDS levels may fluctuate due to increased surface runoff and mixing of different water sources."
-      ]
+        "Seasonal Changes: During the monsoon season, TDS levels may fluctuate due to increased surface runoff and mixing of different water sources.",
+      ],
     },
     showcasing: {
       title: "Showcasing Our Top-Quality TDS Meters",
-      description: "We offer high-quality TDS controllers in Pune, Maharashtra, India, designed for precision and durability.",
+      description:
+        "We offer high-quality TDS controllers in Pune, Maharashtra, India, designed for precision and durability.",
       product: {
         image: "/c181.webp",
         name: "TDS Meter Model 1",
-        link: "/products/C181" // Redirects to the product detail page
+        link: "/products/C181", // Redirects to the product detail page
       },
-      contact: "Contact us today for the best TDS meters for your water treatment plant!"
+      contact:
+        "Contact us today for the best TDS meters for your water treatment plant!",
     },
     benefits: {
       title: "Benefits of Using TDS Controllers",
@@ -61,36 +65,40 @@ const content = {
         "Improved Water Quality – Ensures clean and purified water.",
         "Cost Savings – Prevents equipment damage and reduces maintenance costs.",
         "Energy Efficiency – Optimizes water purification for minimal energy use.",
-        "Automation & Remote Monitoring – Many models allow real-time monitoring."
-      ]
+        "Automation & Remote Monitoring – Many models allow real-time monitoring.",
+      ],
     },
     faqs: {
       title: "Frequently Asked Questions (FAQs)",
       items: [
         {
           question: "1. What is the ideal TDS level for drinking water?",
-          answer: "The Bureau of Indian Standards (BIS) recommends TDS levels below 500 mg/L for safe drinking water."
+          answer:
+            "The Bureau of Indian Standards (BIS) recommends TDS levels below 500 mg/L for safe drinking water.",
         },
         {
           question: "2. Can a TDS controller remove dissolved solids?",
-          answer: "No, a TDS controller measures and regulates TDS levels. Filtration systems like RO filters are needed to remove excess TDS."
+          answer:
+            "No, a TDS controller measures and regulates TDS levels. Filtration systems like RO filters are needed to remove excess TDS.",
         },
         {
-          question: "3. Where can I buy industrial TDS controllers in Pune, Maharashtra?",
-          answer: "We offer high-quality TDS meters in Pune. Contact us today for more details!"
-        }
-      ]
+          question:
+            "3. Where can I buy industrial TDS controllers in Pune, Maharashtra?",
+          answer:
+            "We offer high-quality TDS meters in Pune. Contact us today for more details!",
+        },
+      ],
     },
     conclusion: {
       title: "Conclusion",
       paragraphs: [
         "TDS controllers play a crucial role in water treatment plants, industries, and municipal water systems by ensuring safe, clean, and efficient water purification.",
         "If you need top-quality TDS controllers in Pune, Maharashtra, India, we provide reliable industrial TDS meters.",
-        "Contact us today for the best solutions!"
-      ]
-    }
+        "Contact us today for the best solutions!",
+      ],
+    },
   },
-  footer: "&copy; 2025 TDS Controllers. All Rights Reserved."
+  footer: "&copy; 2025 TDS Controllers. All Rights Reserved.",
 };
 
 // FAQ Item component with toggle functionality
@@ -102,7 +110,7 @@ const FAQItem = ({ question, answer }) => {
     <div className="faq-item">
       <div className="faq-question" onClick={toggleAnswer}>
         <h3>{question}</h3>
-        <span className="faq-toggle">{isOpen ? '-' : '+'}</span>
+        <span className="faq-toggle">{isOpen ? "-" : "+"}</span>
       </div>
       {isOpen && (
         <div className="faq-answer">
@@ -162,10 +170,11 @@ const Blog1 = () => {
             <h2>{sections["why-tds"].title}</h2>
             <ol>
               {sections["why-tds"].list.map((item, idx) => {
-                const parts = item.split(':');
+                const parts = item.split(":");
                 return (
                   <li key={idx}>
-                    <strong className="highlight">{parts[0]}:</strong> {parts.slice(1).join(':')}
+                    <strong className="highlight">{parts[0]}:</strong>{" "}
+                    {parts.slice(1).join(":")}
                   </li>
                 );
               })}
@@ -177,10 +186,11 @@ const Blog1 = () => {
             <h2>{sections.factors.title}</h2>
             <ol>
               {sections.factors.list.map((item, idx) => {
-                const parts = item.split(':');
+                const parts = item.split(":");
                 return (
                   <li key={idx}>
-                    <strong className="highlight">{parts[0]}:</strong> {parts.slice(1).join(':')}
+                    <strong className="highlight">{parts[0]}:</strong>{" "}
+                    {parts.slice(1).join(":")}
                   </li>
                 );
               })}
@@ -196,7 +206,10 @@ const Blog1 = () => {
             <div className="product-images">
               <div className="product-card">
                 <Link to={sections.showcasing.product.link}>
-                  <img src={sections.showcasing.product.image} alt="TDS Meter" />
+                  <img
+                    src={sections.showcasing.product.image}
+                    alt="TDS Meter"
+                  />
                   <p>{sections.showcasing.product.name}</p>
                 </Link>
               </div>
@@ -211,10 +224,11 @@ const Blog1 = () => {
             <h2>{sections.benefits.title}</h2>
             <ul className="benefits-list">
               {sections.benefits.list.map((item, idx) => {
-                const parts = item.split('–');
+                const parts = item.split("–");
                 return (
                   <li key={idx}>
-                    <strong className="highlight">{parts[0]}–</strong> {parts[1]}
+                    <strong className="highlight">{parts[0]}–</strong>{" "}
+                    {parts[1]}
                   </li>
                 );
               })}
