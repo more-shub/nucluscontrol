@@ -1,6 +1,12 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate
+} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Industries from "./components/Industries";
@@ -32,6 +38,21 @@ import PaddleWheelFlowmetersForSmartFarmingInIndia from "./pages/paddle-wheel-fl
 import HowBatteryOperatedFlowMetersImproveWaterFlowMeasurementInIndustrialPlants from "./pages/how-battery-operated-flow-meters-improve-water-flow-measurement-in-industrial-plants";
 import PaddleWheelFlowmeterForWaterFlowMeasurementSupplierInPune from "./pages/paddle-wheel-flowmeter-for-water-flow-measurement-supplier-in-pune";
 
+// ◀️ RedirectHandler reads `?redirect=` and navigates there
+function RedirectHandler() {
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const to = params.get("redirect");
+    if (to) {
+      // cleanup URL and navigate
+      window.history.replaceState({}, "", window.location.pathname);
+      navigate(to, { replace: true });
+    }
+  }, [navigate]);
+  return null;
+}
+
 function App() {
   return (
     <>
@@ -49,6 +70,12 @@ function App() {
       <Navbar />
       <ScrollToTop />
       <div style={{ paddingTop: "100px" }}>
+        {/* Step 1: catch any incoming `?redirect=` */}
+        <Routes>
+          <Route path="*" element={<RedirectHandler />} />
+        </Routes>
+
+        {/* Step 2: your normal app routes */}
         <Routes>
           <Route
             path="/"
@@ -79,12 +106,26 @@ function App() {
 
           {/* Blog Routes */}
           <Route path="/blogs" element={<BlogSection />} />
-          <Route path="/blogs/tds-controllers-for-water-treatment-plants" element={<TdsControllersForWaterTreatmentPlants />} />
-          <Route path="/blogs/paddle-wheel-flowmeters-for-smart-farming-in-india" element={<PaddleWheelFlowmetersForSmartFarmingInIndia />} />
-          <Route path="/blogs/how-battery-operated-flow-meters-improve-water-flow-measurement-in-industrial-plants" element={<HowBatteryOperatedFlowMetersImproveWaterFlowMeasurementInIndustrialPlants />} />
-          <Route path="/blogs/paddle-wheel-flowmeter-for-water-flow-measurement-supplier-in-pune" element={<PaddleWheelFlowmeterForWaterFlowMeasurementSupplierInPune />} />
+          <Route
+            path="/blogs/tds-controllers-for-water-treatment-plants"
+            element={<TdsControllersForWaterTreatmentPlants />}
+          />
+          <Route
+            path="/blogs/paddle-wheel-flowmeters-for-smart-farming-in-india"
+            element={<PaddleWheelFlowmetersForSmartFarmingInIndia />}
+          />
+          <Route
+            path="/blogs/how-battery-operated-flow-meters-improve-water-flow-measurement-in-industrial-plants"
+            element={
+              <HowBatteryOperatedFlowMetersImproveWaterFlowMeasurementInIndustrialPlants />
+            }
+          />
+          <Route
+            path="/blogs/paddle-wheel-flowmeter-for-water-flow-measurement-supplier-in-pune"
+            element={<PaddleWheelFlowmeterForWaterFlowMeasurementSupplierInPune />}
+          />
 
-          {/* Redirect unknown routes */}
+          {/* Fallback within app */}
           <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>
       </div>

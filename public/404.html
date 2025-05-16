@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // capture full path (including query/hash)
+      const fullPath =
+        window.location.pathname +
+        window.location.search +
+        window.location.hash;
+      // redirect back to root with original path in `redirect`
+      const newUrl =
+        window.location.origin +
+        "/?redirect=" +
+        encodeURIComponent(fullPath);
+      window.location.replace(newUrl);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+  </body>
+</html>
