@@ -20,18 +20,18 @@ const products = [
 
 // Map each product name to its static detail page ID
 const productMapping = {
-  "DigiFlow P181-SS": "P181-SS",
-  "DigiFlow P181-PP": "P181-PP",
-  "DigiFlow P282-SS": "P282-SS",
-  "DigiFlow P282-PP": "P282-PP",
-  "DigiFlow P383-SS": "P383-SS",
-  "DigiFlow P383-PP": "P383-PP",
-  "Flow Sensor P812-SS": "P812-SS",
-  "Flow Sensor P812-PP": "P812-PP",
-  "FlowReader (Battery)": "BAT-001",
-  "PH Indicator": "P200",
-  "PH Transmitter": "P300",
-  "Conductivity/TDS Indicator": "C181",
+  "DigiFlow P181-SS": "Digital-Flow-Indicator-P181-SS",
+  "DigiFlow P181-PP": "Digital-Flow-Indicator-P181-PP",
+  "DigiFlow P282-SS": "Digital-Flow-Controller-P282-SS",
+  "DigiFlow P282-PP": "Digital-Flow-Controller-P282-PP",
+  "DigiFlow P383-SS": "Digital-Flow-Transmitter-P383-SS",
+  "DigiFlow P383-PP": "Digital-Flow-Transmitter-P383-PP",
+  "Flow Sensor P812-SS": "Paddle-Wheel-Flow-Sensor-Stainless-Steel-316",
+  "Flow Sensor P812-PP": "Paddle-Wheel-Flow-Sensor-Polypropylene",
+  "FlowReader (Battery)": "Battery-Operated-Digital-Flow-Meter",
+  "PH Indicator": "pH-Indicator-P200",
+  "PH Transmitter": "pH-Transmitter-P300",
+  "Conductivity/TDS Indicator": "Conductivity-TDS-Indicator-C181",
 };
 
 const Footer = () => {
