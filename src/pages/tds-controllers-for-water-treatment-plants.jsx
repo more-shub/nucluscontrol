@@ -54,7 +54,7 @@ const content = {
       product: {
         image: "/c181.webp",
         name: "TDS Meter Model 1",
-        link: "/products/C181", // Redirects to the product detail page
+        link: "/products/Conductivity-TDS-Indicator-C181", // Redirects to the product detail page
       },
       contact:
         "Contact us today for the best TDS meters for your water treatment plant!",

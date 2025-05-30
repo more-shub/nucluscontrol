@@ -4,30 +4,27 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P282_PP = () => {
-  // Inline product data for P282-PP
+const P383_PP = () => {
   const product = {
-    id: "P282-PP",
-    title: "Digital Flow Controller - P282 (PP Sensor)",
+    id: "Digital-Flow-Transmitter-P383-PP",
+    title: "Digital Flow Transmitter - P383 (PP Sensor)",
     description:
-      "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, compatible with Polypropylene (PP) sensors. Designed for industrial applications, it supports both field and panel mounting options with a built-in 5A potential-free relay contact for alarms or control.",
+      "NUCLUS Model P383 is a digital flow transmitter designed for applications requiring precise flow rate monitoring. It is compatible with Polypropylene (PP) sensors and supports both field and panel mounting configurations. The P383 model is equipped with a programmable scale factor, high accuracy, and a backlit LCD display.",
     modesAvailable: [
-      "Totalizer Mode",
-      "Batch Controller",
-      "Pulse Controller",
-      "Rate Switch",
+      "Flow Rate Measurement",
+      "Total Flow Measurement",
+      "Analog Output for PLC Integration",
     ],
     keyFeatures: [
-      "Microcontroller-based digital flow controller",
-      "Built-in 5A potential-free contact for alarms or control",
-      "Supports multiple sensor inputs (Turbine, PD, Magnetic, Ultrasonic)",
-      "Programmable scale factor for accurate flow readings",
+      "Programmable scale factor",
+      "High-accuracy flow rate and total flow measurement",
+      "Backlit alphanumeric 2 x 16 LCD display",
       "IP65 protection for field mounting",
+      "Analog output (4-20mA) for process control",
     ],
     technicalData: {
       column1: {
-        "Function": "Rate Indicator with Totalizer",
-        "Supply Voltage": "230 V AC",
+        "Function": "Flow Transmitter",
         "Accuracy": "±0.5% of FSD",
         "Scale Factor": "00.1000000",
       },
@@ -39,27 +36,28 @@ const P282_PP = () => {
     },
     electronics: {
       column1: {
-        "Sensor Supply": "12 VDC",
-        "Output": "5A potential-free contact @ 230V AC",
         "Display": "Backlit alphanumeric 2 x 16 LCD",
+        "Sensor Supply": "12 VDC(±10%) , 30 mA.",
+        "Supply Voltage": "230 V AC / 24 V DC",
+        "Output": "1) 4 to 20 mA output ( self Power )/ RS 232 / RS485 _ _ 2) 5A pot. Free contact @ 230 VAC .",
       },
     },
     material: {
       column1: {
         "Housing": "Plastic ABS",
-        "Sensor Body": "Polypropylene (Black)",
+        "Sensor Body": "Polypropylene (black)"
       },
       column2: {
         "O-Ring": "Viton / Teflon",
-        "Paddle (Rotor)": "Polypropylene",
-      },
+        "Paddle (Rotor)": "Polypropylene"
+      }
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p282threadedend.webp", alt: "Field Mount Option 1" },
+        { src: "/p383triclore.webp", alt: "P383 PP Field Mount Option 1" },
       ],
       panelMount: [
-        { src: "/p282panelmount.webp", alt: "Panel Mount Option 1" },
+        { src: "/p383panelmount.webp", alt: "P383 PP Panel Mount Option 1" },
       ],
     },
     fittings: [
@@ -76,21 +74,13 @@ const P282_PP = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
-    sliderImages: [
-      "/p282.webp",
-      "/p282threadedend.webp",
-      "/p282panelmount.webp",
-    ],
+    sliderImages: ["/p383.webp", "/p383triclore.webp", "/p383panelmount.webp"],
   };
 
-  // Slider state for images
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // New state and ref for the contact form
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
 
-  // Handler for slider buttons
   const handlePrev = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
@@ -103,7 +93,6 @@ const P282_PP = () => {
     );
   };
 
-  // Handler for "Ask For Quote" button
   const handleQuoteClick = () => {
     if (!showForm) {
       setShowForm(true);
@@ -132,9 +121,7 @@ const P282_PP = () => {
           Back to Products
         </Link>
       </header>
-
       <section className="details-main">
-        {/* Slider Section */}
         <div className="slider-section">
           <div className="slider-container">
             <button className="slider-btn" onClick={handlePrev}>
@@ -151,11 +138,9 @@ const P282_PP = () => {
             </button>
           </div>
         </div>
-        {/* Information Section */}
         <div className="info-section">
           <h2>Description</h2>
           <p>{product.description}</p>
-
           {product.modesAvailable && (
             <>
               <h3>Modes Available</h3>
@@ -166,7 +151,6 @@ const P282_PP = () => {
               </ul>
             </>
           )}
-
           {product.keyFeatures && (
             <>
               <h3>Key Features</h3>
@@ -177,15 +161,11 @@ const P282_PP = () => {
               </ul>
             </>
           )}
-
-          {/* Updated button with click handler */}
           <button className="quote-btn" onClick={handleQuoteClick}>
             Ask For Quote
           </button>
         </div>
       </section>
-
-      {/* Technical Data Section */}
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
@@ -240,7 +220,6 @@ const P282_PP = () => {
           </ul>
         </div>
       </section>
-      {/* Mounting Options Section */}
       <section className="additional-section mounting-options">
         <h2>Mounting Options</h2>
         <div className="mounting-columns">
@@ -272,8 +251,6 @@ const P282_PP = () => {
           </div>
         </div>
       </section>
-
-      {/* Fittings Section */}
       <section className="additional-section fittings-section">
         <h2>Fittings</h2>
         <div className="gallery-grid">
@@ -284,8 +261,6 @@ const P282_PP = () => {
           ))}
         </div>
       </section>
-
-      {/* Line Size Section */}
       <section className="additional-section line-size-section">
         <h2>Line Size</h2>
         <div className="table-wrapper">
@@ -321,8 +296,6 @@ const P282_PP = () => {
           </table>
         </div>
       </section>
-
-      {/* Contact Form Section (conditionally rendered) */}
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>
@@ -333,4 +306,4 @@ const P282_PP = () => {
   );
 };
 
-export default P282_PP;
+export default P383_PP;

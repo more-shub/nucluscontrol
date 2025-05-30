@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import Contact from '../../components/Contact'; // Your Contact form component
-import '../../styles/ProductDetails.css';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Contact from "../../components/Contact"; // Your Contact form component
+import "../../styles/ProductDetails.css";
 
 const BAT_001 = () => {
   const product = {
@@ -16,37 +16,37 @@ const BAT_001 = () => {
       "Accurate flow rate measurement and integrated totalizer function",
       "Easy installation and calibration",
       "Modular construction for economical deployment",
-      "Mountable horizontally or vertically with a 360° rotatable display"
+      "Mountable horizontally or vertically with a 360° rotatable display",
     ],
     technicalData: {
       column1: {
-        "Function": "Flow Rate Indicator & Totalizer",
+        Function: "Flow Rate Indicator & Totalizer",
         "Flow Rate Range": "0.5 to 5 m/s (1.6 to 16.4 ft/s)",
-        "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 in.)"
+        "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 in.)",
       },
       column2: {
         "Input Supply": "2 x 1.5 VDC (Duracell batteries)",
         "Protection Rating": "IP65 (Weatherproof Enclosure)",
         "Operating Pressure": "5 bar (145 psi) maximum",
-        "Operating Temperature": "Up to 55°C maximum"
-      }
+        "Operating Temperature": "Up to 55°C maximum",
+      },
     },
     electronics: {
       column1: {
-        "Display": "7-digit numeric customizable LCD display"
-      }
+        Display: "7-digit numeric customizable LCD display",
+      },
     },
     material: {
       column1: {
-        "Housing": "ABS (for enclosure)",
-        "Sensor": "Polypropylene (PP) for sensor"
-      }
+        Housing: "ABS (for enclosure)",
+        Sensor: "Polypropylene (PP) for sensor",
+      },
     },
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
-      sizeInches: ["0.5\"", "1\"", "1.5\"", "2\"", "2.36\"", "3.00\"", "4.00\""],
+      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.36"', '3.00"', '4.00"'],
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
-      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
+      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
     fittings: [
       { src: "/Weld-Adapter.webp", alt: "Weld Adapter Fitting" },
@@ -54,9 +54,14 @@ const BAT_001 = () => {
       { src: "/Triclore.webp", alt: "Triclore Fitting" },
       { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
       { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
-      { src: "/StubEnd.webp", alt: "StubEnd Fitting" }
+      { src: "/StubEnd.webp", alt: "StubEnd Fitting" },
     ],
-    sliderImages: ["/Floreader4.webp", "/Floreader2.webp", "/Floreader3.webp","/Floreader1.webp"]
+    sliderImages: [
+      "/Floreader4.webp",
+      "/Floreader2.webp",
+      "/Floreader3.webp",
+      "/Floreader1.webp",
+    ],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -64,13 +69,13 @@ const BAT_001 = () => {
   const formRef = useRef(null);
 
   const handlePrev = () => {
-    setCurrentIndex(prev =>
+    setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex(prev =>
+    setCurrentIndex((prev) =>
       prev === product.sliderImages.length - 1 ? 0 : prev + 1
     );
   };
@@ -92,23 +97,32 @@ const BAT_001 = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
+        <link
+          rel="canonical"
+          href={`https://www.mycompany.com/products/${product.id}`}
+        />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">Back to Products</Link>
+        <Link to="/products" className="back-btn">
+          Back to Products
+        </Link>
       </header>
       <section className="details-main">
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
-            <img 
-              src={product.sliderImages[currentIndex]} 
-              alt={product.title} 
+            <button className="slider-btn" onClick={handlePrev}>
+              &lt;
+            </button>
+            <img
+              src={product.sliderImages[currentIndex]}
+              alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>&gt;</button>
+            <button className="slider-btn" onClick={handleNext}>
+              &gt;
+            </button>
           </div>
         </div>
         <div className="info-section">
@@ -134,21 +148,31 @@ const BAT_001 = () => {
               </ul>
             </>
           )}
-          <button className="quote-btn" onClick={handleQuoteClick}>Ask For Quote</button>
+          <button className="quote-btn" onClick={handleQuoteClick}>
+            Ask For Quote
+          </button>
         </div>
       </section>
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
-            ))}
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}><strong>{key}:</strong> {value}</li>
-            ))}
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
         </div>
       </section>

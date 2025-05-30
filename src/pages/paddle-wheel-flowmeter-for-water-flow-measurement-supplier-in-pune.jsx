@@ -106,7 +106,7 @@ const content4 = {
       // Product display placeholder using Link for client-side navigation
       product: {
         image: "/p282-SS.webp", // Update with your product image
-        link: "/products/P282-SS", // Update with your product route
+        link: "/products/Digital-Flow-Controller-P282-SS", // Update with your product route
         text: "View Our Paddle Wheel Flowmeters",
       },
     },

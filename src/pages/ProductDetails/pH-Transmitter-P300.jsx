@@ -4,41 +4,40 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const C181 = () => {
+const P300 = () => {
   const product = {
-    id: "C181",
-    title: "Conductivity/TDS Indicator - C181",
+    id: "pH-Transmitter-P300.",
+    title: "pH Transmitter - P300",
     description:
-      "NUCLUS Model C181 is a digital conductivity and TDS indicator designed for a wide variety of applications, ranging from high-purity water quality monitoring to process control in weak acids and bases. This microprocessor-based instrument provides accurate, repeatable readings with long-term signal stability. It is designed for both in-line and submersible installation.",
+      "NUCLUS Model P300 is an online accurate pH transmitter designed for electrochemical analysis. It displays the current pH value and provides a self-powered non-isolated 4-20 mA current output (300E max) for process control. This microcontroller-based instrument is versatile and suitable for industrial applications including water treatment, filtration, pharmaceutical, bottling, and textile processes. It offers software-controlled tuning for Zero and Slope, manual temperature correction (auto optional), and conforms to Indian National Standards—all housed in an IP65 weatherproof enclosure.",
+    modesAvailable: [
+      "Real-time pH Monitoring",
+      "Analog Output for PLC Integration"
+    ],
     keyFeatures: [
-      "Microprocessor-based for wide operating range and long term signal stability",
-      "Backlit alphanumeric 1 x 16 LCD display",
+      "Self-powered non-isolated 4-20 mA current output (300E max)",
+      "4-digit red 7-segment LED display",
+      "Software-controlled tuning for Zero and Slope",
+      "Manual temperature correction (Auto optional)",
       "IP65 weatherproof enclosure",
-      "Dual-threaded (½ & ¾ inch BSP) for quick installation",
-      "Universal power supply (70V AC to 270V AC SMPS)"
+      "Conformity with Indian National Standards"
     ],
     technicalData: {
       column1: {
-        "Function": "Conductivity & TDS Indicator",
-        "Supply Voltage": "70V AC to 270V AC SMPS",
-        "Linearity": "+2% of FSD",
-        "Input": "from Nuclus Cell"
+        "Function": "pH Transmitter",
+        "Supply Voltage": "230 VAC ±10%",
+        "Range": "0 to 14 pH",
+        "Resolution": "0.01 pH"
       },
       column2: {
-        "Protection": "IP65",
-        "Configuration Lock": "Password Protection",
-        "Calibration": "Using front keys",
-        "Display": "Backlit alphanumeric 1 x 16 LCD"
+        "Accuracy": "±0.02 pH",
+        "Repeatability": "±0.01 pH",
+        "Operating Temperature": "0 to 50°C"
       }
     },
     electronics: {
       column1: {
-        "Cell Constant": "Selectable (e.g., 0.01 to 1.00)",
-        "Operating Temperature": "0 to 50°C"
-      },
-      column2: {
-        "Measurement Range": "Dependent on cell constant",
-        "Cable Length": "3 meters (STD)"
+        "Display": '4-digit red 7-segment LED display (0.5")'
       }
     },
     material: {
@@ -46,17 +45,31 @@ const C181 = () => {
         "Housing": "Plastic ABS"
       },
       column2: {
-        "Electrode": "Conductivity cell with SS316 electrode, PTFE insulator (epoxy potted)"
+        "pH Electrode": "Glass body, Standard PVC (Optional: Teflon/SS316) housing"
       }
     },
-    cellSpecifications: {
-      "Wetted Parts": "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
-      "Threaded Connection": "½ & ¾ inch BSP",
-      "Cable Length": "3 meters (STD)",
-      "Cell Weight": "500 gms (Approx.)",
-      "Cell Range": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
+    electrodeSpecifications: {
+      "Wetted Parts": "Glass Body",
+      "Housing": "Standard PVC (Optional: Teflon/SS316)",
+      "Process Connection": "3/4 inch (NPT optional)",
+      "Pressure Range": "0 - 6 bar (Std)",
+      "Cable Connector": "BMC",
+      "Electrode Range": "0.0 to 14.0 pH",
+      "Accuracy": "±0.02 pH",
+      "Repeatability": "±0.01 pH",
+      "Configuration Lock": "Password Protection",
+      "Calibration": "Using front membrane keys",
+      "Electrode Housing": "Plastic ABS",
+      "Cutout Size": "90 mm x 90 mm",
+      "Operating Temperature": "0 to 50°C",
+      "Display": '4-digit 7-segment red LED display (0.5")',
+      "Input Supply": "230 VAC ±10%",
+      "Resolution": "0.01 pH",
+      "Dimensions": "96 mm x 96 mm x 85 mm",
+      "Connection": "Combined pH electrode with BNC connection",
+      "Enclosure": "IP65 Weatherproof"
     },
-    sliderImages: ["/c181dp.webp", "/cell.webp"]
+    sliderImages: ["/pHmeter1.webp", "/Elecctrode.webp", "/housing.webp"]
     // Note: This product data does not include mounting options or line size.
   };
 
@@ -95,39 +108,40 @@ const C181 = () => {
       <Helmet>
         <title>{product.title} | MyCompany</title>
         <meta name="description" content={product.description} />
-        <link
-          rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
-        />
+        <link rel="canonical" href={`https://www.mycompany.com/products/${product.id}`} />
       </Helmet>
       <header className="details-header">
         <h1 className="details-title">{product.title}</h1>
-        <Link to="/products" className="back-btn">
-          Back to Products
-        </Link>
+        <Link to="/products" className="back-btn">Back to Products</Link>
       </header>
-
+      
       {/* Main Section: Slider & Description */}
       <section className="details-main">
         <div className="slider-section">
           <div className="slider-container">
-            <button className="slider-btn" onClick={handlePrev}>
-              &lt;
-            </button>
+            <button className="slider-btn" onClick={handlePrev}>&lt;</button>
             <img
               src={product.sliderImages[currentIndex]}
               alt={product.title}
               className="main-image"
               loading="lazy"
             />
-            <button className="slider-btn" onClick={handleNext}>
-              &gt;
-            </button>
+            <button className="slider-btn" onClick={handleNext}>&gt;</button>
           </div>
         </div>
         <div className="info-section">
           <h2>Description</h2>
           <p>{product.description}</p>
+          {product.modesAvailable && (
+            <>
+              <h3>Modes Available</h3>
+              <ul>
+                {product.modesAvailable.map((mode, index) => (
+                  <li key={index}>{mode}</li>
+                ))}
+              </ul>
+            </>
+          )}
           {product.keyFeatures && (
             <>
               <h3>Key Features</h3>
@@ -150,16 +164,12 @@ const C181 = () => {
         <div className="data-columns">
           <ul>
             {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
+              <li key={key}><strong>{key}:</strong> {value}</li>
             ))}
           </ul>
           <ul>
             {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
+              <li key={key}><strong>{key}:</strong> {value}</li>
             ))}
           </ul>
         </div>
@@ -172,16 +182,7 @@ const C181 = () => {
           <div className="data-columns">
             <ul>
               {Object.entries(product.electronics.column1).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              ))}
-            </ul>
-            <ul>
-              {Object.entries(product.electronics.column2).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
+                <li key={key}><strong>{key}:</strong> {value}</li>
               ))}
             </ul>
           </div>
@@ -195,32 +196,26 @@ const C181 = () => {
           <div className="data-columns">
             <ul>
               {Object.entries(product.material.column1).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
+                <li key={key}><strong>{key}:</strong> {value}</li>
               ))}
             </ul>
             <ul>
               {Object.entries(product.material.column2).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
+                <li key={key}><strong>{key}:</strong> {value}</li>
               ))}
             </ul>
           </div>
         </section>
       )}
 
-      {/* Cell Specifications Section */}
-      {product.cellSpecifications && (
-        <section className="additional-section cell-specifications-section">
-          <h2>Cell Specifications</h2>
+      {/* pH Electrode Specifications Section */}
+      {product.electrodeSpecifications && (
+        <section className="additional-section electrode-specifications-section">
+          <h2>pH Electrode Specifications</h2>
           <div className="data-columns">
             <ul>
-              {Object.entries(product.cellSpecifications).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
+              {Object.entries(product.electrodeSpecifications).map(([key, value]) => (
+                <li key={key}><strong>{key}:</strong> {value}</li>
               ))}
             </ul>
           </div>
@@ -237,4 +232,4 @@ const C181 = () => {
   );
 };
 
-export default C181;
+export default P300;

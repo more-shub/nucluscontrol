@@ -4,69 +4,63 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P383_PP = () => {
+const P181_SS = () => {
   const product = {
-    id: "P383-PP",
-    title: "Digital Flow Transmitter - P383 (PP Sensor)",
+    id: "Digital-Flow-Indicator-P181-SS",
+    title: "Digital Flow Indicator - P181 (SS Sensor)",
     description:
-      "NUCLUS Model P383 is a digital flow transmitter designed for applications requiring precise flow rate monitoring. It is compatible with Polypropylene (PP) sensors and supports both field and panel mounting configurations. The P383 model is equipped with a programmable scale factor, high accuracy, and a backlit LCD display.",
-    modesAvailable: [
-      "Flow Rate Measurement",
-      "Total Flow Measurement",
-      "Analog Output for PLC Integration",
-    ],
+      "NUCLUS Model P181 is a digital flow rate indicator compatible with Stainless Steel (SS) sensors. It offers precise real-time flow measurement and supports both field and panel mounting configurations. The P181 model features a programmable scale factor for direct flow rate readings in multiple units (m³/hr, LPH, LPM, LPS, GPM US/UK).",
+    modesAvailable: ["Flow Rate Indicator"],
     keyFeatures: [
       "Programmable scale factor",
-      "High-accuracy flow rate and total flow measurement",
-      "Backlit alphanumeric 2 x 16 LCD display",
+      "Direct flow rate readings in multiple units",
+      "Backlit alphanumeric 1 x 16 LCD display",
       "IP65 protection for field mounting",
-      "Analog output (4-20mA) for process control",
     ],
     technicalData: {
       column1: {
-        "Function": "Flow Transmitter",
-        "Accuracy": "±0.5% of FSD",
+        Function: "Flow Rate Indicator",
+        "Supply Voltage": "230 V AC",
+        Accuracy: "±1% of FSD",
+        Input: "Nuclus sensor P812",
         "Scale Factor": "00.1000000",
       },
       column2: {
         "Operating Temperature": "0 to 50°C",
-        "Protection": "IP65",
-        "Input": "Nuclus sensor P812",
+        Protection: "IP65",
+        "Sensor Supply": "12 VDC (±10%), 30 mA",
       },
     },
     electronics: {
       column1: {
-        "Display": "Backlit alphanumeric 2 x 16 LCD",
-        "Sensor Supply": "12 VDC(±10%) , 30 mA.",
-        "Supply Voltage": "230 V AC / 24 V DC",
-        "Output": "1) 4 to 20 mA output ( self Power )/ RS 232 / RS485 _ _ 2) 5A pot. Free contact @ 230 VAC .",
+        Display: "Backlit alphanumeric 1 x 16 LCD",
+        "Supply Voltage": "230 V AC",
+        "Sensor Supply": "12 VDC (±10%), 30 mA",
       },
     },
     material: {
       column1: {
-        "Housing": "Plastic ABS",
-        "Sensor Body": "Polypropylene (black)"
+        Housing: "Plastic ABS",
+        "Sensor Body": "Stainless Steel 316",
       },
       column2: {
         "O-Ring": "Viton / Teflon",
-        "Paddle (Rotor)": "Polypropylene"
-      }
+        "Paddle (Rotor)": "Black PVDF",
+      },
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p383triclore.webp", alt: "P383 PP Field Mount Option 1" },
+        { src: "/p181ssthreadedend.webp", alt: "P181 SS Field Mount Option 1" },
       ],
       panelMount: [
-        { src: "/p383panelmount.webp", alt: "P383 PP Panel Mount Option 1" },
+        { src: "/p181sspanel.webp", alt: "P181 SS Panel Mount Option 1" },
       ],
     },
     fittings: [
-      { src: "/Weld-Adapter.webp", alt: "Weld Adapter Fitting" },
-      { src: "/pvcthreaded.webp", alt: "Threaded End ABS/PVC T Fitting" },
-      { src: "/Triclore.webp", alt: "Triclore Fitting" },
-      { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
-      { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
-      { src: "/StubEnd.webp", alt: "StubEnd Fitting" },
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
+      { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
+      { src: "/StubEnd(ss).webp", alt: "StubEnd Fitting" },
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
@@ -74,25 +68,30 @@ const P383_PP = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
-    sliderImages: ["/p383.webp", "/p383triclore.webp", "/p383panelmount.webp"],
+    sliderImages: [
+      "/p181ss.webp",
+      "/p181ssthreadedend.webp",
+      "/p181sspanel.webp",
+    ],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showForm, setShowForm] = useState(false);
-  const formRef = useRef(null);
-
   const handlePrev = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
     );
   };
-
   const handleNext = () => {
     setCurrentIndex((prev) =>
       prev === product.sliderImages.length - 1 ? 0 : prev + 1
     );
   };
 
+  // State and ref for the contact form
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef(null);
+
+  // Handler for "Ask For Quote" button
   const handleQuoteClick = () => {
     if (!showForm) {
       setShowForm(true);
@@ -201,6 +200,7 @@ const P383_PP = () => {
           </ul>
         </div>
       </section>
+
       <section className="additional-section material-section">
         <h2>Material</h2>
         <div className="data-columns">
@@ -306,4 +306,4 @@ const P383_PP = () => {
   );
 };
 
-export default P383_PP;
+export default P181_SS;

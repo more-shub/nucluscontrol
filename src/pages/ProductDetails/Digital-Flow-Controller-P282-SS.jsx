@@ -4,92 +4,101 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P181_SS = () => {
+const P282_SS = () => {
   const product = {
-    id: "P181-SS",
-    title: "Digital Flow Indicator - P181 (SS Sensor)",
+    id: "Digital-Flow-Controller-P282-SS",
+    title: "Digital Flow Controller - P282 (SS Sensor)",
     description:
-      "NUCLUS Model P181 is a digital flow rate indicator compatible with Stainless Steel (SS) sensors. It offers precise real-time flow measurement and supports both field and panel mounting configurations. The P181 model features a programmable scale factor for direct flow rate readings in multiple units (m³/hr, LPH, LPM, LPS, GPM US/UK).",
-    modesAvailable: ["Flow Rate Indicator"],
+      "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, designed for industrial applications requiring accurate flow monitoring and control. It is compatible with Stainless Steel (SS) sensors and supports both field and panel mounting options. This model features a built-in 5A potential-free relay contact for alarms or control actions.",
+    modesAvailable: [
+      "Totalizer Mode",
+      "Batch Controller",
+      "Pulse Controller",
+      "Rate Switch"
+    ],
     keyFeatures: [
-      "Programmable scale factor",
-      "Direct flow rate readings in multiple units",
-      "Backlit alphanumeric 1 x 16 LCD display",
-      "IP65 protection for field mounting",
+      "Microcontroller-based digital flow controller",
+      "Built-in 5A potential-free relay contact for alarms or control",
+      "Supports multiple sensor inputs (Turbine, PD, Magnetic, Ultrasonic)",
+      "Programmable scale factor for accurate flow readings",
+      "IP65 protection for field mounting"
     ],
     technicalData: {
       column1: {
-        "Function": "Flow Rate Indicator",
+        "Function": "Rate Indicator with Totalizer",
         "Supply Voltage": "230 V AC",
-        "Accuracy": "±1% of FSD",
-        "Input": "Nuclus sensor P812",
-        "Scale Factor": "00.1000000",
+        "Accuracy": "±0.5% of FSD",
+        "Input": "from Nuclus sensor P812",
+        "Scale Factor": "00.1000000"
       },
       column2: {
-        "Operating Temperature": "0 to 50°C",
+        "Operating Temperature": "0 to 100°C",
         "Protection": "IP65",
-        "Sensor Supply": "12 VDC (±10%), 30 mA",
-      },
+        "Output": "5A potential-free contact @ 230V AC"
+      }
     },
     electronics: {
       column1: {
-        "Display": "Backlit alphanumeric 1 x 16 LCD",
-        "Supply Voltage": "230 V AC",
-        "Sensor Supply": "12 VDC (±10%), 30 mA",
-      },
+        "Sensor Supply": "12 VDC",
+        "Display": "Backlit alphanumeric 2 x 16 LCD"
+      }
     },
     material: {
       column1: {
         "Housing": "Plastic ABS",
-        "Sensor Body": "Stainless Steel 316",
+        "Sensor Body": "Stainless Steel 316"
       },
       column2: {
         "O-Ring": "Viton / Teflon",
-        "Paddle (Rotor)": "Black PVDF",
-      },
+        "Paddle (Rotor)": "Black PVDF"
+      }
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p181ssthreadedend.webp", alt: "P181 SS Field Mount Option 1" },
+        { src: "/p282ssfieldmount.webp", alt: "P282 SS Field Mount Option 1" }
       ],
       panelMount: [
-        { src: "/p181sspanel.webp", alt: "P181 SS Panel Mount Option 1" },
-      ],
+        { src: "/p282sspanelmount.webp", alt: "P282 SS Panel Mount Option 1" }
+      ]
     },
     fittings: [
       { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
       { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
       { src: "/StubEnd(ss).webp", alt: "StubEnd Fitting" },
-      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
+      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" }
     ],
     lineSize: {
       sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
-      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.36"', '3.00"', '4.00"'],
+      sizeInches: ["0.5\"", "1\"", "1.5\"", "2\"", "2.36\"", "3.00\"", "4.00\""],
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
-      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
+      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"]
     },
     sliderImages: [
-      "/p181ss.webp",
-      "/p181ssthreadedend.webp",
-      "/p181sspanel.webp",
-    ],
+      "/p282ss.webp",
+      "/p282ssfieldmount.webp",
+      "/p282sspanelmount.webp"
+    ]
   };
 
+  // Slider state for images
   const [currentIndex, setCurrentIndex] = useState(0);
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? product.sliderImages.length - 1 : prev - 1
-    );
-  };
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === product.sliderImages.length - 1 ? 0 : prev + 1
-    );
-  };
 
   // State and ref for the contact form
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
+
+  // Handlers for slider buttons
+  const handlePrev = () => {
+    setCurrentIndex(prev =>
+      prev === 0 ? product.sliderImages.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex(prev =>
+      prev === product.sliderImages.length - 1 ? 0 : prev + 1
+    );
+  };
 
   // Handler for "Ask For Quote" button
   const handleQuoteClick = () => {
@@ -169,30 +178,14 @@ const P181_SS = () => {
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(
-              ([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              )
-            )}
+            {Object.entries(product.technicalData.column1).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(
-              ([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-      </section>
-      <section className="additional-section electronics-section">
-        <h2>Electronics</h2>
-        <div className="data-columns">
-          <ul>
-            {Object.entries(product.electronics.column1).map(([key, value]) => (
+            {Object.entries(product.technicalData.column2).map(([key, value]) => (
               <li key={key}>
                 <strong>{key}:</strong> {value}
               </li>
@@ -200,26 +193,46 @@ const P181_SS = () => {
           </ul>
         </div>
       </section>
+      
+      {/* Separate Electronics Section */}
+      {product.electronics && (
+        <section className="additional-section electronics-section">
+          <h2>Electronics</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.electronics.column1).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
-      <section className="additional-section material-section">
-        <h2>Material</h2>
-        <div className="data-columns">
-          <ul>
-            {Object.entries(product.material.column1).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
-          </ul>
-          <ul>
-            {Object.entries(product.material.column2).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* Separate Material Section */}
+      {product.material && (
+        <section className="additional-section material-section">
+          <h2>Material</h2>
+          <div className="data-columns">
+            <ul>
+              {Object.entries(product.material.column1).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {Object.entries(product.material.column2).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="additional-section mounting-options">
         <h2>Mounting Options</h2>
         <div className="mounting-columns">
@@ -306,4 +319,4 @@ const P181_SS = () => {
   );
 };
 
-export default P181_SS;
+export default P282_SS;

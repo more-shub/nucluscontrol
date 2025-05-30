@@ -73,7 +73,7 @@ const content3 = {
       ],
       product: {
         image: "/flowreader0.webp", // Update with your product image
-        link: "/products/BAT-001",  // Redirects to the BAT-001 route
+        link: "/products/Battery-Operated-Digital-Flow-Meter",  // Redirects to the BAT-001 route
         text: "View Our Battery Operated Flow Meters"
       }
     },

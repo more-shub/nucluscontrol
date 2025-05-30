@@ -48,7 +48,7 @@ const content2 = {
       },
       product: {
         image: "/p383sstriclore.webp", 
-        link: "/products/P383-SS",  
+        link: "/products/Digital-Flow-Transmitter-P383-SS",  
         text: "View Our Paddle Wheel Flowmeter"
       }
     },

@@ -4,45 +4,41 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P383_SS = () => {
+const P812_SS = () => {
   const product = {
-    id: "P383-SS",
-    title: "Digital Flow Transmitter - P383 (SS Sensor)",
+    id: "Paddle-Wheel-Flow-Sensor-Stainless-Steel-316",
+    title: "P812 Paddle Wheel Flow Sensor - Stainless Steel 316",
     description:
-      "NUCLUS Model P383 is a high-precision digital flow transmitter designed for industrial applications. It is compatible with Stainless Steel (SS) sensors and can be mounted in both field and panel configurations. The unit features a programmable scale factor, high accuracy, and an analog output for PLC integration.",
-    modesAvailable: [
-      "Flow Rate Measurement",
-      "Total Flow Measurement",
-      "Analog Output for PLC Integration",
-    ],
+      "The P812 SS Paddlewheel Flow Sensor is a rugged, high-durability sensor designed for industrial and high-pressure applications. It supports pipe sizes ranging from 15 NB to 300 NB and provides accurate flow rate and total flow measurement. The SS 316 housing ensures excellent corrosion resistance and extended lifespan in demanding environments.",
     keyFeatures: [
-      "Programmable scale factor",
-      "High-accuracy flow rate and total flow measurement",
-      "Backlit alphanumeric 2 x 16 LCD display",
-      "IP65 protection for field mounting",
-      "Analog output (4-20mA) for process control",
+      "Stainless Steel 316 corrosion-resistant body",
+      "Wide dynamic flow range: 0.5 to 5 m/s",
+      "Supports pipe sizes from 15 NB to 300 NB",
+      "Multiple installation fitting options",
+      "High-pressure resistance",
     ],
     technicalData: {
       column1: {
-        Function: "Flow Transmitter",
-        "Supply Voltage": "230 V AC",
-        Accuracy: "±0.5% of FSD",
-        Input: "from Nuclus sensor P812",
-        "Scale Factor": "00.1000000",
+        "Flow Rate Range": "0.5 to 5 m/s (1.6 to 16.4 ft/s)",
+        "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 inches)",
+        "Linearity": "±1% of full range",
+        "Repeatability": "±0.5% of full range",
       },
       column2: {
-        "Operating Temperature": "0 to 50°C",
-        Protection: "IP65",
-        Output: "4-20mA Analog Signal",
+        "Min Reynolds Number Required": "4500",
+        "Operating Pressure": "Max 12 bar (175 psi) @ 25°C",
+        "Operating Temperature": "-10°C to 100°C (14°F to 212°F)",
       },
     },
     electronics: {
       column1: {
-        Display: "Backlit alphanumeric 2 x 16 LCD",
-        "Sensor Supply": "12 VDC(±10%) , 30 mA.",
-        "Supply Voltage": "230 V AC / 24 V DC",
-        Output:
-          "1) 4 to 20 mA output ( self Power )/ RS 232 / RS485 _ _ 2) 5A pot. Free contact @ 230 VAC .",
+        "Supply Voltage": "10 to 24 VDC regulated",
+        "Supply Current": "<20 mA @ 10 to 24 VDC",
+      },
+      column2: {
+        "Output Type": "Pulse output (NPN)",
+        "Output Current": "10 mA max.",
+        "Frequency": "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
       },
     },
     material: {
@@ -55,14 +51,6 @@ const P383_SS = () => {
         Rotor: "Black PVDF",
       },
     },
-    mountingOptions: {
-      fieldMount: [
-        { src: "/p383sstriclore.webp", alt: "P383 SS Field Mount Option 1" },
-      ],
-      panelMount: [
-        { src: "/p383sspanelmount.webp", alt: "P383 SS Panel Mount Option 1" },
-      ],
-    },
     fittings: [
       { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
       { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
@@ -70,16 +58,12 @@ const P383_SS = () => {
       { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
     ],
     lineSize: {
-      sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
-      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.36"', '3.00"', '4.00"'],
-      minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
-      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
+      sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "65 NB", "80 NB", "100 NB"],
+      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.5"', '3"', '4"'],
+      minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "7.80", "14.0"],
+      maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"],
     },
-    sliderImages: [
-      "/p383ss.webp",
-      "/p383ssthreaded.webp",
-      "/p383sstriclore.webp",
-    ],
+    sliderImages: ["/p812ss.webp", "/p812ss1.webp", "/p812ss2.webp"],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -146,16 +130,6 @@ const P383_SS = () => {
         <div className="info-section">
           <h2>Description</h2>
           <p>{product.description}</p>
-          {product.modesAvailable && (
-            <>
-              <h3>Modes Available</h3>
-              <ul>
-                {product.modesAvailable.map((mode, index) => (
-                  <li key={index}>{mode}</li>
-                ))}
-              </ul>
-            </>
-          )}
           {product.keyFeatures && (
             <>
               <h3>Key Features</h3>
@@ -194,6 +168,7 @@ const P383_SS = () => {
           </ul>
         </div>
       </section>
+      {/* Electronics Section */}
       <section className="additional-section electronics-section">
         <h2>Electronics</h2>
         <div className="data-columns">
@@ -204,8 +179,17 @@ const P383_SS = () => {
               </li>
             ))}
           </ul>
+          <ul>
+            {Object.entries(product.electronics.column2).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
+
+      {/* Material Section */}
       <section className="additional-section material-section">
         <h2>Material</h2>
         <div className="data-columns">
@@ -223,37 +207,6 @@ const P383_SS = () => {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-      <section className="additional-section mounting-options">
-        <h2>Mounting Options</h2>
-        <div className="mounting-columns">
-          <div className="mounting-block">
-            <h3>Field Mount</h3>
-            <div className="mounting-images">
-              {product.mountingOptions.fieldMount.map((imgObj, index) => (
-                <img
-                  key={index}
-                  src={imgObj.src}
-                  alt={imgObj.alt}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          </div>
-          <div className="mounting-block">
-            <h3>Panel Mounted</h3>
-            <div className="mounting-images">
-              {product.mountingOptions.panelMount.map((imgObj, index) => (
-                <img
-                  key={index}
-                  src={imgObj.src}
-                  alt={imgObj.alt}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </section>
       <section className="additional-section fittings-section">
@@ -311,4 +264,4 @@ const P383_SS = () => {
   );
 };
 
-export default P383_SS;
+export default P812_SS;

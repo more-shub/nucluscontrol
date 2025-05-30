@@ -4,72 +4,81 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P812_SS = () => {
+const P181_PP = () => {
   const product = {
-    id: "P812-SS",
-    title: "P812 Paddle Wheel Flow Sensor - Stainless Steel 316",
+    id: "Digital-Flow-Indicator-P181-PP",
+    title: "Digital Flow Indicator - P181 (PP Sensor)",
     description:
-      "The P812 SS Paddlewheel Flow Sensor is a rugged, high-durability sensor designed for industrial and high-pressure applications. It supports pipe sizes ranging from 15 NB to 300 NB and provides accurate flow rate and total flow measurement. The SS 316 housing ensures excellent corrosion resistance and extended lifespan in demanding environments.",
+      "NUCLUS Model P181 is a digital flow rate indicator compatible with Polypropylene (PP) sensors. It provides real-time flow measurement and can be mounted in both field and panel configurations. The P181 model has a programmable scale factor, allowing direct flow rate readings in multiple units (m³/hr, LPH, LPM, LPS, GPM US/UK).",
+    modesAvailable: ["Flow Rate Indicator"],
     keyFeatures: [
-      "Stainless Steel 316 corrosion-resistant body",
-      "Wide dynamic flow range: 0.5 to 5 m/s",
-      "Supports pipe sizes from 15 NB to 300 NB",
-      "Multiple installation fitting options",
-      "High-pressure resistance",
+      "Programmable scale factor",
+      "Direct flow rate readings in multiple units",
+      "Backlit alphanumeric 1 x 16 LCD display",
+      "IP65 protection for field mounting",
     ],
     technicalData: {
       column1: {
-        "Flow Rate Range": "0.5 to 5 m/s (1.6 to 16.4 ft/s)",
-        "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 inches)",
-        "Linearity": "±1% of full range",
-        "Repeatability": "±0.5% of full range",
+        "Function": "Flow Rate Indicator",
+        "Accuracy": "+1% of FSD",
+        "Scale Factor": "00.1000000",
       },
       column2: {
-        "Min Reynolds Number Required": "4500",
-        "Operating Pressure": "Max 12 bar (175 psi) @ 25°C",
-        "Operating Temperature": "-10°C to 100°C (14°F to 212°F)",
+        "Operating Temperature": "0 to 50°C",
+        Protection: "IP65",
+        Input: "Nuclus sensor P812",
       },
     },
     electronics: {
       column1: {
-        "Supply Voltage": "10 to 24 VDC regulated",
-        "Supply Current": "<20 mA @ 10 to 24 VDC",
-      },
-      column2: {
-        "Output Type": "Pulse output (NPN)",
-        "Output Current": "10 mA max.",
-        "Frequency": "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
+        Display: "Backlit alphanumeric 1 x 16 LCD",
+        "Supply Voltage": "230 V AC",
+        "Sensor Supply": "12 VDC (±10%), 30 mA",
       },
     },
     material: {
       column1: {
-        "Sensor Body": "Stainless Steel 316",
-        "O-Rings": "Viton / Teflon",
+        Housing: "Plastic ABS",
+        "Sensor Body": "Polypropylene (Black)",
       },
       column2: {
-        "Rotor Pin": "Stainless Steel 316",
-        Rotor: "Black PVDF",
+        "O-Ring": "Viton / Teflon",
+        "Paddle (Rotor)": "Polypropylene",
       },
     },
+    mountingOptions: {
+      fieldMount: [
+        { src: "/p181triclore.webp", alt: "P181 PP Field Mount Option 1" },
+      ],
+      panelMount: [
+        { src: "/p181panel.webp", alt: "P181 PP Panel Mount Option 1" },
+      ],
+    },
     fittings: [
-      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
-      { src: "/Tfitting-Threadedend(ss).webp", alt: "Threaded End Fitting" },
-      { src: "/StubEnd(ss).webp", alt: "StubEnd Fitting" },
-      { src: "/Triclore(ss).webp", alt: "Triclore Fitting" },
+      { src: "/Weld-Adapter.webp", alt: "Weld Adapter Fitting" },
+      { src: "/pvcthreaded.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Triclore.webp", alt: "Triclore Fitting" },
+      { src: "/upvc.webp", alt: "Threaded End ABS/PVC T Fitting" },
+      { src: "/Tfitting-Threadedend.webp", alt: "Threaded End Fitting" },
+      { src: "/StubEnd.webp", alt: "StubEnd Fitting" },
     ],
     lineSize: {
-      sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "65 NB", "80 NB", "100 NB"],
-      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.5"', '3"', '4"'],
-      minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "7.80", "14.0"],
-      maxFlow: ["2.60", "8.80", "20.4", "35.0", "63.0", "78.0", "140"],
+      sizes: ["15 NB", "25 NB", "40 NB", "50 NB", "60 NB", "80 NB", "100 NB"],
+      sizeInches: ['0.5"', '1"', '1.5"', '2"', '2.36"', '3.00"', '4.00"'],
+      minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
+      maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
-    sliderImages: ["/p812ss.webp", "/p812ss1.webp", "/p812ss2.webp"],
+    sliderImages: ["/p181.webp", "/p181triclore.webp"],
   };
 
+  // Slider state for images
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // State and ref for the contact form
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
 
+  // Handlers for slider buttons
   const handlePrev = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
@@ -82,6 +91,7 @@ const P812_SS = () => {
     );
   };
 
+  // Handler for "Ask For Quote" button
   const handleQuoteClick = () => {
     if (!showForm) {
       setShowForm(true);
@@ -130,6 +140,16 @@ const P812_SS = () => {
         <div className="info-section">
           <h2>Description</h2>
           <p>{product.description}</p>
+          {product.modesAvailable && (
+            <>
+              <h3>Modes Available</h3>
+              <ul>
+                {product.modesAvailable.map((mode, index) => (
+                  <li key={index}>{mode}</li>
+                ))}
+              </ul>
+            </>
+          )}
           {product.keyFeatures && (
             <>
               <h3>Key Features</h3>
@@ -168,7 +188,6 @@ const P812_SS = () => {
           </ul>
         </div>
       </section>
-      {/* Electronics Section */}
       <section className="additional-section electronics-section">
         <h2>Electronics</h2>
         <div className="data-columns">
@@ -179,17 +198,9 @@ const P812_SS = () => {
               </li>
             ))}
           </ul>
-          <ul>
-            {Object.entries(product.electronics.column2).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
-      {/* Material Section */}
       <section className="additional-section material-section">
         <h2>Material</h2>
         <div className="data-columns">
@@ -207,6 +218,37 @@ const P812_SS = () => {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+      <section className="additional-section mounting-options">
+        <h2>Mounting Options</h2>
+        <div className="mounting-columns">
+          <div className="mounting-block">
+            <h3>Field Mount</h3>
+            <div className="mounting-images">
+              {product.mountingOptions.fieldMount.map((imgObj, index) => (
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="mounting-block">
+            <h3>Panel Mounted</h3>
+            <div className="mounting-images">
+              {product.mountingOptions.panelMount.map((imgObj, index) => (
+                <img
+                  key={index}
+                  src={imgObj.src}
+                  alt={imgObj.alt}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       <section className="additional-section fittings-section">
@@ -264,4 +306,4 @@ const P812_SS = () => {
   );
 };
 
-export default P812_SS;
+export default P181_PP;

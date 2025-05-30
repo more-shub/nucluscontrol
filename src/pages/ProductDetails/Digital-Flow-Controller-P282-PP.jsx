@@ -4,41 +4,49 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P181_PP = () => {
+const P282_PP = () => {
+  // Inline product data for P282-PP
   const product = {
-    id: "P181-PP",
-    title: "Digital Flow Indicator - P181 (PP Sensor)",
+    id: "Digital-Flow-Controller-P282-PP",
+    title: "Digital Flow Controller - P282 (PP Sensor)",
     description:
-      "NUCLUS Model P181 is a digital flow rate indicator compatible with Polypropylene (PP) sensors. It provides real-time flow measurement and can be mounted in both field and panel configurations. The P181 model has a programmable scale factor, allowing direct flow rate readings in multiple units (m³/hr, LPH, LPM, LPS, GPM US/UK).",
-    modesAvailable: ["Flow Rate Indicator"],
+      "NUCLUS Model P282 is a microcontroller-based rate indicator with a totalizer, compatible with Polypropylene (PP) sensors. Designed for industrial applications, it supports both field and panel mounting options with a built-in 5A potential-free relay contact for alarms or control.",
+    modesAvailable: [
+      "Totalizer Mode",
+      "Batch Controller",
+      "Pulse Controller",
+      "Rate Switch",
+    ],
     keyFeatures: [
-      "Programmable scale factor",
-      "Direct flow rate readings in multiple units",
-      "Backlit alphanumeric 1 x 16 LCD display",
+      "Microcontroller-based digital flow controller",
+      "Built-in 5A potential-free contact for alarms or control",
+      "Supports multiple sensor inputs (Turbine, PD, Magnetic, Ultrasonic)",
+      "Programmable scale factor for accurate flow readings",
       "IP65 protection for field mounting",
     ],
     technicalData: {
       column1: {
-        "Function": "Flow Rate Indicator",
-        "Accuracy": "+1% of FSD",
+        "Function": "Rate Indicator with Totalizer",
+        "Supply Voltage": "230 V AC",
+        "Accuracy": "±0.5% of FSD",
         "Scale Factor": "00.1000000",
       },
       column2: {
         "Operating Temperature": "0 to 50°C",
-        Protection: "IP65",
-        Input: "Nuclus sensor P812",
+        "Protection": "IP65",
+        "Input": "Nuclus sensor P812",
       },
     },
     electronics: {
       column1: {
-        Display: "Backlit alphanumeric 1 x 16 LCD",
-        "Supply Voltage": "230 V AC",
-        "Sensor Supply": "12 VDC (±10%), 30 mA",
+        "Sensor Supply": "12 VDC",
+        "Output": "5A potential-free contact @ 230V AC",
+        "Display": "Backlit alphanumeric 2 x 16 LCD",
       },
     },
     material: {
       column1: {
-        Housing: "Plastic ABS",
+        "Housing": "Plastic ABS",
         "Sensor Body": "Polypropylene (Black)",
       },
       column2: {
@@ -48,10 +56,10 @@ const P181_PP = () => {
     },
     mountingOptions: {
       fieldMount: [
-        { src: "/p181triclore.webp", alt: "P181 PP Field Mount Option 1" },
+        { src: "/p282threadedend.webp", alt: "Field Mount Option 1" },
       ],
       panelMount: [
-        { src: "/p181panel.webp", alt: "P181 PP Panel Mount Option 1" },
+        { src: "/p282panelmount.webp", alt: "Panel Mount Option 1" },
       ],
     },
     fittings: [
@@ -68,17 +76,21 @@ const P181_PP = () => {
       minFlow: ["0.26", "0.88", "2.04", "3.50", "6.30", "8.00", "14.00"],
       maxFlow: ["2.60", "8.80", "20.40", "35.00", "63.00", "80.00", "140.00"],
     },
-    sliderImages: ["/p181.webp", "/p181triclore.webp"],
+    sliderImages: [
+      "/p282.webp",
+      "/p282threadedend.webp",
+      "/p282panelmount.webp",
+    ],
   };
 
   // Slider state for images
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // State and ref for the contact form
+  // New state and ref for the contact form
   const [showForm, setShowForm] = useState(false);
   const formRef = useRef(null);
 
-  // Handlers for slider buttons
+  // Handler for slider buttons
   const handlePrev = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? product.sliderImages.length - 1 : prev - 1
@@ -120,7 +132,9 @@ const P181_PP = () => {
           Back to Products
         </Link>
       </header>
+
       <section className="details-main">
+        {/* Slider Section */}
         <div className="slider-section">
           <div className="slider-container">
             <button className="slider-btn" onClick={handlePrev}>
@@ -137,9 +151,11 @@ const P181_PP = () => {
             </button>
           </div>
         </div>
+        {/* Information Section */}
         <div className="info-section">
           <h2>Description</h2>
           <p>{product.description}</p>
+
           {product.modesAvailable && (
             <>
               <h3>Modes Available</h3>
@@ -150,6 +166,7 @@ const P181_PP = () => {
               </ul>
             </>
           )}
+
           {product.keyFeatures && (
             <>
               <h3>Key Features</h3>
@@ -160,11 +177,15 @@ const P181_PP = () => {
               </ul>
             </>
           )}
+
+          {/* Updated button with click handler */}
           <button className="quote-btn" onClick={handleQuoteClick}>
             Ask For Quote
           </button>
         </div>
       </section>
+
+      {/* Technical Data Section */}
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
@@ -200,7 +221,6 @@ const P181_PP = () => {
           </ul>
         </div>
       </section>
-
       <section className="additional-section material-section">
         <h2>Material</h2>
         <div className="data-columns">
@@ -220,6 +240,7 @@ const P181_PP = () => {
           </ul>
         </div>
       </section>
+      {/* Mounting Options Section */}
       <section className="additional-section mounting-options">
         <h2>Mounting Options</h2>
         <div className="mounting-columns">
@@ -251,6 +272,8 @@ const P181_PP = () => {
           </div>
         </div>
       </section>
+
+      {/* Fittings Section */}
       <section className="additional-section fittings-section">
         <h2>Fittings</h2>
         <div className="gallery-grid">
@@ -261,6 +284,8 @@ const P181_PP = () => {
           ))}
         </div>
       </section>
+
+      {/* Line Size Section */}
       <section className="additional-section line-size-section">
         <h2>Line Size</h2>
         <div className="table-wrapper">
@@ -296,6 +321,8 @@ const P181_PP = () => {
           </table>
         </div>
       </section>
+
+      {/* Contact Form Section (conditionally rendered) */}
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>
@@ -306,4 +333,4 @@ const P181_PP = () => {
   );
 };
 
-export default P181_PP;
+export default P282_PP;

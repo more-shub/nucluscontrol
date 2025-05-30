@@ -4,65 +4,60 @@ import { Helmet } from "react-helmet";
 import Contact from "../../components/Contact"; // Your Contact form component
 import "../../styles/ProductDetails.css";
 
-const P200 = () => {
+const C181 = () => {
   const product = {
-    id: "P200",
-    title: "pH Indicator - P200",
+    id: "Conductivity/TDS-Indicator-C181",
+    title: "Conductivity/TDS Indicator - C181",
     description:
-      "NUCLUS Model P200 is an online accurate pH indicator designed for electrochemical analysis. It measures the acidity or alkalinity of a solution (0 to 14 pH) with high resolution and accuracy. The unit features software controlled tuning for Zero and Slope, push-button front keys for easy setting, and temperature correction (manual with optional auto).",
+      "NUCLUS Model C181 is a digital conductivity and TDS indicator designed for a wide variety of applications, ranging from high-purity water quality monitoring to process control in weak acids and bases. This microprocessor-based instrument provides accurate, repeatable readings with long-term signal stability. It is designed for both in-line and submersible installation.",
     keyFeatures: [
-      "Software controlled tuning for Zero and Slope",
-      "4-digit red 7-segment LED display",
-      "Conformity with Indian National Standards",
-      "Easy front key setting",
-      "Temperature correction (Manual with optional auto)",
-      "IP65 weatherproof enclosure"
+      "Microprocessor-based for wide operating range and long term signal stability",
+      "Backlit alphanumeric 1 x 16 LCD display",
+      "IP65 weatherproof enclosure",
+      "Dual-threaded (½ & ¾ inch BSP) for quick installation",
+      "Universal power supply (70V AC to 270V AC SMPS)"
     ],
     technicalData: {
       column1: {
-        Function: "pH Indicator",
-        "Supply Voltage": "230 VAC ±10%",
-        Range: "0 to 14 pH",
-        Resolution: "0.01 pH"
+        "Function": "Conductivity & TDS Indicator",
+        "Supply Voltage": "70V AC to 270V AC SMPS",
+        "Linearity": "+2% of FSD",
+        "Input": "from Nuclus Cell"
       },
       column2: {
-        Accuracy: "±0.02 pH",
-        Repeatability: "±0.01 pH",
-        "Operating Temperature": "0 to 50°C"
+        "Protection": "IP65",
+        "Configuration Lock": "Password Protection",
+        "Calibration": "Using front keys",
+        "Display": "Backlit alphanumeric 1 x 16 LCD"
       }
     },
     electronics: {
       column1: {
-        Display: '4-digit red 7-segment LED display (0.5")'
+        "Cell Constant": "Selectable (e.g., 0.01 to 1.00)",
+        "Operating Temperature": "0 to 50°C"
+      },
+      column2: {
+        "Measurement Range": "Dependent on cell constant",
+        "Cable Length": "3 meters (STD)"
       }
     },
     material: {
       column1: {
-        Housing: "Plastic ABS"
+        "Housing": "Plastic ABS"
       },
       column2: {
-        "pH Electrode": "Glass body, Standard PVC (Optional: Teflon/SS316) housing"
+        "Electrode": "Conductivity cell with SS316 electrode, PTFE insulator (epoxy potted)"
       }
     },
-    // New pH Electrode Specifications added from the brochure
-    electrodeSpecifications: {
-      "Wetted Parts": "Glass Body",
-      Housing: "Standard PVC (Optional: Teflon/SS316)",
-      "Process Connection": "3/4 inch (NPT optional)",
-      "Pressure Range": "0 - 6 bar (Std)",
-      "Cable Connector": "BMC",
-      Range: "0.0 to 14.0 pH",
-      Accuracy: "±0.02 pH",
-      Repeatability: "±0.01 pH",
-      "Cutout Size": "90 mm x 90 mm",
-      "Operating Temperature": "0 to 50°C",
-      Display: '4-digit 7-segment red LED display (0.5")',
-      "Input Supply": "230 VAC ±10%",
-      Resolution: "0.01 pH",
-      Dimensions: "96 mm x 96 mm x 85 mm"
+    cellSpecifications: {
+      "Wetted Parts": "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
+      "Threaded Connection": "½ & ¾ inch BSP",
+      "Cable Length": "3 meters (STD)",
+      "Cell Weight": "500 gms (Approx.)",
+      "Cell Range": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
     },
-    sliderImages: ["/pHmeter1.webp", "/Elecctrode.webp", "/housing.webp"]
-    // Note: P200 does not include a "lineSize" property.
+    sliderImages: ["/c181dp.webp", "/cell.webp"]
+    // Note: This product data does not include mounting options or line size.
   };
 
   // Slider state for images
@@ -111,7 +106,7 @@ const P200 = () => {
           Back to Products
         </Link>
       </header>
-      
+
       {/* Main Section: Slider & Description */}
       <section className="details-main">
         <div className="slider-section">
@@ -148,7 +143,7 @@ const P200 = () => {
           </button>
         </div>
       </section>
-      
+
       {/* Technical Data Section */}
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
@@ -182,6 +177,13 @@ const P200 = () => {
                 </li>
               ))}
             </ul>
+            <ul>
+              {Object.entries(product.electronics.column2).map(([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}
@@ -209,13 +211,13 @@ const P200 = () => {
         </section>
       )}
 
-      {/* pH Electrode Specifications Section */}
-      {product.electrodeSpecifications && (
-        <section className="additional-section electrode-specifications-section">
-          <h2>pH Electrode Specifications</h2>
+      {/* Cell Specifications Section */}
+      {product.cellSpecifications && (
+        <section className="additional-section cell-specifications-section">
+          <h2>Cell Specifications</h2>
           <div className="data-columns">
             <ul>
-              {Object.entries(product.electrodeSpecifications).map(([key, value]) => (
+              {Object.entries(product.cellSpecifications).map(([key, value]) => (
                 <li key={key}>
                   <strong>{key}:</strong> {value}
                 </li>
@@ -224,7 +226,7 @@ const P200 = () => {
           </div>
         </section>
       )}
-      
+
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>
@@ -235,4 +237,4 @@ const P200 = () => {
   );
 };
 
-export default P200;
+export default C181;
