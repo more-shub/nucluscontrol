@@ -107,11 +107,11 @@ const P181_SS = () => {
   return (
     <div id="details-view" className="product-details">
       <Helmet>
-        <title>{product.title} | MyCompany</title>
+        <title>{product.title} | Nuclus Control</title>
         <meta name="description" content={product.description} />
         <link
           rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
+          href={`https://digitalflowmeter.net/products/${product.id}`}
         />
       </Helmet>
       <header className="details-header">

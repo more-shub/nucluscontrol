@@ -15,48 +15,51 @@ const C181 = () => {
       "Backlit alphanumeric 1 x 16 LCD display",
       "IP65 weatherproof enclosure",
       "Dual-threaded (½ & ¾ inch BSP) for quick installation",
-      "Universal power supply (70V AC to 270V AC SMPS)"
+      "Universal power supply (70V AC to 270V AC SMPS)",
     ],
     technicalData: {
       column1: {
-        "Function": "Conductivity & TDS Indicator",
+        Function: "Conductivity & TDS Indicator",
         "Supply Voltage": "70V AC to 270V AC SMPS",
-        "Linearity": "+2% of FSD",
-        "Input": "from Nuclus Cell"
+        Linearity: "+2% of FSD",
+        Input: "from Nuclus Cell",
       },
       column2: {
-        "Protection": "IP65",
+        Protection: "IP65",
         "Configuration Lock": "Password Protection",
-        "Calibration": "Using front keys",
-        "Display": "Backlit alphanumeric 1 x 16 LCD"
-      }
+        Calibration: "Using front keys",
+        Display: "Backlit alphanumeric 1 x 16 LCD",
+      },
     },
     electronics: {
       column1: {
         "Cell Constant": "Selectable (e.g., 0.01 to 1.00)",
-        "Operating Temperature": "0 to 50°C"
+        "Operating Temperature": "0 to 50°C",
       },
       column2: {
         "Measurement Range": "Dependent on cell constant",
-        "Cable Length": "3 meters (STD)"
-      }
+        "Cable Length": "3 meters (STD)",
+      },
     },
     material: {
       column1: {
-        "Housing": "Plastic ABS"
+        Housing: "Plastic ABS",
       },
       column2: {
-        "Electrode": "Conductivity cell with SS316 electrode, PTFE insulator (epoxy potted)"
-      }
+        Electrode:
+          "Conductivity cell with SS316 electrode, PTFE insulator (epoxy potted)",
+      },
     },
     cellSpecifications: {
-      "Wetted Parts": "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
+      "Wetted Parts":
+        "Cell Body: Polypropylene (White), Electrode: SS316, Insulator: PTFE with epoxy potting",
       "Threaded Connection": "½ & ¾ inch BSP",
       "Cable Length": "3 meters (STD)",
       "Cell Weight": "500 gms (Approx.)",
-      "Cell Range": "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm"
+      "Cell Range":
+        "0.01 cell constant: 0.055 to 100 µS/cm; 0.10: 1 to 1000 µS/cm; 1.00: 10 to 10000 µS/cm",
     },
-    sliderImages: ["/c181dp.webp", "/cell.webp"]
+    sliderImages: ["/c181dp.webp", "/cell.webp"],
     // Note: This product data does not include mounting options or line size.
   };
 
@@ -93,11 +96,11 @@ const C181 = () => {
   return (
     <div id="details-view" className="product-details">
       <Helmet>
-        <title>{product.title} | MyCompany</title>
+        <title>{product.title} | Nuclus Control</title>
         <meta name="description" content={product.description} />
         <link
           rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
+          href={`https://digitalflowmeter.net/products/${product.id}`}
         />
       </Helmet>
       <header className="details-header">
@@ -149,18 +152,22 @@ const C181 = () => {
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
         </div>
       </section>
@@ -171,18 +178,22 @@ const C181 = () => {
           <h2>Electronics</h2>
           <div className="data-columns">
             <ul>
-              {Object.entries(product.electronics.column1).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              ))}
+              {Object.entries(product.electronics.column1).map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {value}
+                  </li>
+                )
+              )}
             </ul>
             <ul>
-              {Object.entries(product.electronics.column2).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              ))}
+              {Object.entries(product.electronics.column2).map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {value}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </section>
@@ -217,11 +228,13 @@ const C181 = () => {
           <h2>Cell Specifications</h2>
           <div className="data-columns">
             <ul>
-              {Object.entries(product.cellSpecifications).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              ))}
+              {Object.entries(product.cellSpecifications).map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {value}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </section>

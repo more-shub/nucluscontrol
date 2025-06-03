@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useMemo } from "react";
+import { Helmet } from "react-helmet";
 import "../styles/Contact.css";
 
 const Contact = () => {
-  // URL obtained from deploying your Google Apps Script
   const GOOGLE_FORM_URL =
     "https://script.google.com/macros/s/AKfycbw1_Qmk9e4eGHacoXSO7Uo731gleKMFBgfP6o7UBpTNcWCCtOepC5xo5ckXza-dcGyP1g/exec";
 
@@ -18,7 +18,6 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Memoize arrays so that they do not change on every render.
   const fields = useMemo(
     () => [
       "Email Address",
@@ -41,18 +40,8 @@ const Contact = () => {
     []
   );
 
-  const labels = useMemo(
-    () => [
-      "Email Address",
-      "Full Name",
-      "Contact Number",
-      "Company Name",
-      "Describe your Requirement",
-    ],
-    []
-  );
+  const labels = useMemo(() => [...fields], [fields]);
 
-  // Handle input change with useCallback to prevent unnecessary re-renders.
   const handleChange = useCallback(
     (e) => {
       const { value } = e.target;
@@ -61,7 +50,6 @@ const Contact = () => {
     [fields, step]
   );
 
-  // Validate the current field based on the step.
   const validateField = useCallback(() => {
     const currentValue = formData[fields[step]].trim();
 
@@ -76,11 +64,11 @@ const Contact = () => {
       return "Please enter a valid contact number (min 7 digits).";
     }
     if (step === 3 && !currentValue) return "Company Name cannot be empty.";
-    if (step === 4 && !currentValue) return "Please describe your requirement.";
+    if (step === 4 && !currentValue)
+      return "Please describe your requirement.";
     return "";
   }, [formData, fields, step]);
 
-  // Handle the "Next" or "Submit" button click.
   const handleNext = useCallback(async () => {
     const validationError = validateField();
     if (validationError) {
@@ -94,7 +82,6 @@ const Contact = () => {
     } else {
       setIsLoading(true);
       try {
-        // Using no-cors means the response is opaque and cannot be parsed.
         await fetch(GOOGLE_FORM_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -114,7 +101,6 @@ const Contact = () => {
     }
   }, [validateField, fields.length, formData, GOOGLE_FORM_URL, step]);
 
-  // Handle Enter key press on the input field for keyboard accessibility.
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Enter") {
@@ -127,6 +113,13 @@ const Contact = () => {
   if (submitted) {
     return (
       <div className="contact-form-container">
+        <Helmet>
+          <title>Contact Submitted | Nuclus Control</title>
+          <meta
+            name="description"
+            content="Your contact details were successfully submitted to Nuclus Control. Thank you for reaching out."
+          />
+        </Helmet>
         <div className="contact-form-box thank-you">
           <h2>Thank You!</h2>
           <p>Your details have been submitted successfully.</p>
@@ -137,6 +130,13 @@ const Contact = () => {
 
   return (
     <div id="contact" className="contact-form-container">
+      <Helmet>
+        <title>Contact Us | Nuclus Control</title>
+        <meta
+          name="description"
+          content="Reach out to Nuclus Control for your flow meter and process control instrument needs. Fill out our quick form to get in touch."
+        />
+      </Helmet>
       <div className="contact-form-box">
         <h2>Contact Us</h2>
         <div className="progress-bar">

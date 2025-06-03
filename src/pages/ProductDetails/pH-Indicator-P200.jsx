@@ -16,33 +16,34 @@ const P200 = () => {
       "Conformity with Indian National Standards",
       "Easy front key setting",
       "Temperature correction (Manual with optional auto)",
-      "IP65 weatherproof enclosure"
+      "IP65 weatherproof enclosure",
     ],
     technicalData: {
       column1: {
         Function: "pH Indicator",
         "Supply Voltage": "230 VAC ±10%",
         Range: "0 to 14 pH",
-        Resolution: "0.01 pH"
+        Resolution: "0.01 pH",
       },
       column2: {
         Accuracy: "±0.02 pH",
         Repeatability: "±0.01 pH",
-        "Operating Temperature": "0 to 50°C"
-      }
+        "Operating Temperature": "0 to 50°C",
+      },
     },
     electronics: {
       column1: {
-        Display: '4-digit red 7-segment LED display (0.5")'
-      }
+        Display: '4-digit red 7-segment LED display (0.5")',
+      },
     },
     material: {
       column1: {
-        Housing: "Plastic ABS"
+        Housing: "Plastic ABS",
       },
       column2: {
-        "pH Electrode": "Glass body, Standard PVC (Optional: Teflon/SS316) housing"
-      }
+        "pH Electrode":
+          "Glass body, Standard PVC (Optional: Teflon/SS316) housing",
+      },
     },
     // New pH Electrode Specifications added from the brochure
     electrodeSpecifications: {
@@ -59,9 +60,9 @@ const P200 = () => {
       Display: '4-digit 7-segment red LED display (0.5")',
       "Input Supply": "230 VAC ±10%",
       Resolution: "0.01 pH",
-      Dimensions: "96 mm x 96 mm x 85 mm"
+      Dimensions: "96 mm x 96 mm x 85 mm",
     },
-    sliderImages: ["/pHmeter1.webp", "/Elecctrode.webp", "/housing.webp"]
+    sliderImages: ["/pHmeter1.webp", "/Elecctrode.webp", "/housing.webp"],
     // Note: P200 does not include a "lineSize" property.
   };
 
@@ -98,11 +99,11 @@ const P200 = () => {
   return (
     <div id="details-view" className="product-details">
       <Helmet>
-        <title>{product.title} | MyCompany</title>
+        <title>{product.title} | Nuclus Control</title>
         <meta name="description" content={product.description} />
         <link
           rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
+          href={`https://digitalflowmeter.net/products/${product.id}`}
         />
       </Helmet>
       <header className="details-header">
@@ -111,7 +112,7 @@ const P200 = () => {
           Back to Products
         </Link>
       </header>
-      
+
       {/* Main Section: Slider & Description */}
       <section className="details-main">
         <div className="slider-section">
@@ -148,24 +149,28 @@ const P200 = () => {
           </button>
         </div>
       </section>
-      
+
       {/* Technical Data Section */}
       <section className="additional-section technical-section">
         <h2>Technical Data</h2>
         <div className="data-columns">
           <ul>
-            {Object.entries(product.technicalData.column1).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
+            {Object.entries(product.technicalData.column1).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
           <ul>
-            {Object.entries(product.technicalData.column2).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key}:</strong> {value}
-              </li>
-            ))}
+            {Object.entries(product.technicalData.column2).map(
+              ([key, value]) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {value}
+                </li>
+              )
+            )}
           </ul>
         </div>
       </section>
@@ -176,11 +181,13 @@ const P200 = () => {
           <h2>Electronics</h2>
           <div className="data-columns">
             <ul>
-              {Object.entries(product.electronics.column1).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              ))}
+              {Object.entries(product.electronics.column1).map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {value}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </section>
@@ -215,16 +222,18 @@ const P200 = () => {
           <h2>pH Electrode Specifications</h2>
           <div className="data-columns">
             <ul>
-              {Object.entries(product.electrodeSpecifications).map(([key, value]) => (
-                <li key={key}>
-                  <strong>{key}:</strong> {value}
-                </li>
-              ))}
+              {Object.entries(product.electrodeSpecifications).map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {value}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </section>
       )}
-      
+
       {showForm && (
         <section className="quote-form-section" ref={formRef}>
           <h2>FORM FOR QUOTATION</h2>

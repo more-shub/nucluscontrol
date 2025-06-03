@@ -22,14 +22,14 @@ const P812_PP = () => {
       column1: {
         "Flow Rate Range": "0.5 to 5 m/s (1.6 to 16.4 ft/s)",
         "Pipe Size Range": "15 NB to 300 NB (0.5 to 12 inches)",
-        "Linearity": "±1% of full range",
-        "Repeatability": "±0.5% of full range",
+        Linearity: "±1% of full range",
+        Repeatability: "±0.5% of full range",
       },
       column2: {
         "Min Reynolds Number Required": "4500",
         "Operating Pressure": "Max 10 bar (145 psi) @ 25°C",
         "Operating Temperature": "-10°C to 70°C (14°F to 158°F)",
-        "Input": "Nuclus sensor P812",
+        Input: "Nuclus sensor P812",
       },
     },
     electronics: {
@@ -40,7 +40,7 @@ const P812_PP = () => {
       column2: {
         "Output Type": "Pulse output (NPN)",
         "Output Current": "10 mA max.",
-        "Frequency": "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
+        Frequency: "38 Hz per m/s nominal (5.5 Hz per ft/s nominal)",
       },
     },
     material: {
@@ -104,11 +104,11 @@ const P812_PP = () => {
   return (
     <div id="details-view" className="product-details">
       <Helmet>
-        <title>{product.title} | MyCompany</title>
+        <title>{product.title} | Nuclus Control</title>
         <meta name="description" content={product.description} />
         <link
           rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
+          href={`https://digitalflowmeter.net/products/${product.id}`}
         />
       </Helmet>
       <header className="details-header">

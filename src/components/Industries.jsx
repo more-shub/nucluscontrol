@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import "../styles/Industries.css";
 
 const cardData = [
@@ -12,7 +13,6 @@ const cardData = [
       "Production Efficiency",
       "Monitoring & Reporting",
       "Automation & Integration",
-      "Maintenance & Troubleshooting",
       "Energy & Resource Efficiency",
       "Batch Control",
     ],
@@ -67,8 +67,6 @@ const cardData = [
       "Quality Control",
       "Process Optimization",
       "Energy & Resource Efficiency",
-      "Monitoring & Reporting",
-      "System Integration & Automation",
       "Maintenance & Troubleshooting",
     ],
   },
@@ -77,13 +75,11 @@ const cardData = [
     title: "Water Treatment",
     background: "/water-treatment.webp",
     points: [
-      "Raw Water Flow Measurement",
       "Chemical Dosage Control",
       "Filtration & Treatment Monitoring",
       "Discharge & Effluent Monitoring",
       "Energy Efficiency & Optimization",
       "Quality Control & Compliance",
-      "Monitoring & Reporting",
       "System Automation & Integration",
     ],
   },
@@ -91,10 +87,17 @@ const cardData = [
 
 const Industries = () => {
   return (
-    <div id="industries-section">
-      <div className="industries-section" id="industries-overview">
-        <h1 id="industries-heading">Industries We Serve</h1>
-        <p id="industries-description">
+    <section id="industries-section" className="industries-section" itemScope itemType="https://schema.org/Service">
+      <Helmet>
+        <title>Industries We Serve | Nuclus Control</title>
+        <meta name="description" content="Explore the diverse industries served by Nuclus Control, offering precision flow measurement and process optimization solutions." />
+        <meta name="keywords" content="Bottling, Distillation, Filtration, Pharmaceutical, Textile, Water Treatment, Flow Measurement, Automation, Industry Solutions" />
+        <link rel="canonical" href="https://digitalflowmeter.net/#industries-section" />
+      </Helmet>
+
+      <header id="industries-overview">
+        <h1 id="industries-heading" itemProp="name">Industries We Serve</h1>
+        <p id="industries-description" itemProp="description">
           Discover the diverse range of industries we proudly serve, providing
           cutting-edge solutions tailored to enhance efficiency, productivity,
           and sustainability.
@@ -104,33 +107,34 @@ const Industries = () => {
           innovative technologies are designed to meet the unique challenges of
           each sector, ensuring seamless integration and long-term success.
         </p>
-      </div>
+      </header>
 
       <div className="scroll-container" id="industries-cards-wrapper">
         <div className="industries-cards-container" id="industries-cards">
           {cardData.map((card) => (
-            <div
+            <article
               key={card.id}
               className="industry-card"
               style={{ backgroundImage: `url('${card.background}')` }}
               id={card.id}
+              aria-label={card.title}
+              role="region"
+              itemScope
+              itemType="https://schema.org/Service"
             >
               <div className="industry-card-content">
-                <h3>{card.title}</h3>
-                <p>
+                <h3 itemProp="areaServed">{card.title}</h3>
+                <ul>
                   {card.points.map((point, index) => (
-                    <React.Fragment key={index}>
-                      {point}
-                      {index < card.points.length - 1 && <br />}
-                    </React.Fragment>
+                    <li key={index} itemProp="serviceType">{point}</li>
                   ))}
-                </p>
+                </ul>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

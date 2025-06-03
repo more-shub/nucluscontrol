@@ -19,8 +19,8 @@ const P181_PP = () => {
     ],
     technicalData: {
       column1: {
-        "Function": "Flow Rate Indicator",
-        "Accuracy": "+1% of FSD",
+        Function: "Flow Rate Indicator",
+        Accuracy: "+1% of FSD",
         "Scale Factor": "00.1000000",
       },
       column2: {
@@ -107,11 +107,11 @@ const P181_PP = () => {
   return (
     <div id="details-view" className="product-details">
       <Helmet>
-        <title>{product.title} | MyCompany</title>
+        <title>{product.title} | Nuclus Control</title>
         <meta name="description" content={product.description} />
         <link
           rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
+          href={`https://digitalflowmeter.net/products/${product.id}`}
         />
       </Helmet>
       <header className="details-header">

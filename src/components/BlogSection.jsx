@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import blogData from "../components/blogData.json";
 import "../styles/BlogSection.css";
 
-// Utility function to format dates
+// Format date as YYYY-MM-DD
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -13,27 +13,28 @@ const formatDate = (dateString) => {
   return `${year}-${month}-${day}`;
 };
 
-// Memoized BlogCard component to prevent unnecessary re-renders
+// Memoized blog card
 const BlogCard = memo(({ post }) => {
   return (
-    <div className="blog-card" key={post.ID}>
+    <article className="blog-card" key={post.ID} itemScope itemType="https://schema.org/BlogPosting">
       <div className="blog-content">
         <div className="author-info">
-          <img className="author-img" src="/avtar.webp" alt={post.Author} />
-          <span className="author-name">{post.Author}</span>
+          <img className="author-img" src="/avtar.webp" alt={post.Author} itemProp="image" />
+          <span className="author-name" itemProp="author">{post.Author}</span>
         </div>
         <div className="meta-info">
-          <span className="date">{formatDate(post.Date)}</span>
-          <span className="tags">{post.Tags}</span>
+          <time className="date" itemProp="datePublished" dateTime={formatDate(post.Date)}>
+            {formatDate(post.Date)}
+          </time>
+          <span className="tags" itemProp="keywords">{post.Tags}</span>
         </div>
-        <h3 className="blog-title">{post.Title}</h3>
-        <p className="excerpt">{post.Excerpt}</p>
-        {/* FIXED: Use post.ID instead of post.slug */}
-        <Link to={`/blogs/${post.ID}`} className="read-more">
+        <h3 className="blog-title" itemProp="headline">{post.Title}</h3>
+        <p className="excerpt" itemProp="description">{post.Excerpt}</p>
+        <Link to={`/blogs/${post.ID}`} className="read-more" itemProp="url">
           Read this post
         </Link>
       </div>
-    </div>
+    </article>
   );
 });
 
@@ -43,6 +44,22 @@ const BlogSection = () => {
   const handleLoadMore = useCallback(() => {
     setVisiblePosts(blogData.length);
   }, []);
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "NUCLUS CONTROL Blog",
+    "url": "https://yourdomain.com/blogs",
+    "description": "Read the latest updates and insights from our team at NUCLUS CONTROL.",
+    "blogPost": blogData.slice(0, visiblePosts).map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.Title,
+      "author": { "@type": "Person", "name": post.Author },
+      "datePublished": formatDate(post.Date),
+      "description": post.Excerpt,
+      "url": `https://yourdomain.com/blogs/${post.ID}`
+    }))
+  };
 
   return (
     <>
@@ -54,25 +71,37 @@ const BlogSection = () => {
         />
         <meta
           name="keywords"
-          content="blog, company updates, NUCLUS CONTROL, flow measurement"
+          content="blog, company updates, NUCLUS CONTROL, flow measurement, industrial insights"
         />
+        <meta property="og:title" content="Blog - NUCLUS CONTROL" />
+        <meta property="og:description" content="Insights from NUCLUS CONTROL team on products, technology, and industry trends." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/blogs" />
+        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
       </Helmet>
-      <div className="blog-container">
+
+      <main id="blog" className="blog-container">
         <header className="blog-header">
           <h1>Our Company Blog</h1>
           <p>Latest updates and insights from our team</p>
         </header>
-        <section className="blog-section">
+        <section className="blog-section" aria-label="Blog Posts">
           {blogData.slice(0, visiblePosts).map((post) => (
             <BlogCard key={post.ID} post={post} />
           ))}
         </section>
         {visiblePosts < blogData.length && (
-          <button id="loadMoreBtn" onClick={handleLoadMore}>
-            Load More
-          </button>
+          <div className="load-more-container">
+            <button
+              id="loadMoreBtn"
+              onClick={handleLoadMore}
+              aria-label="Load more blog posts"
+            >
+              Load More
+            </button>
+          </div>
         )}
-      </div>
+      </main>
     </>
   );
 };

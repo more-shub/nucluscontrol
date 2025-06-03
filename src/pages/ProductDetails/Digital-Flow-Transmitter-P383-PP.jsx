@@ -24,33 +24,34 @@ const P383_PP = () => {
     ],
     technicalData: {
       column1: {
-        "Function": "Flow Transmitter",
-        "Accuracy": "±0.5% of FSD",
+        Function: "Flow Transmitter",
+        Accuracy: "±0.5% of FSD",
         "Scale Factor": "00.1000000",
       },
       column2: {
         "Operating Temperature": "0 to 50°C",
-        "Protection": "IP65",
-        "Input": "Nuclus sensor P812",
+        Protection: "IP65",
+        Input: "Nuclus sensor P812",
       },
     },
     electronics: {
       column1: {
-        "Display": "Backlit alphanumeric 2 x 16 LCD",
+        Display: "Backlit alphanumeric 2 x 16 LCD",
         "Sensor Supply": "12 VDC(±10%) , 30 mA.",
         "Supply Voltage": "230 V AC / 24 V DC",
-        "Output": "1) 4 to 20 mA output ( self Power )/ RS 232 / RS485 _ _ 2) 5A pot. Free contact @ 230 VAC .",
+        Output:
+          "1) 4 to 20 mA output ( self Power )/ RS 232 / RS485 _ _ 2) 5A pot. Free contact @ 230 VAC .",
       },
     },
     material: {
       column1: {
-        "Housing": "Plastic ABS",
-        "Sensor Body": "Polypropylene (black)"
+        Housing: "Plastic ABS",
+        "Sensor Body": "Polypropylene (black)",
       },
       column2: {
         "O-Ring": "Viton / Teflon",
-        "Paddle (Rotor)": "Polypropylene"
-      }
+        "Paddle (Rotor)": "Polypropylene",
+      },
     },
     mountingOptions: {
       fieldMount: [
@@ -108,11 +109,11 @@ const P383_PP = () => {
   return (
     <div id="details-view" className="product-details">
       <Helmet>
-        <title>{product.title} | MyCompany</title>
+        <title>{product.title} | Nuclus Control</title>
         <meta name="description" content={product.description} />
         <link
           rel="canonical"
-          href={`https://www.mycompany.com/products/${product.id}`}
+          href={`https://digitalflowmeter.net/products/${product.id}`}
         />
       </Helmet>
       <header className="details-header">
