@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import "../styles/Hero.css";
 
 const Hero = () => {
@@ -26,14 +27,14 @@ const Hero = () => {
   return (
     <>
       <Helmet>
-        <title>Nuclus Control | Precision Flow Meters</title>
+        <title>Nuclus Control | Digital Flow Meters for Industrial Use</title>
         <meta
           name="description"
-          content="Revolutionizing flow measurement with high-precision digital flow meters and fluid management solutions from Nuclus Control."
+          content="Discover high-precision digital flow meters including battery operated, field mount, and panel mount options for accurate fluid management in industries."
         />
         <meta
           name="keywords"
-          content="Nuclus Control, Flow Meters, Digital Flow Meter, Battery Operated Flow Meter, Panel Mount, Field Mount, Accurate Flow Control"
+          content="Digital Flow Meter, Flow Meter, Battery Operated Flow Meter, Panel Mount Flow Meter, Field Mount Flow Meter, Nuclus Control, Industrial Flow Meters"
         />
         <meta name="author" content="Nuclus Control" />
         <meta name="robots" content="index, follow" />
@@ -41,10 +42,10 @@ const Hero = () => {
         <link rel="icon" type="image/webp" href={`${domain}/favicon.webp`} />
 
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Nuclus Control | Precision Flow Meters" />
+        <meta property="og:title" content="Nuclus Control | Digital Flow Meters" />
         <meta
           property="og:description"
-          content="Experience precision in flow control with Nuclus Control. Explore our innovative range of digital flow meters for various industrial applications."
+          content="Explore precision flow control solutions from Nuclus Control – advanced digital flow meters for various industrial needs."
         />
         <meta property="og:image" content={images[0].src} />
         <meta property="og:type" content="website" />
@@ -52,25 +53,41 @@ const Hero = () => {
 
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Nuclus Control",
-            url: domain,
-            logo: `${domain}/favicon.webp`,
-            sameAs: [],
-          })}
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Nuclus Control",
+              url: domain,
+              logo: `${domain}/favicon.webp`,
+              sameAs: [],
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: "Nuclus Control | Digital Flow Meters",
+              url: domain,
+              description:
+                "High-precision digital flow meters by Nuclus Control including battery operated, panel mount, and field mount options for industrial applications.",
+              inLanguage: "en",
+            },
+          ])}
         </script>
       </Helmet>
 
       <section className="hero" itemScope itemType="https://schema.org/WebPage">
         <div className="hero-content">
-          <h1 itemProp="headline">Revolutionizing Flow Measurement</h1>
+          <h1 itemProp="headline">
+            Digital Flow Meters – Battery Operated, Panel & Field Mount Options
+          </h1>
           <p itemProp="description">
-            Experience Precision with NUCLUS CONTROL. Our innovative solutions
-            ensure accurate flow control and seamless fluid management for your
-            operations.
+            Nuclus Control’s advanced digital flow meters ensure accurate flow
+            measurement and efficient fluid management for industrial applications.
           </p>
+
+          <Link to="/products" className="cta-button">
+            View All Digital Flow Meters
+          </Link>
 
           <div className="logos-section" aria-label="Trusted by leading brands">
             <div className="images-wrapper">

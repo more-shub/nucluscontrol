@@ -1,69 +1,109 @@
-/* src/styles/Hero.css */
+body {
+  margin: 0;
+  padding-top: var(--navbar-height);
+  font-family: "Segoe UI", sans-serif;
+}
+
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 95%;
-  height: 80vh;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 20px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
   border-radius: 10px;
+  height: calc(100vh - var(--navbar-height));
 }
+
 .hero-content {
   flex: 1;
   padding: 20px;
+  min-width: 300px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  color: #1a1a1a;
   text-shadow: 1px 2px 2px rgba(61, 47, 213, 0.3);
 }
+
 .hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
   color: #1e1e1e;
   text-shadow: 1px 1px 2px rgba(138, 138, 138, 0.3);
 }
-.hero-content button {
-  padding: 10px 20px;
-  font-size: 1rem;
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  font-size: 0.95rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background: linear-gradient(to bottom right, #006eae, #00a8cc);
   color: white;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.3s ease;
+  margin-bottom: 20px;
+  text-align: center;
+  white-space: nowrap;
 }
-.hero-content button:hover {
+
+.cta-button:hover {
   background-color: #c0392b;
 }
+
+.brand-heading {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
 .logos-section {
-  width: 550px;
-  padding: 20px 0;
-  background-color: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  overflow: hidden;
 }
+
 .images-wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
 }
+
 .images-container {
   display: flex;
   gap: 25px;
   animation: scroll-left 25s linear infinite;
   width: max-content;
 }
+
 .images-container img {
-  height: 60px;
+  height: 55px;
   object-fit: contain;
   mix-blend-mode: multiply;
 }
+
 @keyframes scroll-left {
   from {
     transform: translateX(0);
@@ -72,140 +112,99 @@
     transform: translateX(-100%);
   }
 }
+
 .hero-image {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 300px;
 }
+
 .image-container {
   position: relative;
-  width: 420px;
-  height: 420px;
+  width: 400px;
+  height: 400px;
 }
 
-/* Existing styling for any image inside the container */
-.image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
-.image-container .image1 {
-  z-index: 1;
-}
-.image-container .image2 {
-  z-index: 2;
-  width: 260px;
-  height: auto;
-  top: 90px;
-  left: 90px;
-}
-
-/* NEW: Slideshow Image Style for the Hero Image Section */
 .image-container .slideshow-image {
-  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (min-width: 301px) and (max-width: 768px) {
   .hero {
     flex-direction: column;
     text-align: center;
-    height: auto;
     padding: 20px 10px;
+    height: auto;
   }
+
   .hero-content,
   .hero-image {
-    flex: unset;
     width: 100%;
     padding: 10px;
   }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
   .image-container {
     width: 90%;
     max-width: 300px;
     height: auto;
-    margin: 0 auto;
   }
-  .image-container img {
+
+  .image-container .slideshow-image {
     width: 100%;
     height: auto;
-    position: relative;
   }
-  .image-container .image2 {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 60%;
-    height: auto;
+
+  .brand-heading {
+    font-size: 1.1rem;
   }
+
+  .logos-section {
+    width: 100%;
+    padding: 10px;
+  }
+
   .images-container {
+    gap: 15px;
     animation-duration: 30s;
   }
-}
 
-@media (max-width: 480px) {
-  .navbar {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-  .navbar img {
-    width: 100px;
-    height: 50px;
-  }
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .hero-content p {
-    font-size: 1.1rem;
+  .images-container img {
+    height: 45px;
   }
 }
 
 @media (min-width: 301px) and (max-width: 480px) {
-  /* Ensure the hero container aligns similarly to the 768px layout */
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    height: auto;
-    padding: 15px 10px;
-  }
-  .hero-content,
-  .hero-image {
-    flex: unset;
-    width: 100%;
-    padding: 10px;
-  }
-  /* Scale headings and paragraphs for readability */
   .hero-content h1 {
-    font-size: 2.4rem;
-    margin-bottom: 15px;
+    font-size: 1.7rem;
   }
+
   .hero-content p {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
   }
-  /* Adjust image container dimensions */
-  .image-container {
-    width: 90%;
-    max-width: 280px;
-    margin: 0 auto;
+
+  .cta-button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
   }
-  /* Optimize logos section for smaller widths */
-  .logos-section {
-    width: 100%;
-    padding: 10px 0;
-    overflow-x: auto;
-  }
-  .images-container {
-    gap: 15px;
-  }
+
   .images-container img {
     height: 40px;
   }
-}
 
+  .brand-heading {
+    font-size: 0.95rem;
+  }
+}

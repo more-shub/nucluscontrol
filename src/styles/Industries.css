@@ -6,48 +6,51 @@
 
 .industries-section {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .industries-section h1 {
   font-size: 2.5rem;
   color: #0d00ff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .industries-section p {
   font-size: 1.1rem;
   color: #34495e;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
 .scroll-container {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 20%,
-    black 80%,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
     transparent
   );
 }
 
 .industries-cards-container {
   display: inline-flex;
-  animation: scroll 20s linear infinite;
-  will-change: transform; 
+  animation: scroll-left 25s linear infinite;
+  will-change: transform;
 }
 
-@keyframes scroll {
+@keyframes scroll-left {
   from {
     transform: translate3d(0, 0, 0);
   }
@@ -56,16 +59,20 @@
   }
 }
 
+.scroll-container:hover .industries-cards-container {
+  animation-play-state: paused;
+}
+
 .industry-card {
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   height: 250px;
   width: 250px;
-  margin: 0 10px;
+  margin: 0 12px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -73,8 +80,8 @@
 }
 
 .industry-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 .industry-card-content {
@@ -83,11 +90,11 @@
   left: 0;
   right: 0;
   padding: 15px;
-  background: rgba(0, 0, 0, 0.7);
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
   transform: translateY(100%);
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease-in-out;
   z-index: 2;
+  text-align: center;
 }
 
 .industry-card:hover .industry-card-content {
@@ -96,61 +103,75 @@
 
 .industry-card h3 {
   font-size: 1.2rem;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.industry-card p {
+.industry-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.industry-card li {
   font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 4px;
 }
 
-.scroll-container:hover .industries-cards-container {
-  animation-play-state: paused;
-}
-
-@media (min-width: 301px) and (max-width: 480px) {
-  /* Reduce overall padding for the section wrapper */
+@media (max-width: 768px) {
   #industries-section-wrapper {
-    padding: 10px;
+    padding: 15px;
   }
-  
-  /* Optimize headings and paragraph text for smaller screens */
+
   .industries-section h1 {
     font-size: 2rem;
-    margin-bottom: 10px;
   }
-  
+
   .industries-section p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+    font-size: 1rem;
   }
-  
-  /* Adjust scroll container if needed */
+
   .scroll-container {
-    /* Optionally remove the mask effect for clarity on small screens */
+    overflow-x: auto;
     mask-image: none;
     -webkit-mask-image: none;
-    overflow-x: auto;
   }
-  
-  /* Slow down the scrolling animation slightly */
+
   .industries-cards-container {
-    animation-duration: 30s;
+    animation-duration: 35s;
   }
-  
-  /* Scale down the industry cards */
+
   .industry-card {
     width: 200px;
     height: 200px;
-    margin: 0 5px;
+    margin: 0 8px;
   }
-  
-  /* Adjust font sizes within cards for better readability */
+
   .industry-card h3 {
     font-size: 1rem;
-    margin-bottom: 4px;
   }
-  
-  .industry-card p {
+
+  .industry-card li {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .industry-card {
+    width: 180px;
+    height: 180px;
+  }
+
+  .industry-card-content {
+    padding: 10px;
+  }
+
+  .industry-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .industry-card li {
+    font-size: 0.75rem;
   }
 }

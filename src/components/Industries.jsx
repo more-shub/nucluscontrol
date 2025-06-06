@@ -86,17 +86,71 @@ const cardData = [
 ];
 
 const Industries = () => {
+  // JSON-LD for ItemList of Industries
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": cardData.map((card, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: card.title,
+        description: card.points.join(", "),
+      },
+    })),
+  };
+
   return (
-    <section id="industries-section" className="industries-section" itemScope itemType="https://schema.org/Service">
+    <section
+      id="industries-section"
+      className="industries-section"
+      itemScope
+      itemType="https://schema.org/WebPage"
+    >
       <Helmet>
         <title>Industries We Serve | Nuclus Control</title>
-        <meta name="description" content="Explore the diverse industries served by Nuclus Control, offering precision flow measurement and process optimization solutions." />
-        <meta name="keywords" content="Bottling, Distillation, Filtration, Pharmaceutical, Textile, Water Treatment, Flow Measurement, Automation, Industry Solutions" />
-        <link rel="canonical" href="https://digitalflowmeter.net/#industries-section" />
+
+        {/* Basic Meta */}
+        <meta
+          name="description"
+          content="Explore the diverse industries served by Nuclus Control, offering precision flow measurement and process optimization solutions."
+        />
+        <meta
+          name="keywords"
+          content="Bottling, Distillation, Filtration, Pharmaceutical, Textile, Water Treatment, Flow Measurement, Automation, Industry Solutions"
+        />
+
+        {/* Canonical */}
+        <link
+          rel="canonical"
+          href="https://digitalflowmeter.net/#industries-section"
+        />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Industries We Serve | Nuclus Control" />
+        <meta
+          property="og:description"
+          content="Explore the diverse industries served by Nuclus Control, offering precision flow measurement and process optimization solutions."
+        />
+        <meta
+          property="og:url"
+          content="https://digitalflowmeter.net/#industries-section"
+        />
+        {/* If you have a representative image, include it here: */}
+        {/* <meta property="og:image" content="https://digitalflowmeter.net/industries-banner.webp" /> */}
+
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(itemListSchema)}
+        </script>
       </Helmet>
 
+      {/* Section Header */}
       <header id="industries-overview">
-        <h1 id="industries-heading" itemProp="name">Industries We Serve</h1>
+        <h1 id="industries-heading" itemProp="name">
+          Industries We Serve
+        </h1>
         <p id="industries-description" itemProp="description">
           Discover the diverse range of industries we proudly serve, providing
           cutting-edge solutions tailored to enhance efficiency, productivity,
@@ -109,24 +163,29 @@ const Industries = () => {
         </p>
       </header>
 
+      {/* Cards Container */}
       <div className="scroll-container" id="industries-cards-wrapper">
         <div className="industries-cards-container" id="industries-cards">
-          {cardData.map((card) => (
+          {cardData.map((card, index) => (
             <article
               key={card.id}
               className="industry-card"
               style={{ backgroundImage: `url('${card.background}')` }}
               id={card.id}
-              aria-label={card.title}
-              role="region"
+              aria-labelledby={`${card.id}-title`}
+              tabIndex="0"
               itemScope
               itemType="https://schema.org/Service"
             >
               <div className="industry-card-content">
-                <h3 itemProp="areaServed">{card.title}</h3>
+                <h2 id={`${card.id}-title`} itemProp="name">
+                  {card.title}
+                </h2>
                 <ul>
-                  {card.points.map((point, index) => (
-                    <li key={index} itemProp="serviceType">{point}</li>
+                  {card.points.map((point, idx) => (
+                    <li key={idx} itemProp="serviceType">
+                      {point}
+                    </li>
                   ))}
                 </ul>
               </div>
