@@ -2,6 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import "../styles/About.css";
 
+const domain = "https://digitalflowmeter.net";
+
 const featuresData = [
   { icon: "📏", text: "Reliable and accurate instruments" },
   { icon: "✅", text: "Quality tested instruments" },
@@ -31,28 +33,56 @@ const About = () => {
         />
         <meta name="author" content="Nuclus Control" />
         <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
         <meta property="og:title" content="About Us | Nuclus Control" />
         <meta
           property="og:description"
           content="Explore Nuclus Control’s legacy in high-quality flow and process control instruments. Experience precision, innovation, and trust."
         />
-        <meta property="og:image" content="/office.webp" />
+        <meta
+          property="og:image"
+          content={`${domain}/office.webp`}
+        />
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://digitalflowmeter.net/#about-section"
+          content={`${domain}/#about-section`}
         />
+
+        {/* Canonical & Favicon */}
         <link
           rel="canonical"
-          href="https://digitalflowmeter.net/#about-section"
+          href={`${domain}/#about-section`}
         />
-        <link rel="icon" type="image/webp" href="/favicon.webp" />
+        <link
+          rel="icon"
+          type="image/webp"
+          href={`${domain}/favicon.webp`}
+        />
+
+        {/* JSON-LD for this WebPage */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "About Us | Nuclus Control",
+            url: `${domain}/#about-section`,
+            description:
+              "Learn about Nuclus Control’s journey since 2009 in delivering precision-engineered flow control instruments.",
+            inLanguage: "en",
+          })}
+        </script>
       </Helmet>
 
-      <section id="about-section" className="about">
+      <section
+        id="about-section"
+        className="about"
+        aria-labelledby="about-heading"
+      >
         <div className="about-container">
           <header className="about-header">
-            <h1>Nuclus Control</h1>
+            <h1 id="about-heading">Nuclus Control</h1>
             <p>Building excellence since 2009</p>
           </header>
 
@@ -84,7 +114,11 @@ const About = () => {
               </p>
             </div>
             <div className="history-image">
-              <img src="/office.webp" alt="Company History" loading="lazy" />
+              <img
+                src={`${domain}/office.webp`}
+                alt="Nuclus Control office building"
+                loading="lazy"
+              />
             </div>
           </div>
 
@@ -93,7 +127,25 @@ const About = () => {
             <div className="features">
               {featuresData.map((feature, index) => (
                 <div key={index} className="feature-item">
-                  <span className="icon">{feature.icon}</span>
+                  <span
+                    className="icon"
+                    role="img"
+                    aria-label={
+                      feature.text === "Reliable and accurate instruments"
+                        ? "Ruler icon"
+                        : feature.text === "Quality tested instruments"
+                        ? "Checkmark icon"
+                        : feature.text === "State-of-the-art facilities"
+                        ? "Factory icon"
+                        : feature.text === "Timely delivery"
+                        ? "Hourglass icon"
+                        : feature.text === "Easy payment modes"
+                        ? "Credit card icon"
+                        : "Scale icon"
+                    }
+                  >
+                    {feature.icon}
+                  </span>
                   <span>{feature.text}</span>
                 </div>
               ))}

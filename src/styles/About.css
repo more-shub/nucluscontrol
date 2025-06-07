@@ -1,7 +1,17 @@
+/* src/styles/About.css */
+:root {
+  --about-header-start: #1c36f4;
+  --about-header-end: #4b9cff;
+  --about-text-color: #333;
+  --about-subtext-color: #555;
+  --about-bg: #fff;
+  --stats-bg: #f4f4f4;
+}
+
 /* Overall About Section */
-#about-section-wrapper.about {
+#about-section.about {
   padding: 40px 20px;
-  background: #fff;
+  background: var(--about-bg);
 }
 
 /* Container */
@@ -16,7 +26,11 @@
   text-align: center;
   margin-bottom: 40px;
   padding: 20px;
-  background: linear-gradient(135deg, #1c36f4, #4b9cff);
+  background: linear-gradient(
+    135deg,
+    var(--about-header-start),
+    var(--about-header-end)
+  );
   color: #fff;
   border-radius: 10px;
 }
@@ -46,13 +60,13 @@
 }
 .history-text h2 {
   font-size: 2rem;
-  color: #1c36f4;
+  color: var(--about-header-start);
   margin-bottom: 20px;
   font-family: "Segoe UI", sans-serif;
 }
 .history-text h3 {
   font-size: 1.6rem;
-  color: #333;
+  color: var(--about-text-color);
   margin: 20px 0 10px;
   font-family: "Segoe UI", sans-serif;
 }
@@ -60,7 +74,7 @@
   font-size: 1rem;
   margin-bottom: 15px;
   line-height: 1.6;
-  color: #555;
+  color: var(--about-subtext-color);
 }
 .history-image {
   flex: 1;
@@ -84,7 +98,7 @@
 .about-features h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #1c36f4;
+  color: var(--about-header-start);
   font-family: "Segoe UI", sans-serif;
 }
 .features {
@@ -104,7 +118,7 @@
   font-size: 0.9rem;
   white-space: nowrap;
   transition: transform 0.3s ease;
-  will-change: transform; /* Hint browser for smoother transitions */
+  will-change: transform;
 }
 .feature-item .icon {
   font-size: 1.2rem;
@@ -118,7 +132,7 @@
   gap: 20px;
   flex-wrap: wrap;
   padding: 20px;
-  background: #f4f4f4;
+  background: var(--stats-bg);
   border-radius: 10px;
 }
 .stat {
@@ -128,13 +142,13 @@
 }
 .stat h3 {
   font-size: 2rem;
-  color: #1c36f4;
+  color: var(--about-header-start);
   margin-bottom: 5px;
   font-family: "Segoe UI", sans-serif;
 }
 .stat p {
   font-size: 1rem;
-  color: #555;
+  color: var(--about-subtext-color);
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -152,13 +166,13 @@
 
 @media (min-width: 301px) and (max-width: 480px) {
   /* Overall Section & Container Adjustments */
-  #about-section-wrapper.about {
+  #about-section.about {
     padding: 20px 10px;
   }
   .about-container {
     padding: 10px;
   }
-  
+
   /* Header Adjustments */
   .about-header {
     padding: 15px;
@@ -170,7 +184,7 @@
   .about-header p {
     font-size: 1.2rem;
   }
-  
+
   /* History Section */
   .about-history {
     gap: 20px;
@@ -202,7 +216,7 @@
     height: auto;
     border-radius: 15px;
   }
-  
+
   /* Features Section */
   .about-features h2 {
     font-size: 1.8rem;
@@ -212,7 +226,7 @@
     padding: 8px 15px;
     font-size: 0.8rem;
   }
-  
+
   /* Stats Section */
   .about-stats {
     flex-direction: column;
